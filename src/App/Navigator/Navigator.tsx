@@ -6,15 +6,10 @@ import "./Navigator.scss";
 const Navigator: React.FunctionComponent = () => {
   return (
     <div className={"Navigator"}>
-      <img id={"nav-icon"} src={navIcon} alt={"Drew Icon"} />
+      <a href={"/"}>
+        <img id={"nav-icon"} src={navIcon} alt={"Drew Icon"} />
+      </a>
       <Toolbar id={"toolbar"}>
-        <Button
-          variant={"contained"}
-          className={"button left-button"}
-          href={"/"}
-        >
-          Landing Page
-        </Button>
         <Button
           variant={"contained"}
           className={"button right-button"}
