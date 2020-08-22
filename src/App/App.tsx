@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navigator } from "./Navigator/Navigator";
+import { LandingPage } from "./LandingPage/LandingPage";
 import { Home } from "../Home/Home";
 
 const App: React.FunctionComponent = () => {
@@ -9,17 +10,13 @@ const App: React.FunctionComponent = () => {
       <Navigator />
       <BrowserRouter>
         <Switch>
-          <Route path={"/page1"}>
-            <div>Page 1</div>
-          </Route>
-          <Route path={"/page2"}>
-            <div>Page 2</div>
-          </Route>
-          <Route path={"/page3"}>
-            <div>Page 3</div>
+          <Route path={"/home"}>
+            <Home />
           </Route>
           <Route path={"/"}>
-            <Home />
+            <div>
+              <LandingPage />
+            </div>
           </Route>
         </Switch>
       </BrowserRouter>

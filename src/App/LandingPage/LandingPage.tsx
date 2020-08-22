@@ -1,12 +1,12 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 
-const Home: React.FunctionComponent = () => {
+const LandingPage: React.FunctionComponent = () => {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <h1>Home</h1>
+      <h1>Landing Page</h1>
     </div>
   );
 };
@@ -19,4 +19,4 @@ const useStyles = makeStyles({
   },
 });
 
-export { Home };
+export { LandingPage };
