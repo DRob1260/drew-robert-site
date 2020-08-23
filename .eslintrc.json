@@ -5,11 +5,7 @@
     "es6": true
   },
   "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "import",
-    "react",
-    "@typescript-eslint"
-  ],
+  "plugins": ["import", "react", "@typescript-eslint"],
   "extends": [
     "react-app",
     "eslint:recommended",
