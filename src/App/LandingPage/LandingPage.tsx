@@ -5,7 +5,6 @@ import "./LandingPage.scss";
 const LandingPage: React.FunctionComponent = () => {
   return (
     <div className={"LandingPage"}>
-
       <div>
         <div id={"backdrop-container"}>
           <img id={"backdrop"} src={backdrop} alt={"backdrop decoration"} />
