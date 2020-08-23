@@ -10,7 +10,7 @@ const LandingPage: React.FunctionComponent = () => {
           <div id={"backdrop-container"}>
             <img id={"backdrop"} src={backdrop} alt={"backdrop decoration"} />
             <div id={"greeting-container"}>
-              <h1 id={"greeting"}>Welcome.</h1>
+              <h1 id={"greeting"}>Hello World!</h1>
             </div>
           </div>
         </div>
