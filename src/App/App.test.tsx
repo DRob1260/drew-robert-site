@@ -1,7 +1,6 @@
 import React from "react";
 import { axe } from "jest-axe";
-import { render, fireEvent, waitForElement } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { render } from "@testing-library/react";
 import { App } from "./App";
 
 it("should be accessible", async () => {
