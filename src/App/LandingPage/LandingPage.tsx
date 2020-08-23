@@ -15,10 +15,16 @@ const LandingPage: React.FunctionComponent = () => {
         </div>
       </div>
       <div id={"content"}>
-        <p>This website is in active development. Feel free to look around or visit its <a href={"https://github.com/DRob1260/drew-robert-site"}>repository</a>!</p>
+        <p>
+          This website is in active development, but free to look around or
+          visit its{" "}
+          <a href={"https://github.com/DRob1260/drew-robert-site"}>
+            repository
+          </a>
+          !
+        </p>
       </div>
     </div>
-
   );
 };
 
