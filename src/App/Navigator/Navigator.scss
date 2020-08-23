@@ -9,6 +9,11 @@ $primary: #9131f7;
     height: 75px;
     z-index: 3;
   }
+  #nav-icon-link:focus {
+    #nav-icon {
+      filter: brightness(75%);
+    }
+  }
   #toolbar {
     position: absolute;
     left: 25px;

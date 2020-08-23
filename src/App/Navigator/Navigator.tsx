@@ -6,7 +6,7 @@ import "./Navigator.scss";
 const Navigator: React.FunctionComponent = () => {
   return (
     <div className={"Navigator"}>
-      <a href={"/"}>
+      <a href={"/"} id={"nav-icon-link"}>
         <img id={"nav-icon"} src={navIcon} alt={"Drew Icon"} />
       </a>
       <Toolbar id={"toolbar"}>
