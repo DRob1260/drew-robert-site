@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Home/Home.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/App.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jest.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/serviceWorker.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/serviceWorker.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597506202298</updated>
       <workItem from="1597506220058" duration="4466000" />
-      <workItem from="1597524944511" duration="19362000" />
+      <workItem from="1597524944511" duration="22556000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -139,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598194421505</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="add tests for Home and LandingPage">
+      <created>1598194698410</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598194698410</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,17 +180,18 @@
     <MESSAGE value="implement accessibility improvements" />
     <MESSAGE value="set up tests" />
     <MESSAGE value="add tests for Navigator.tsx" />
-    <option name="LAST_COMMIT_MESSAGE" value="add tests for Navigator.tsx" />
+    <MESSAGE value="add tests for Home and LandingPage" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests for Home and LandingPage" />
   </component>
   <component name="WindowStateProjectService">
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597509809589">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598194416862">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598194692553">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598194416862" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598194692553" />
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128094051" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
@@ -206,10 +220,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598192785270">
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598196559401">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598192785270" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598196559401" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1598052334928" />
   </component>
 </project>
