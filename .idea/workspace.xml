@@ -2,11 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +44,7 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="settings.javascript.linters.eslint" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -62,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1597506202298</updated>
       <workItem from="1597506220058" duration="4466000" />
-      <workItem from="1597524944511" duration="11581000" />
+      <workItem from="1597524944511" duration="14350000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -99,7 +100,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598185407167</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="handle focus on nav-icon">
+      <created>1598186377158</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598186377158</updated>
+    </task>
+    <task id="LOCAL-00007" summary="formatting tweaks">
+      <created>1598186405035</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598186405035</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,19 +136,21 @@
     <MESSAGE value="starting on home page" />
     <MESSAGE value="very basic start" />
     <MESSAGE value="some refinements" />
-    <option name="LAST_COMMIT_MESSAGE" value="some refinements" />
+    <MESSAGE value="handle focus on nav-icon" />
+    <MESSAGE value="formatting tweaks" />
+    <option name="LAST_COMMIT_MESSAGE" value="formatting tweaks" />
   </component>
   <component name="WindowStateProjectService">
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597509809589">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598186374200">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598186401860">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128094051" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
-    <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598186374200" />
+    <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598186401860" />
     <state x="92" y="30" key="DiffContextDialog" timestamp="1598186328802">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -142,16 +159,19 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="213" y="185" key="EditFileWatcherDialog/0.0.1280.800@0.0.1280.800" timestamp="1598052146405" />
-    <state x="141" y="39" key="SettingsEditor" timestamp="1597510457762">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="159" y="44" key="SettingsEditor" timestamp="1598188964647">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598185413171">
+    <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
+    <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598186414927">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1597525210527" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598185413171" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598186414927" />
     <state x="307" y="198" key="git4idea.merge.GitPullDialog" timestamp="1598124085236">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
