@@ -5,7 +5,7 @@ import "./Navigator.scss";
 
 const Navigator: React.FunctionComponent = () => {
   return (
-    <div className={"Navigator"}>
+    <div className={"Navigator"} data-testid={"Navigator"}>
       <header>
         <nav>
           <a href={"/"} id={"nav-icon-link"} data-testid={"Navigator-icon"}>
