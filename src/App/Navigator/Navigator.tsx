@@ -8,7 +8,7 @@ const Navigator: React.FunctionComponent = () => {
     <div className={"Navigator"}>
       <header>
         <nav>
-          <a href={"/"} id={"nav-icon-link"}>
+          <a href={"/"} id={"nav-icon-link"} data-testid={"Navigator-icon"}>
             <img id={"nav-icon"} src={navIcon} alt={"Drew Icon"} />
           </a>
           <Toolbar id={"toolbar"}>
@@ -16,6 +16,7 @@ const Navigator: React.FunctionComponent = () => {
               variant={"contained"}
               className={"button right-button"}
               href={"/home"}
+              data-testid={"Navigator-home"}
             >
               Home
             </Button>
