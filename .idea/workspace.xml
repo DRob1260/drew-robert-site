@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add firebase config">
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="basic graph with mock data">
+      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/MockData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/data.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/api/ApiDataPoint.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/graph/GraphDataPoint.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/graph/GraphLine.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +55,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker/graph" />
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
       <recent name="$PROJECT_DIR$/src/App/LandingPage" />
     </key>
   </component>
@@ -174,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598202362953</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add some more placeholder text to home page">
+      <created>1598582713279</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1598582713279</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,20 +225,28 @@
     <MESSAGE value="add tests for App.tsx" />
     <MESSAGE value="exclude coverage files from commits" />
     <MESSAGE value="add firebase config" />
-    <option name="LAST_COMMIT_MESSAGE" value="add firebase config" />
+    <MESSAGE value="add some more placeholder text to home page" />
+    <MESSAGE value="basic graph with mock data" />
+    <option name="LAST_COMMIT_MESSAGE" value="basic graph with mock data" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597509809589">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598224470132">
+    <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598224470132" />
+    <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598585178826" />
+    <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598589760799">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598595370772">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595370772" />
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
+    <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
     <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
@@ -236,7 +262,7 @@
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598202370489">
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598582716740">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598202370489" />
@@ -244,14 +270,16 @@
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1597525210527" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598189151836" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582716740" />
     <state x="307" y="198" key="git4idea.merge.GitPullDialog" timestamp="1598124085236">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598196559401">
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598589734032">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598196559401" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589734032" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1598052334928" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
   </component>
 </project>
