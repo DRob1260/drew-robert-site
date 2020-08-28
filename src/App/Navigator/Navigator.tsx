@@ -1,5 +1,6 @@
 import React from "react";
 import { Toolbar, Button } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import navIcon from "./drew-icon.png";
 import "./Navigator.scss";
 
@@ -8,18 +9,24 @@ const Navigator: React.FunctionComponent = () => {
     <div className={"Navigator"} data-testid={"Navigator"}>
       <header>
         <nav>
-          <a href={"/"} id={"nav-icon-link"} data-testid={"Navigator-icon"}>
-            <img id={"nav-icon"} src={navIcon} alt={"Drew Icon"} />
-          </a>
+          <Link to={"/"} className={"Link"} id={"nav-icon-link"}>
+            <img
+              id={"nav-icon"}
+              src={navIcon}
+              alt={"Drew Icon"}
+              data-testid={"Navigator-icon"}
+            />
+          </Link>
           <Toolbar id={"toolbar"}>
-            <Button
-              variant={"contained"}
-              className={"button right-button"}
-              href={"/home"}
-              data-testid={"Navigator-home"}
-            >
-              Home
-            </Button>
+            <Link to={"/home"} className={"Link"}>
+              <Button
+                variant={"contained"}
+                className={"button right-button"}
+                data-testid={"Navigator-home"}
+              >
+                Home
+              </Button>
+            </Link>
           </Toolbar>
         </nav>
       </header>

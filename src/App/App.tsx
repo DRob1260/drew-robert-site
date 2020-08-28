@@ -7,8 +7,8 @@ import { Home } from "./Home/Home";
 const App: React.FunctionComponent = () => {
   return (
     <div className={"App"}>
-      <Navigator />
       <BrowserRouter>
+        <Navigator />
         <Switch>
           <Route path={"/home"}>
             <Home />
