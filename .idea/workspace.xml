@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="exclude coverage files from commits">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add firebase config">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/firebase.json" beforeDir="false" afterPath="$PROJECT_DIR$/firebase.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1598198494321</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add firebase config">
+      <created>1598202362953</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598202362953</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,18 +206,19 @@
     <MESSAGE value="set up coverage" />
     <MESSAGE value="add tests for App.tsx" />
     <MESSAGE value="exclude coverage files from commits" />
-    <option name="LAST_COMMIT_MESSAGE" value="exclude coverage files from commits" />
+    <MESSAGE value="add firebase config" />
+    <option name="LAST_COMMIT_MESSAGE" value="add firebase config" />
   </component>
   <component name="WindowStateProjectService">
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597509809589">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598202277008">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598224470132">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598202277008" />
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128094051" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598224470132" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
     <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
@@ -229,10 +236,10 @@
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598198511105">
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598202370489">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598198511105" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598202370489" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1597525210527" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
