@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { mockDataPoints } from "./MockData";
 import { buildGraphData } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
-import { getIllinoisCovidMetrics } from "../../services/CovidTracker/CovidTracker";
+import { getIllinoisHistoricalRecords } from "../../services/DrewRobertApi";
 import "./CovidTracker.scss";
-import { IllinoisCovidMetrics } from "../../models/CovidTracker/IllinoisCovidMetrics/IllinoisCovidMetrics";
+import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
 
 const CovidTracker: React.FunctionComponent = () => {
-  const [illinoisCovidMetrics, setIllinoisCovidMetrics] = useState<
-    IllinoisCovidMetrics
-  >();
+  const [illinoisHistoricalRecords, setIllinoisHistoricalRecords] = useState<
+    HistoricalRecord[]
+  >([]);
   const [graphData, setGraphData] = useState<GraphLine[]>([]);
 
   useEffect(() => {
-    getIllinoisCovidMetrics()
-      .then((illinoisCovidMetrics) => {
-        setIllinoisCovidMetrics(illinoisCovidMetrics);
-        console.log(illinoisCovidMetrics);
+    getIllinoisHistoricalRecords()
+      .then((historicalRecords) => {
+        setIllinoisHistoricalRecords(historicalRecords);
+        console.log(illinoisHistoricalRecords);
       })
       .catch((error) => {
         console.log(error);
       });
-    const apiData = mockDataPoints(10);
-    setGraphData(buildGraphData(apiData));
   }, []);
+
+  useEffect(() => {
+    setGraphData(buildGraphData(illinoisHistoricalRecords));
+  }, [illinoisHistoricalRecords]);
 
   return (
     <div className={"CovidTracker"}>

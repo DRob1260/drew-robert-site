@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="basic graph with mock data">
-      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/MockData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App/CovidTracker/data.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/api/ApiDataPoint.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/graph/GraphDataPoint.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/graph/GraphLine.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/api/HistoricalRecord.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/MockData.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/CovidTracker/api/ApiDataPoint.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/CovidTracker/CovidTracker.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +52,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/services/CovidTracker" />
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/graph" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
       <recent name="$PROJECT_DIR$/src/App/LandingPage" />
@@ -72,6 +71,8 @@
       <updated>1597506202298</updated>
       <workItem from="1597506220058" duration="4466000" />
       <workItem from="1597524944511" duration="22648000" />
+      <workItem from="1598837218628" duration="668000" />
+      <workItem from="1598920164501" duration="6280000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -192,7 +193,21 @@
       <option name="project" value="LOCAL" />
       <updated>1598582713279</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="basic graph with mock data">
+      <created>1598595494907</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1598595494907</updated>
+    </task>
+    <task id="LOCAL-00019" summary="wip commit">
+      <created>1598931500120</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1598931500120</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,7 +218,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -227,24 +244,25 @@
     <MESSAGE value="add firebase config" />
     <MESSAGE value="add some more placeholder text to home page" />
     <MESSAGE value="basic graph with mock data" />
-    <option name="LAST_COMMIT_MESSAGE" value="basic graph with mock data" />
+    <MESSAGE value="wip commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="wip commit" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598585178826" />
-    <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598589760799">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1598932533215">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
-    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598595370772">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598932533215" />
+    <state x="223" y="2" key="CommitChangelistDialog2" timestamp="1598933759925">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595370772" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595485006" />
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
-    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
+    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1598933759925" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
     <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
     <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
@@ -262,12 +280,12 @@
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598582716740">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1598931505974">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598202370489" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595498947" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1597525210527" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1598931505974" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598189151836" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582716740" />
@@ -275,10 +293,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598589734032">
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598602722812">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589734032" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598602722812" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1598052334928" />
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
   </component>

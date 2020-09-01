@@ -1,20 +1,41 @@
-import { ApiDataPoint } from "../../models/CovidTracker/api/ApiDataPoint";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import { GraphDataPoint } from "../../models/CovidTracker/graph/GraphDataPoint";
+import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
 
-const buildGraphData = (apiDataPoints: ApiDataPoint[]): GraphLine[] => {
-  const confirmedCasesGraphDataPoints: GraphDataPoint[] = apiDataPoints.map(
-    (apiDataPoint) => {
+const buildGraphData = (apiData: HistoricalRecord[]): GraphLine[] => {
+  const totalCasesGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
+    return {
+      x: formatDate(new Date(apiData.testDate)),
+      y: apiData.totals.cases,
+    };
+  });
+  const totalDeathsGraphDataPoints: GraphDataPoint[] = apiData.map(
+    (apiData) => {
       return {
-        x: formatDate(new Date(apiDataPoint.lastUpdate)),
-        y: apiDataPoint.confirmed,
+        x: formatDate(new Date(apiData.testDate)),
+        y: apiData.totals.deaths,
       };
     }
   );
+  const totalTestsGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
+    return {
+      x: formatDate(new Date(apiData.testDate)),
+      y: apiData.totals.tested,
+    };
+  });
+
   return [
     {
-      id: "Confirmed Cases",
-      data: confirmedCasesGraphDataPoints,
+      id: "Total Cases",
+      data: totalCasesGraphDataPoints,
+    },
+    {
+      id: "Total Deaths",
+      data: totalDeathsGraphDataPoints,
+    },
+    {
+      id: "Total Tests",
+      data: totalTestsGraphDataPoints,
     },
   ];
 };
