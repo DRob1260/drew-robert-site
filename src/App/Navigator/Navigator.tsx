@@ -21,10 +21,19 @@ const Navigator: React.FunctionComponent = () => {
             <Link to={"/home"} className={"Link"}>
               <Button
                 variant={"contained"}
-                className={"button right-button"}
+                className={"button left-button"}
                 data-testid={"Navigator-home"}
               >
                 Home
+              </Button>
+            </Link>
+            <Link to={"/covid-tracker"} className={"Link"}>
+              <Button
+                variant={"contained"}
+                className={"button right-button"}
+                data-testid={"Navigator-covid-tracker"}
+              >
+                Covid Tracker
               </Button>
             </Link>
           </Toolbar>
