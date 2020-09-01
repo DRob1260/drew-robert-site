@@ -13,7 +13,7 @@ const buildGraphData = (apiDataPoints: ApiDataPoint[]): GraphLine[] => {
   );
   return [
     {
-      id: "confirmedCases",
+      id: "Confirmed Cases",
       data: confirmedCasesGraphDataPoints,
     },
   ];

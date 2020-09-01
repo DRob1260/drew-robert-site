@@ -3,12 +3,25 @@ import { ResponsiveLine } from "@nivo/line";
 import { mockDataPoints } from "./MockData";
 import { buildGraphData } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
+import { getIllinoisCovidMetrics } from "../../services/CovidTracker/CovidTracker";
 import "./CovidTracker.scss";
+import { IllinoisCovidMetrics } from "../../models/CovidTracker/IllinoisCovidMetrics/IllinoisCovidMetrics";
 
 const CovidTracker: React.FunctionComponent = () => {
+  const [illinoisCovidMetrics, setIllinoisCovidMetrics] = useState<
+    IllinoisCovidMetrics
+  >();
   const [graphData, setGraphData] = useState<GraphLine[]>([]);
 
   useEffect(() => {
+    getIllinoisCovidMetrics()
+      .then((illinoisCovidMetrics) => {
+        setIllinoisCovidMetrics(illinoisCovidMetrics);
+        console.log(illinoisCovidMetrics);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     const apiData = mockDataPoints(10);
     setGraphData(buildGraphData(apiData));
   }, []);
