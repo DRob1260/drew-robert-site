@@ -2,21 +2,24 @@ import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
 import { buildGraphData } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
-import { getIllinoisHistoricalRecords } from "../../services/DrewRobertApi";
+import {
+  getIllinoisCountyCovidData,
+  getIllinoisCovidData,
+} from "../../services/DrewRobertApi";
 import "./CovidTracker.scss";
-import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
+import { RegionData } from "../../models/CovidTracker/api/RegionData";
 
 const CovidTracker: React.FunctionComponent = () => {
-  const [illinoisHistoricalRecords, setIllinoisHistoricalRecords] = useState<
-    HistoricalRecord[]
-  >([]);
+  const [stateCovidData, setStateCovidData] = useState<RegionData>();
+  const [countyCovidData, setCountyCovidData] = useState<RegionData>();
+  const [regions, setRegions] = useState<string[]>([]);
   const [graphData, setGraphData] = useState<GraphLine[]>([]);
 
   useEffect(() => {
-    getIllinoisHistoricalRecords()
-      .then((historicalRecords) => {
-        setIllinoisHistoricalRecords(historicalRecords);
-        console.log(illinoisHistoricalRecords);
+    getIllinoisCovidData()
+      .then((regionData) => {
+        setStateCovidData(regionData);
+        setGraphData(buildGraphData(regionData.historicalRecords));
       })
       .catch((error) => {
         console.log(error);
@@ -24,8 +27,8 @@ const CovidTracker: React.FunctionComponent = () => {
   }, []);
 
   useEffect(() => {
-    setGraphData(buildGraphData(illinoisHistoricalRecords));
-  }, [illinoisHistoricalRecords]);
+    if (stateCovidData) setRegions(stateCovidData.region.subRegions);
+  }, [stateCovidData]);
 
   return (
     <div className={"CovidTracker"}>

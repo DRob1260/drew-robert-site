@@ -1,8 +1,8 @@
-import { HistoricalRecord } from "../models/CovidTracker/api/HistoricalRecord";
 import axios from "axios";
+import { RegionData } from "../models/CovidTracker/api/RegionData";
 
-const getIllinoisHistoricalRecords = (): Promise<HistoricalRecord[]> => {
-  return new Promise<HistoricalRecord[]>((resolve, reject) => {
+const getIllinoisCovidData = (): Promise<RegionData> => {
+  return new Promise<RegionData>((resolve, reject) => {
     axios
       .get("http://localhost:8080/covid/country/usa/state/il")
       .then((response) => {
@@ -14,4 +14,19 @@ const getIllinoisHistoricalRecords = (): Promise<HistoricalRecord[]> => {
   });
 };
 
-export { getIllinoisHistoricalRecords };
+const getIllinoisCountyCovidData = (
+  county: string
+): Promise<RegionData> => {
+  return new Promise<RegionData>((resolve, reject) => {
+    axios
+      .get(`http://localhost:8080/covid/country/usa/state/il/county/${county}`)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export { getIllinoisCovidData, getIllinoisCountyCovidData };
