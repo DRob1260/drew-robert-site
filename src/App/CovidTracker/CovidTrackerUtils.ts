@@ -44,4 +44,8 @@ const formatDate = (date: Date) => {
   return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
 
-export { buildGraphData };
+const formatNumber = (num: number): string => {
+  return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+};
+
+export { buildGraphData, formatNumber };
