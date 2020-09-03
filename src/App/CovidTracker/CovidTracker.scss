@@ -1,3 +1,8 @@
+$totalCasesColor: #00C2AD;
+$totalDeathsColor: #008B79;
+$totalTestsColor: #46FCE4;
+
+
 .CovidTracker {
   margin-top: 100px;
   margin-left: 25px;
@@ -13,19 +18,45 @@
   }
 
   .Chip {
-    margin: .5em;
+    margin: 0.5em;
   }
 
-  .Chip.selected {
-    background-color: #9131f7;
+  .Chip.selected.totalCases {
+    background-color: $totalCasesColor;
+    color: #3b3b3b;
+
+    :focus {
+      background-color: $totalCasesColor;
+    }
+
+    .Radio.selected {
+      color: #3b3b3b;
+    }
+  }
+
+  .Chip.selected.totalDeaths {
+    background-color: $totalDeathsColor;
     color: white;
+
+    :focus {
+      background-color: $totalDeathsColor;
+    }
+
+    .Radio.selected {
+      color: white;
+    }
   }
 
-  .Chip.selected:focus {
-    background-color: #9131f7;
-  }
+  .Chip.selected.totalTests {
+    background-color: $totalTestsColor;
+    color: black;
 
-  .Radio.selected {
-    color: white;
+    :focus {
+      background-color: $totalTestsColor;
+    }
+
+    .Radio.selected {
+      color: black;
+    }
   }
 }

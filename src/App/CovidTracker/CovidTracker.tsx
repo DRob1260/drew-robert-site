@@ -10,6 +10,7 @@ import {
   buildTotalCasesGraphLine,
   buildTotalDeathsGraphLine,
   buildTotalTestsGraphLines,
+  buildGraphColors,
   formatNumber,
 } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
@@ -81,10 +82,9 @@ const CovidTracker: React.FunctionComponent = () => {
   return (
     <div className={"CovidTracker"}>
       <main>
-        <h1>Covid Tracker</h1>
         <div className={"Graph-toolbar"}>
           <Chip
-            className={`Chip ${showTotalDeaths ? "selected" : ""}`}
+            className={`Chip totalDeaths ${showTotalDeaths ? "selected" : ""}`}
             label={"Total Deaths"}
             clickable={true}
             variant={"outlined"}
@@ -93,7 +93,7 @@ const CovidTracker: React.FunctionComponent = () => {
             onClick={(): void => setShowTotalDeaths(!showTotalDeaths)}
           />
           <Chip
-            className={`Chip ${showTotalCases ? "selected" : ""}`}
+            className={`Chip totalCases ${showTotalCases ? "selected" : ""}`}
             label={"Total Cases"}
             clickable={true}
             variant={"outlined"}
@@ -102,7 +102,7 @@ const CovidTracker: React.FunctionComponent = () => {
             onClick={(): void => setShowTotalCases(!showTotalCases)}
           />
           <Chip
-            className={`Chip ${showTotalTests ? "selected" : ""}`}
+            className={`Chip totalTests ${showTotalTests ? "selected" : ""}`}
             label={"Total Tests"}
             clickable={true}
             variant={"outlined"}
@@ -123,8 +123,12 @@ const CovidTracker: React.FunctionComponent = () => {
             animate={true}
             enableSlices={false}
             margin={{ top: 20, right: 20, bottom: 60, left: 100 }}
-            pointColor={"#9131f7"}
-            colors={["#9131f7"]}
+            // pointColor={"#9131f7"}
+            colors={buildGraphColors(
+              showTotalCases,
+              showTotalDeaths,
+              showTotalTests
+            )}
             xScale={{
               type: "time",
               format: "%Y-%m-%d",

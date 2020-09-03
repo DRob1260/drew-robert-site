@@ -68,6 +68,22 @@ const buildGraphData = (
   return graphLines;
 };
 
+const buildGraphColors = (
+  showTotalCases: boolean,
+  showTotalDeaths: boolean,
+  showTotalTests: boolean
+): string[] => {
+  const colors: string[] = [];
+  // the order here should match the order that the GraphLines are pushed in buildGraphData
+  if (showTotalCases) colors.push("#00C2AD");
+
+  if (showTotalDeaths) colors.push("#008B79");
+
+  if (showTotalTests) colors.push("#46FCE4");
+
+  return colors;
+};
+
 const formatDate = (date: Date) => {
   return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
@@ -81,5 +97,6 @@ export {
   buildTotalDeathsGraphLine,
   buildTotalTestsGraphLines,
   buildGraphData,
+  buildGraphColors,
   formatNumber,
 };
