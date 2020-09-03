@@ -19,7 +19,6 @@ import {
   getIllinoisCovidData,
 } from "../../services/DrewRobertApi";
 import "./CovidTracker.scss";
-import { RegionData } from "../../models/CovidTracker/api/RegionData";
 
 const icon = (selected: boolean) => {
   return selected ? (
@@ -30,10 +29,8 @@ const icon = (selected: boolean) => {
 };
 
 const CovidTracker: React.FunctionComponent = () => {
-  const [stateCovidData, setStateCovidData] = useState<RegionData>();
-  const [countyCovidData, setCountyCovidData] = useState<RegionData>();
   const [regions, setRegions] = useState<string[]>([]);
-  const [currentRegion, setCurrentRegion] = useState<string>("Illinois");
+  const [currentRegion, setCurrentRegion] = useState<string>();
   const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<GraphLine>();
   const [totalDeathsGraphLine, setTotalDeathsGraphLine] = useState<GraphLine>();
   const [totalTestsGraphLine, setTotalTestsGraphLine] = useState<GraphLine>();
@@ -43,20 +40,38 @@ const CovidTracker: React.FunctionComponent = () => {
   const [showTotalTests, setShowTotalTests] = useState(false);
   const [showRegionMenu, setShowRegionMenu] = useState(false);
 
+  // initial page load
   useEffect(() => {
     getIllinoisCovidData()
       .then((regionData) => {
-        setStateCovidData(regionData);
         const historicalRecords = regionData.historicalRecords;
         setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
         setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
         setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
+        setRegions(regionData.region.subRegions);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+  // when currentRegion changes
+  useEffect(() => {
+    if (currentRegion) {
+      getIllinoisCountyCovidData(currentRegion)
+        .then((regionData) => {
+          const historicalRecords = regionData.historicalRecords;
+          setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
+          setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
+          setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  }, [currentRegion]);
+
+  // when a GraphLine or showTotal* changes
   useEffect(() => {
     setGraphData(
       buildGraphData(
@@ -77,10 +92,6 @@ const CovidTracker: React.FunctionComponent = () => {
     totalTestsGraphLine,
   ]);
 
-  useEffect(() => {
-    if (stateCovidData) setRegions(stateCovidData.region.subRegions);
-  }, [stateCovidData]);
-
   return (
     <div className={"CovidTracker"}>
       <main>
@@ -93,7 +104,7 @@ const CovidTracker: React.FunctionComponent = () => {
             aria-haspopup={"true"}
             onClick={() => setShowRegionMenu(!showRegionMenu)}
           >
-            {currentRegion}
+            {currentRegion || "Illinois"}
           </Button>
           <Menu
             id={"region-menu"}
