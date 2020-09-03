@@ -14,9 +14,7 @@ const getIllinoisCovidData = (): Promise<RegionData> => {
   });
 };
 
-const getIllinoisCountyCovidData = (
-  county: string
-): Promise<RegionData> => {
+const getIllinoisCountyCovidData = (county: string): Promise<RegionData> => {
   return new Promise<RegionData>((resolve, reject) => {
     axios
       .get(`http://localhost:8080/covid/country/usa/state/il/county/${county}`)
