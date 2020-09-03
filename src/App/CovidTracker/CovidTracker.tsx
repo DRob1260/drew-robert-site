@@ -4,7 +4,13 @@ import {
   RadioButtonCheckedRounded,
   RadioButtonUncheckedRounded,
 } from "@material-ui/icons";
-import { Chip, Menu, MenuItem, Button } from "@material-ui/core";
+import {
+  Chip,
+  Menu,
+  MenuItem,
+  Button,
+  CircularProgress,
+} from "@material-ui/core";
 import {
   buildGraphData,
   buildTotalCasesGraphLine,
@@ -39,9 +45,11 @@ const CovidTracker: React.FunctionComponent = () => {
   const [showTotalDeaths, setShowTotalDeaths] = useState(true);
   const [showTotalTests, setShowTotalTests] = useState(false);
   const [showRegionMenu, setShowRegionMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // initial page load
   useEffect(() => {
+    setLoading(true);
     getIllinoisCovidData()
       .then((regionData) => {
         const historicalRecords = regionData.historicalRecords;
@@ -49,6 +57,7 @@ const CovidTracker: React.FunctionComponent = () => {
         setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
         setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
         setRegions(regionData.region.subRegions);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -57,6 +66,7 @@ const CovidTracker: React.FunctionComponent = () => {
 
   // when currentRegion changes
   useEffect(() => {
+    setLoading(true);
     if (currentRegion) {
       getIllinoisCountyCovidData(currentRegion)
         .then((regionData) => {
@@ -64,6 +74,7 @@ const CovidTracker: React.FunctionComponent = () => {
           setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
           setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
           setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
+          setLoading(false);
         })
         .catch((error) => {
           console.log(error);
@@ -94,6 +105,11 @@ const CovidTracker: React.FunctionComponent = () => {
 
   return (
     <div className={"CovidTracker"}>
+      {loading && (
+        <div id={"loading-indicator-container"}>
+          <CircularProgress />
+        </div>
+      )}
       <main>
         <div className={"toolbar"}>
           <Button
