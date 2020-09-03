@@ -1,6 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { ResponsiveLine } from "@nivo/line";
-import { buildGraphData, formatNumber } from "./CovidTrackerUtils";
+import {
+  RadioButtonCheckedRounded,
+  RadioButtonUncheckedRounded,
+} from "@material-ui/icons";
+import { Chip } from "@material-ui/core";
+import {
+  buildGraphData,
+  buildTotalCasesGraphLine,
+  buildTotalDeathsGraphLine,
+  buildTotalTestsGraphLines,
+  formatNumber,
+} from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import {
   getIllinoisCountyCovidData,
@@ -9,22 +20,59 @@ import {
 import "./CovidTracker.scss";
 import { RegionData } from "../../models/CovidTracker/api/RegionData";
 
+const icon = (selected: boolean) => {
+  return selected ? (
+    <RadioButtonCheckedRounded className={"Radio selected"} />
+  ) : (
+    <RadioButtonUncheckedRounded />
+  );
+};
+
 const CovidTracker: React.FunctionComponent = () => {
   const [stateCovidData, setStateCovidData] = useState<RegionData>();
   const [countyCovidData, setCountyCovidData] = useState<RegionData>();
   const [regions, setRegions] = useState<string[]>([]);
+  const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<GraphLine>();
+  const [totalDeathsGraphLine, setTotalDeathsGraphLine] = useState<GraphLine>();
+  const [totalTestsGraphLine, setTotalTestsGraphLine] = useState<GraphLine>();
   const [graphData, setGraphData] = useState<GraphLine[]>([]);
+  const [showTotalCases, setShowTotalCases] = useState(true);
+  const [showTotalDeaths, setShowTotalDeaths] = useState(true);
+  const [showTotalTests, setShowTotalTests] = useState(false);
 
   useEffect(() => {
     getIllinoisCovidData()
       .then((regionData) => {
         setStateCovidData(regionData);
-        setGraphData(buildGraphData(regionData.historicalRecords));
+        const historicalRecords = regionData.historicalRecords;
+        setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
+        setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
+        setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    setGraphData(
+      buildGraphData(
+        showTotalCases,
+        showTotalDeaths,
+        showTotalTests,
+        totalCasesGraphLine,
+        totalDeathsGraphLine,
+        totalTestsGraphLine
+      )
+    );
+  }, [
+    showTotalCases,
+    showTotalDeaths,
+    showTotalTests,
+    totalCasesGraphLine,
+    totalDeathsGraphLine,
+    totalTestsGraphLine,
+  ]);
 
   useEffect(() => {
     if (stateCovidData) setRegions(stateCovidData.region.subRegions);
@@ -34,6 +82,35 @@ const CovidTracker: React.FunctionComponent = () => {
     <div className={"CovidTracker"}>
       <main>
         <h1>Covid Tracker</h1>
+        <div className={"Graph-toolbar"}>
+          <Chip
+            className={`Chip ${showTotalDeaths ? "selected" : ""}`}
+            label={"Total Deaths"}
+            clickable={true}
+            variant={"outlined"}
+            size={"small"}
+            icon={icon(showTotalDeaths)}
+            onClick={(): void => setShowTotalDeaths(!showTotalDeaths)}
+          />
+          <Chip
+            className={`Chip ${showTotalCases ? "selected" : ""}`}
+            label={"Total Cases"}
+            clickable={true}
+            variant={"outlined"}
+            size={"small"}
+            icon={icon(showTotalCases)}
+            onClick={(): void => setShowTotalCases(!showTotalCases)}
+          />
+          <Chip
+            className={`Chip ${showTotalTests ? "selected" : ""}`}
+            label={"Total Tests"}
+            clickable={true}
+            variant={"outlined"}
+            size={"small"}
+            icon={icon(showTotalTests)}
+            onClick={(): void => setShowTotalTests(!showTotalTests)}
+          />
+        </div>
         <div className={"Graph"}>
           <ResponsiveLine
             data={graphData}
