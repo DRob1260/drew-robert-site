@@ -4,7 +4,7 @@ import {
   RadioButtonCheckedRounded,
   RadioButtonUncheckedRounded,
 } from "@material-ui/icons";
-import { Chip } from "@material-ui/core";
+import { Chip, Menu, MenuItem, Button } from "@material-ui/core";
 import {
   buildGraphData,
   buildTotalCasesGraphLine,
@@ -33,6 +33,7 @@ const CovidTracker: React.FunctionComponent = () => {
   const [stateCovidData, setStateCovidData] = useState<RegionData>();
   const [countyCovidData, setCountyCovidData] = useState<RegionData>();
   const [regions, setRegions] = useState<string[]>([]);
+  const [currentRegion, setCurrentRegion] = useState<string>("Illinois");
   const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<GraphLine>();
   const [totalDeathsGraphLine, setTotalDeathsGraphLine] = useState<GraphLine>();
   const [totalTestsGraphLine, setTotalTestsGraphLine] = useState<GraphLine>();
@@ -40,6 +41,7 @@ const CovidTracker: React.FunctionComponent = () => {
   const [showTotalCases, setShowTotalCases] = useState(true);
   const [showTotalDeaths, setShowTotalDeaths] = useState(true);
   const [showTotalTests, setShowTotalTests] = useState(false);
+  const [showRegionMenu, setShowRegionMenu] = useState(false);
 
   useEffect(() => {
     getIllinoisCovidData()
@@ -82,7 +84,43 @@ const CovidTracker: React.FunctionComponent = () => {
   return (
     <div className={"CovidTracker"}>
       <main>
-        <div className={"Graph-toolbar"}>
+        <div className={"toolbar"}>
+          <Button
+            className={"region-button"}
+            variant={"contained"}
+            size={"small"}
+            aria-controls={"region-menu"}
+            aria-haspopup={"true"}
+            onClick={() => setShowRegionMenu(!showRegionMenu)}
+          >
+            {currentRegion}
+          </Button>
+          <Menu
+            id={"region-menu"}
+            keepMounted
+            open={showRegionMenu}
+            onClose={() => setShowRegionMenu(false)}
+          >
+            <MenuItem
+              onClick={() => {
+                setCurrentRegion("Illinois");
+                setShowRegionMenu(false);
+              }}
+            >
+              Illinois
+            </MenuItem>
+            {regions.map((region) => (
+              <MenuItem
+                key={region}
+                onClick={() => {
+                  setCurrentRegion(region);
+                  setShowRegionMenu(false);
+                }}
+              >
+                {region}
+              </MenuItem>
+            ))}
+          </Menu>
           <Chip
             className={`Chip totalDeaths ${showTotalDeaths ? "selected" : ""}`}
             label={"Total Deaths"}
@@ -123,7 +161,6 @@ const CovidTracker: React.FunctionComponent = () => {
             animate={true}
             enableSlices={false}
             margin={{ top: 20, right: 20, bottom: 60, left: 100 }}
-            // pointColor={"#9131f7"}
             colors={buildGraphColors(
               showTotalCases,
               showTotalDeaths,
@@ -139,7 +176,7 @@ const CovidTracker: React.FunctionComponent = () => {
               type: "linear",
               stacked: false,
             }}
-            xFormat="time:%Y-%m-%d"
+            xFormat={"time:%Y-%m-%d"}
             yFormat={(value) => {
               return formatNumber(Number(value));
             }}

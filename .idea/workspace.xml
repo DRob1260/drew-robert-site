@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="basic graph with mock data">
-      <change afterPath="$PROJECT_DIR$/src/models/CovidTracker/api/HistoricalRecord.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTrackerUtils.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/MockData.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/CovidTracker/api/ApiDataPoint.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/CovidTracker/CovidTracker.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +32,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/models/CovidTracker/api" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -51,6 +45,9 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/services/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker" />
@@ -72,7 +69,8 @@
       <workItem from="1597506220058" duration="4466000" />
       <workItem from="1597524944511" duration="22648000" />
       <workItem from="1598837218628" duration="668000" />
-      <workItem from="1598920164501" duration="6280000" />
+      <workItem from="1598920164501" duration="11489000" />
+      <workItem from="1599016610767" duration="12326000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -207,7 +205,63 @@
       <option name="project" value="LOCAL" />
       <updated>1598931500120</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="integrate with drew-robert-api for real illinois covid data">
+      <created>1598933833307</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1598933833307</updated>
+    </task>
+    <task id="LOCAL-00021" summary="adding a navigation button">
+      <created>1598934490241</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1598934490241</updated>
+    </task>
+    <task id="LOCAL-00022" summary="using updated API response objects">
+      <created>1599017574080</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1599017574080</updated>
+    </task>
+    <task id="LOCAL-00023" summary="styling and formatting tweaks to graph">
+      <created>1599094472847</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1599094472847</updated>
+    </task>
+    <task id="LOCAL-00024" summary="code formatting">
+      <created>1599094576374</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1599094576374</updated>
+    </task>
+    <task id="LOCAL-00025" summary="add ability to select which metrics to display">
+      <created>1599100951695</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1599100951695</updated>
+    </task>
+    <task id="LOCAL-00026" summary="made the graph pretty with colors">
+      <created>1599103095213</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1599103095213</updated>
+    </task>
+    <task id="LOCAL-00027" summary="code formatting">
+      <created>1599103181720</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1599103181720</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +299,14 @@
     <MESSAGE value="add some more placeholder text to home page" />
     <MESSAGE value="basic graph with mock data" />
     <MESSAGE value="wip commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="wip commit" />
+    <MESSAGE value="integrate with drew-robert-api for real illinois covid data" />
+    <MESSAGE value="adding a navigation button" />
+    <MESSAGE value="using updated API response objects" />
+    <MESSAGE value="styling and formatting tweaks to graph" />
+    <MESSAGE value="add ability to select which metrics to display" />
+    <MESSAGE value="made the graph pretty with colors" />
+    <MESSAGE value="code formatting" />
+    <option name="LAST_COMMIT_MESSAGE" value="code formatting" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
@@ -257,12 +318,12 @@
     </state>
     <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598932533215" />
-    <state x="223" y="2" key="CommitChangelistDialog2" timestamp="1598933759925">
+    <state x="223" y="2" key="CommitChangelistDialog2" timestamp="1599103174500">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595485006" />
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
-    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1598933759925" />
+    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599103174500" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
     <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
     <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
@@ -280,12 +341,13 @@
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1598931505974">
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1599103185287">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595498947" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1598931505974" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1599103185287" />
+    <state x="240" y="159" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1599101002008" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598189151836" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582716740" />
@@ -293,11 +355,11 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598602722812">
-      <screen x="0" y="0" width="1440" height="900" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1599104877187">
+      <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598602722812" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1598052334928" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1599104877187" />
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
   </component>
 </project>
