@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add loading indicator">
-      <change afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mocks/CovidTracker/MockRegionData.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mocks/handlers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/mocks/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,7 +33,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/models/CovidTracker/api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -79,7 +71,8 @@
       <workItem from="1597524944511" duration="22648000" />
       <workItem from="1598837218628" duration="668000" />
       <workItem from="1598920164501" duration="11489000" />
-      <workItem from="1599016610767" duration="25770000" />
+      <workItem from="1599016610767" duration="27233000" />
+      <workItem from="1599361672250" duration="9948000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -298,7 +291,49 @@
       <option name="project" value="LOCAL" />
       <updated>1599357538895</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="add MSW for mocking API calls during tests">
+      <created>1599360184361</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1599360184361</updated>
+    </task>
+    <task id="LOCAL-00033" summary="fix menu anchoring">
+      <created>1599366254918</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1599366254918</updated>
+    </task>
+    <task id="LOCAL-00034" summary="exclude files from coverage">
+      <created>1599366303723</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1599366303723</updated>
+    </task>
+    <task id="LOCAL-00035" summary="upgrade typescript">
+      <created>1599366331407</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1599366331407</updated>
+    </task>
+    <task id="LOCAL-00036" summary="ignore api file for coverage because it has no logic">
+      <created>1599369415326</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1599369415326</updated>
+    </task>
+    <task id="LOCAL-00037" summary="add test files">
+      <created>1599369462879</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1599369462879</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,12 +353,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="handle focus on nav-icon" />
-    <MESSAGE value="formatting tweaks" />
-    <MESSAGE value="configure eslint" />
-    <MESSAGE value="implement accessibility improvements" />
-    <MESSAGE value="set up tests" />
-    <MESSAGE value="add tests for Navigator.tsx" />
     <MESSAGE value="add tests for Home and LandingPage" />
     <MESSAGE value="set up coverage" />
     <MESSAGE value="add tests for App.tsx" />
@@ -343,7 +372,13 @@
     <MESSAGE value="load region data when selected" />
     <MESSAGE value="add loading indicator" />
     <MESSAGE value="styling and accessibility fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="styling and accessibility fixes" />
+    <MESSAGE value="add MSW for mocking API calls during tests" />
+    <MESSAGE value="fix menu anchoring" />
+    <MESSAGE value="exclude files from coverage" />
+    <MESSAGE value="upgrade typescript" />
+    <MESSAGE value="ignore api file for coverage because it has no logic" />
+    <MESSAGE value="add test files" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test files" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
@@ -355,10 +390,10 @@
     </state>
     <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598932533215" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1599357528803">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1599369455063">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599357528803" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599369455063" />
     <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599106942949" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
@@ -373,16 +408,20 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="213" y="185" key="EditFileWatcherDialog/0.0.1280.800@0.0.1280.800" timestamp="1598052146405" />
+    <state x="461" y="119" key="RollbackChangesDialog" timestamp="1599366377100">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="461" y="119" key="RollbackChangesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599366377100" />
     <state x="159" y="44" key="SettingsEditor" timestamp="1598188964647">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1599357585957">
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1599369465373">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599357585957" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599369465373" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1599106954012" />
     <state x="240" y="159" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1599101002008" />
@@ -393,11 +432,16 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1599356257649">
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1599371144677">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599356257649" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599371144677" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1599363728354" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1599104877187" />
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
+    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599361435425">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599361435425" />
   </component>
 </project>

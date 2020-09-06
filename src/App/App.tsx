@@ -11,7 +11,7 @@ const App: React.FunctionComponent = () => {
       <BrowserRouter>
         <Navigator />
         <Switch>
-          <Route path={"/covid-tracker"}>
+          <Route path={"/covid"}>
             <CovidTracker />
           </Route>
           <Route path={"/home"}>

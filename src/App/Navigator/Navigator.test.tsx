@@ -14,26 +14,48 @@ it("should be accessible", async () => {
   expect(results).toHaveNoViolations();
 });
 
-describe("navigation to pages", () => {
-  // there's probably a better way to test these, but jest doesn't seem to pick up on URL path changes
-  it("navigates to the correct route when the 'Home' button is clicked", () => {
-    const { getByTestId } = render(
+// there's probably a better way to test these, but jest doesn't seem to pick up on URL path changes
+it("navigates to the correct route when the 'Home' button is clicked", () => {
+  const { getByTestId } = render(
+    <BrowserRouter>
+      <Navigator />
+    </BrowserRouter>
+  );
+  fireEvent.click(getByTestId("Navigator-home"));
+  const path = document.location.pathname;
+  expect(path).toEqual("/home");
+});
+
+it("navigates to the correct route when the site icon is clicked", () => {
+  const { getByTestId } = render(
+    <BrowserRouter>
+      <Navigator />
+    </BrowserRouter>
+  );
+  fireEvent.click(getByTestId("Navigator-icon"));
+  const path = document.location.pathname;
+  expect(path).toEqual("/");
+});
+
+describe("projects menu", () => {
+  it("opens a list of projects when the button is clicked", () => {
+    const { getByTestId, queryByText } = render(
       <BrowserRouter>
         <Navigator />
       </BrowserRouter>
     );
-    fireEvent.click(getByTestId("Navigator-home"));
-    const path = document.location.pathname;
-    expect(path).toEqual("/home");
+    fireEvent.click(getByTestId("Navigator-projects"));
+    expect(queryByText("COVID-19 Metrics Tracker")).not.toBeNull();
   });
-  it("navigates to the correct route when the site icon is clicked", () => {
-    const { getByTestId } = render(
+  it("navigates to the correct route for the COVID-19 Metrics Tracker", () => {
+    const { getByTestId, getByText } = render(
       <BrowserRouter>
         <Navigator />
       </BrowserRouter>
     );
-    fireEvent.click(getByTestId("Navigator-icon"));
+    fireEvent.click(getByTestId("Navigator-projects"));
+    fireEvent.click(getByText("COVID-19 Metrics Tracker"));
     const path = document.location.pathname;
-    expect(path).toEqual("/");
+    expect(path).toEqual("/covid");
   });
 });
