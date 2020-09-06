@@ -27,7 +27,7 @@ const Navigator: React.FunctionComponent = () => {
             />
           </Link>
           <Toolbar id={"toolbar"}>
-            <Link to={"/home"} className={"Link"}>
+            <Link to={"/"} className={"Link"}>
               <Button
                 variant={"contained"}
                 className={"button left-button"}
