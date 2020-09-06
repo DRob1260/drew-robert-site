@@ -1,7 +1,7 @@
 import React from "react";
 import { Navigator } from "./Navigator";
 import { axe } from "jest-axe";
-import { render, fireEvent } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 
 it("should be accessible", async () => {
@@ -38,14 +38,19 @@ it("navigates to the correct route when the site icon is clicked", () => {
 });
 
 describe("projects menu", () => {
-  it("opens a list of projects when the button is clicked", () => {
+  it("opens a list of projects when the button is clicked", async () => {
     const { getByTestId, queryByText } = render(
       <BrowserRouter>
         <Navigator />
       </BrowserRouter>
     );
+    await waitFor(() =>
+      expect(queryByText("COVID-19 Metrics Tracker")).not.toBeVisible()
+    );
     fireEvent.click(getByTestId("Navigator-projects"));
-    expect(queryByText("COVID-19 Metrics Tracker")).not.toBeNull();
+    await waitFor(() =>
+      expect(queryByText("COVID-19 Metrics Tracker")).toBeVisible()
+    );
   });
   it("navigates to the correct route for the COVID-19 Metrics Tracker", () => {
     const { getByTestId, getByText } = render(
