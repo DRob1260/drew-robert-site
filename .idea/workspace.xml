@@ -3,7 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add loading indicator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/App.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Home/Home.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Home/Home.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Home/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Home/Home.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/backdrop.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Home/backdrop.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
     </list>
@@ -46,15 +53,15 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/App/Home" />
       <recent name="$PROJECT_DIR$/src/services/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/graph" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
-      <recent name="$PROJECT_DIR$/src/App/LandingPage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
     </key>
   </component>
   <component name="SvnConfiguration">

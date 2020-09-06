@@ -23,7 +23,7 @@ it("navigates to the correct route when the 'Home' button is clicked", () => {
   );
   fireEvent.click(getByTestId("Navigator-home"));
   const path = document.location.pathname;
-  expect(path).toEqual("/home");
+  expect(path).toEqual("/");
 });
 
 it("navigates to the correct route when the site icon is clicked", () => {

@@ -14,10 +14,9 @@ it("renders the navigator", () => {
   expect(queryByTestId("Navigator")).not.toBeNull();
 });
 
-it("renders the landing page by default", () => {
+it("renders the home page by default", () => {
   const { queryByTestId } = render(<App />);
-  expect(queryByTestId("LandingPage")).not.toBeNull();
-  expect(queryByTestId("Home")).toBeNull();
+  expect(queryByTestId("Home")).not.toBeNull();
 });
 
 // I couldn't figure out how to route to the other paths

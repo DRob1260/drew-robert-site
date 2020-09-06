@@ -1,6 +1,32 @@
 .Home {
-  margin-top: 100px;
-  margin-left: 10px;
-  margin-right: 10px;
-  text-align: center;
+  #backdrop-container {
+    position: relative;
+    height: 200px;
+    object-fit: cover;
+    overflow: hidden;
+  }
+  #backdrop {
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: scaleX(-1);
+    filter: brightness(50%);
+  }
+  #greeting-container {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+  }
+  #greeting {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+  }
+  #content {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 50px;
+    text-align: center;
+    font-weight: bold;
+  }
 }
