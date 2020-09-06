@@ -9,7 +9,7 @@ import {
 export const handlers = [
   // getIllinoisCovidData
   rest.get(
-    `${Urls.drewRobertApi}/covid/country/usa/state/il`,
+    `${Urls.drewRobertApi}/covid/country/:country/state/:state`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(IllinoisRegionData));
     }
@@ -17,7 +17,7 @@ export const handlers = [
 
   // getIllinoisCountyCovidData
   rest.get(
-    `${Urls.drewRobertApi}/covid/country/usa/state/il/county/*`,
+    `${Urls.drewRobertApi}/covid/country/:country/state/:state/county/:county`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(IllinoisCountyRegionData));
     }

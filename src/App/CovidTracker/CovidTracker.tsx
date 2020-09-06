@@ -10,6 +10,7 @@ import {
   MenuItem,
   Button,
   CircularProgress,
+  Snackbar,
 } from "@material-ui/core";
 import {
   buildGraphData,
@@ -45,6 +46,7 @@ const CovidTracker: React.FunctionComponent = () => {
   const [showTotalDeaths, setShowTotalDeaths] = useState(true);
   const [showTotalTests, setShowTotalTests] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
   const [
     regionMenuAnchor,
     setRegionMenuAnchor,
@@ -61,9 +63,10 @@ const CovidTracker: React.FunctionComponent = () => {
         setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
         setRegions(regionData.region.subRegions);
         setLoading(false);
+        setError(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        setError(true);
       });
   }, []);
 
@@ -77,9 +80,10 @@ const CovidTracker: React.FunctionComponent = () => {
           setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
           setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
           setLoading(false);
+          setError(false);
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(() => {
+          setError(true);
         });
     }
   }, [currentRegion]);
@@ -109,7 +113,7 @@ const CovidTracker: React.FunctionComponent = () => {
     <div className={"CovidTracker"}>
       <main>
         <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
-        {loading && (
+        {loading && !error && (
           <div
             id={"loading-indicator-container"}
             data-testid={"loading-indicator-container"}
@@ -117,6 +121,13 @@ const CovidTracker: React.FunctionComponent = () => {
             <CircularProgress />
           </div>
         )}
+        <Snackbar
+          data-testid={"error-message"}
+          open={error}
+          onClose={() => setError(false)}
+          anchorOrigin={{ horizontal: "center", vertical: "bottom" }}
+          message={"An error occurred while retrieving COVID-19 data."}
+        />
         <div className={"toolbar"}>
           <Button
             className={"region-button"}
