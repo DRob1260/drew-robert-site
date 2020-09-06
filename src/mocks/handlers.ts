@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { rest } from "msw";
 import { Urls } from "../config";
 import {

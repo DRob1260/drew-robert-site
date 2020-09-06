@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 const environment = process.env.ENVIRONMENT;
 
 export const Urls = {

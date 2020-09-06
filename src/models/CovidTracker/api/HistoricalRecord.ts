@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export interface HistoricalRecord {
   testDate: string;
   totals: {

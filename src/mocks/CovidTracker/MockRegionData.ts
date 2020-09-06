@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { RegionData } from "../../models/CovidTracker/api/RegionData";
 
 export const IllinoisRegionData: RegionData = {
