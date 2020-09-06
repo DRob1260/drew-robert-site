@@ -44,8 +44,11 @@ const CovidTracker: React.FunctionComponent = () => {
   const [showTotalCases, setShowTotalCases] = useState(true);
   const [showTotalDeaths, setShowTotalDeaths] = useState(true);
   const [showTotalTests, setShowTotalTests] = useState(false);
-  const [showRegionMenu, setShowRegionMenu] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [
+    regionMenuAnchor,
+    setRegionMenuAnchor,
+  ] = React.useState<HTMLElement | null>(null);
 
   // initial page load
   useEffect(() => {
@@ -102,36 +105,40 @@ const CovidTracker: React.FunctionComponent = () => {
     totalTestsGraphLine,
   ]);
 
-  // @ts-ignore
   return (
     <div className={"CovidTracker"}>
       <main>
         <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
         {loading && (
-          <div id={"loading-indicator-container"}>
+          <div
+            id={"loading-indicator-container"}
+            data-testid={"loading-indicator-container"}
+          >
             <CircularProgress />
           </div>
         )}
         <div className={"toolbar"}>
           <Button
             className={"region-button"}
+            data-testid={"region-button"}
             variant={"contained"}
             aria-controls={"region-menu"}
             aria-haspopup={"true"}
-            onClick={() => setShowRegionMenu(!showRegionMenu)}
+            onClick={(event) => setRegionMenuAnchor(event.currentTarget)}
           >
             {currentRegion || "Illinois"}
           </Button>
           <Menu
             id={"region-menu"}
+            anchorEl={regionMenuAnchor}
             keepMounted
-            open={showRegionMenu}
-            onClose={() => setShowRegionMenu(false)}
+            open={Boolean(regionMenuAnchor)}
+            onClose={() => setRegionMenuAnchor(null)}
           >
             <MenuItem
               onClick={() => {
                 setCurrentRegion("Illinois");
-                setShowRegionMenu(false);
+                setRegionMenuAnchor(null);
               }}
             >
               Illinois
@@ -141,7 +148,7 @@ const CovidTracker: React.FunctionComponent = () => {
                 key={region}
                 onClick={() => {
                   setCurrentRegion(region);
-                  setShowRegionMenu(false);
+                  setRegionMenuAnchor(null);
                 }}
               >
                 {region}
