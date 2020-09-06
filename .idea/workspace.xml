@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="">
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add loading indicator">
+      <change afterPath="$PROJECT_DIR$/src/config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mocks/CovidTracker/MockRegionData.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mocks/handlers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/mocks/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/CovidTracker/CovidTracker.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/DrewRobertApi.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/setupTests.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +79,7 @@
       <workItem from="1597524944511" duration="22648000" />
       <workItem from="1598837218628" duration="668000" />
       <workItem from="1598920164501" duration="11489000" />
-      <workItem from="1599016610767" duration="12326000" />
+      <workItem from="1599016610767" duration="25770000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -261,7 +270,35 @@
       <option name="project" value="LOCAL" />
       <updated>1599103181720</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="adding a menu for regions">
+      <created>1599105260239</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1599105260239</updated>
+    </task>
+    <task id="LOCAL-00029" summary="load region data when selected">
+      <created>1599106170788</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599106170788</updated>
+    </task>
+    <task id="LOCAL-00030" summary="add loading indicator">
+      <created>1599106951325</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1599106951325</updated>
+    </task>
+    <task id="LOCAL-00031" summary="styling and accessibility fixes">
+      <created>1599357538895</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1599357538895</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -281,10 +318,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="set up react" />
-    <MESSAGE value="starting on home page" />
-    <MESSAGE value="very basic start" />
-    <MESSAGE value="some refinements" />
     <MESSAGE value="handle focus on nav-icon" />
     <MESSAGE value="formatting tweaks" />
     <MESSAGE value="configure eslint" />
@@ -306,7 +339,11 @@
     <MESSAGE value="add ability to select which metrics to display" />
     <MESSAGE value="made the graph pretty with colors" />
     <MESSAGE value="code formatting" />
-    <option name="LAST_COMMIT_MESSAGE" value="code formatting" />
+    <MESSAGE value="adding a menu for regions" />
+    <MESSAGE value="load region data when selected" />
+    <MESSAGE value="add loading indicator" />
+    <MESSAGE value="styling and accessibility fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="styling and accessibility fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
@@ -318,18 +355,19 @@
     </state>
     <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598932533215" />
-    <state x="223" y="2" key="CommitChangelistDialog2" timestamp="1599103174500">
-      <screen x="0" y="0" width="1280" height="800" />
-    </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595485006" />
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
-    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599103174500" />
-    <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
-    <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
-    <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1599357528803">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="92" y="30" key="DiffContextDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598197936478" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599357528803" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
+    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599106942949" />
+    <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
+    <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
+    <state x="92" y="30" key="DiffContextDialog" timestamp="1599357507286">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="92" y="30" key="DiffContextDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599357507286" />
+    <state x="82" y="27" key="DiffContextDialog/0.0.1280.800@0.0.1280.800" timestamp="1599106144894" />
     <state x="92" y="30" key="DiffContextDialog/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598186328802" />
     <state x="213" y="185" key="EditFileWatcherDialog" timestamp="1598052146405">
       <screen x="0" y="0" width="1280" height="800" />
@@ -341,12 +379,12 @@
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2" timestamp="1599103185287">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1599357585957">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598595498947" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599357585957" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
-    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1599103185287" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1599106954012" />
     <state x="240" y="159" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1599101002008" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598189151836" />
@@ -355,10 +393,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
-    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup" timestamp="1599104877187">
-      <screen x="0" y="0" width="1280" height="800" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1599356257649">
+      <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598602722812" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599356257649" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1599104877187" />
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
   </component>
