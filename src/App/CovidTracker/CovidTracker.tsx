@@ -202,7 +202,7 @@ const CovidTracker: React.FunctionComponent = () => {
             useMesh={true}
             animate={true}
             enableSlices={"x"}
-            margin={{ top: 20, right: 15, bottom: 60, left: 50 }}
+            margin={{ top: 20, right: 15, bottom: 60, left: 60 }}
             colors={buildGraphColors(
               showTotalCases,
               showTotalDeaths,
