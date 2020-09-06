@@ -1,18 +1,24 @@
 $primary: #9131f7;
 $totalCasesColor: #00c2ad;
-$totalDeathsColor: #008b79;
+$totalDeathsColor: #107568;
 $totalTestsColor: #46fce4;
 
 .CovidTracker {
   margin-top: 100px;
-  margin-left: 25px;
-  margin-right: 25px;
+
+  .text {
+    margin: 10px;
+  }
+
+  #Graph-label {
+    visibility: hidden;
+  }
 
   #loading-indicator-container {
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 1000;
     color: $primary;
 
@@ -22,7 +28,7 @@ $totalTestsColor: #46fce4;
   }
 
   .toolbar {
-    margin-left: 100px;
+    margin-left: 10px;
 
     .region-button {
       margin: 0.5em;

@@ -77,7 +77,7 @@ const buildGraphColors = (
   // the order here should match the order that the GraphLines are pushed in buildGraphData
   if (showTotalCases) colors.push("#00C2AD");
 
-  if (showTotalDeaths) colors.push("#008B79");
+  if (showTotalDeaths) colors.push("#107568");
 
   if (showTotalTests) colors.push("#46FCE4");
 

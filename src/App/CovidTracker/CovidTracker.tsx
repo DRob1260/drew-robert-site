@@ -64,7 +64,6 @@ const CovidTracker: React.FunctionComponent = () => {
       });
   }, []);
 
-  // when currentRegion changes
   useEffect(() => {
     setLoading(true);
     if (currentRegion) {
@@ -103,19 +102,20 @@ const CovidTracker: React.FunctionComponent = () => {
     totalTestsGraphLine,
   ]);
 
+  // @ts-ignore
   return (
     <div className={"CovidTracker"}>
-      {loading && (
-        <div id={"loading-indicator-container"}>
-          <CircularProgress />
-        </div>
-      )}
       <main>
+        <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
+        {loading && (
+          <div id={"loading-indicator-container"}>
+            <CircularProgress />
+          </div>
+        )}
         <div className={"toolbar"}>
           <Button
             className={"region-button"}
             variant={"contained"}
-            size={"small"}
             aria-controls={"region-menu"}
             aria-haspopup={"true"}
             onClick={() => setShowRegionMenu(!showRegionMenu)}
@@ -148,46 +148,54 @@ const CovidTracker: React.FunctionComponent = () => {
               </MenuItem>
             ))}
           </Menu>
-          <Chip
-            className={`Chip totalDeaths ${showTotalDeaths ? "selected" : ""}`}
-            label={"Total Deaths"}
-            clickable={true}
-            variant={"outlined"}
-            size={"small"}
-            icon={icon(showTotalDeaths)}
-            onClick={(): void => setShowTotalDeaths(!showTotalDeaths)}
-          />
-          <Chip
-            className={`Chip totalCases ${showTotalCases ? "selected" : ""}`}
-            label={"Total Cases"}
-            clickable={true}
-            variant={"outlined"}
-            size={"small"}
-            icon={icon(showTotalCases)}
-            onClick={(): void => setShowTotalCases(!showTotalCases)}
-          />
-          <Chip
-            className={`Chip totalTests ${showTotalTests ? "selected" : ""}`}
-            label={"Total Tests"}
-            clickable={true}
-            variant={"outlined"}
-            size={"small"}
-            icon={icon(showTotalTests)}
-            onClick={(): void => setShowTotalTests(!showTotalTests)}
-          />
+          <div>
+            <Chip
+              className={`Chip totalDeaths ${
+                showTotalDeaths ? "selected" : ""
+              }`}
+              label={"Total Deaths"}
+              clickable={true}
+              variant={"outlined"}
+              size={"small"}
+              icon={icon(showTotalDeaths)}
+              onClick={(): void => setShowTotalDeaths(!showTotalDeaths)}
+            />
+            <Chip
+              className={`Chip totalCases ${showTotalCases ? "selected" : ""}`}
+              label={"Total Cases"}
+              clickable={true}
+              variant={"outlined"}
+              size={"small"}
+              icon={icon(showTotalCases)}
+              onClick={(): void => setShowTotalCases(!showTotalCases)}
+            />
+            <Chip
+              className={`Chip totalTests ${showTotalTests ? "selected" : ""}`}
+              label={"Total Tests"}
+              clickable={true}
+              variant={"outlined"}
+              size={"small"}
+              icon={icon(showTotalTests)}
+              onClick={(): void => setShowTotalTests(!showTotalTests)}
+            />
+          </div>
         </div>
         <div className={"Graph"}>
+          <p
+            id={"Graph-label"}
+          >{`Graph of COVID-19 data for the ${currentRegion} region.`}</p>
           <ResponsiveLine
+            aria-labelledby={"Graph-label"}
             data={graphData}
+            enablePointLabel={false}
             enableArea={true}
             curve={"monotoneX"}
-            enablePointLabel={true}
             pointSize={16}
             pointBorderWidth={1}
             useMesh={true}
             animate={true}
-            enableSlices={false}
-            margin={{ top: 20, right: 20, bottom: 60, left: 100 }}
+            enableSlices={"x"}
+            margin={{ top: 20, right: 15, bottom: 60, left: 50 }}
             colors={buildGraphColors(
               showTotalCases,
               showTotalDeaths,
@@ -197,7 +205,6 @@ const CovidTracker: React.FunctionComponent = () => {
               type: "time",
               format: "%Y-%m-%d",
               useUTC: false,
-              precision: "day",
             }}
             yScale={{
               type: "linear",
@@ -208,17 +215,17 @@ const CovidTracker: React.FunctionComponent = () => {
               return formatNumber(Number(value));
             }}
             axisLeft={{
-              legend: "Total",
               legendOffset: -80,
+              tickRotation: -45,
+              tickPadding: 15,
               format: (value) => {
                 return formatNumber(Number(value));
               },
             }}
             axisBottom={{
               format: "%b %d",
-              tickValues: "every 7 days",
-              legend: "Date",
-              legendOffset: 40,
+              tickRotation: -45,
+              tickPadding: 15,
             }}
           />
         </div>
