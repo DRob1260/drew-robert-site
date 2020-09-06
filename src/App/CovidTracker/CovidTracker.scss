@@ -1,0 +1,88 @@
+$primary: #9131f7;
+$totalCasesColor: #00c2ad;
+$totalDeathsColor: #107568;
+$totalTestsColor: #46fce4;
+
+.CovidTracker {
+  margin-top: 100px;
+
+  .text {
+    margin: 10px;
+  }
+
+  #Graph-label {
+    visibility: hidden;
+  }
+
+  #loading-indicator-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    color: $primary;
+
+    .MuiCircularProgress-colorPrimary {
+      color: $primary;
+    }
+  }
+
+  .toolbar {
+    margin-left: 10px;
+
+    .region-button {
+      margin: 0.5em;
+      background-color: white;
+      color: #4b8078;
+      font-weight: bold;
+    }
+
+    .Chip {
+      margin: 0.5em;
+    }
+
+    .Chip.selected.totalCases {
+      background-color: $totalCasesColor;
+      color: #3b3b3b;
+
+      :focus {
+        background-color: $totalCasesColor;
+      }
+
+      .Radio.selected {
+        color: #3b3b3b;
+      }
+    }
+
+    .Chip.selected.totalDeaths {
+      background-color: $totalDeathsColor;
+      color: white;
+
+      :focus {
+        background-color: $totalDeathsColor;
+      }
+
+      .Radio.selected {
+        color: white;
+      }
+    }
+
+    .Chip.selected.totalTests {
+      background-color: $totalTestsColor;
+      color: black;
+
+      :focus {
+        background-color: $totalTestsColor;
+      }
+
+      .Radio.selected {
+        color: black;
+      }
+    }
+  }
+
+  .Graph {
+    height: 500px;
+    width: 100%;
+  }
+}

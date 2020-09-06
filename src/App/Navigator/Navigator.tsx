@@ -1,10 +1,19 @@
-import React from "react";
-import { Toolbar, Button } from "@material-ui/core";
+import React, { useState } from "react";
+import { Toolbar, Button, Menu, MenuItem } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import navIcon from "./drew-icon.png";
 import "./Navigator.scss";
 
 const Navigator: React.FunctionComponent = () => {
+  const [
+    projectsMenuAnchor,
+    setProjectsMenuAnchor,
+  ] = useState<HTMLElement | null>(null);
+
+  const closeProjectsMenu = () => {
+    setProjectsMenuAnchor(null);
+  };
+
   return (
     <div className={"Navigator"} data-testid={"Navigator"}>
       <header>
@@ -21,12 +30,32 @@ const Navigator: React.FunctionComponent = () => {
             <Link to={"/home"} className={"Link"}>
               <Button
                 variant={"contained"}
-                className={"button right-button"}
+                className={"button left-button"}
                 data-testid={"Navigator-home"}
               >
                 Home
               </Button>
             </Link>
+            <Button
+              variant={"contained"}
+              className={"button right-button"}
+              data-testid={"Navigator-projects"}
+              onClick={(event) => setProjectsMenuAnchor(event.currentTarget)}
+            >
+              Projects
+            </Button>
+            <Menu
+              open={Boolean(projectsMenuAnchor)}
+              anchorEl={projectsMenuAnchor}
+              keepMounted={true}
+              onClose={() => closeProjectsMenu()}
+            >
+              <MenuItem onClick={closeProjectsMenu} className={"Link"}>
+                <Link to={"/covid"} className={"Link"}>
+                  <span>COVID-19 Metrics Tracker</span>
+                </Link>
+              </MenuItem>
+            </Menu>
           </Toolbar>
         </nav>
       </header>
