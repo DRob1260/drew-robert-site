@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add loading indicator">
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="add test files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,15 +44,15 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/services/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/graph" />
       <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
       <recent name="$PROJECT_DIR$/src/App/LandingPage" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models/CovidTracker/api" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -73,6 +71,8 @@
       <workItem from="1598920164501" duration="11489000" />
       <workItem from="1599016610767" duration="27233000" />
       <workItem from="1599361672250" duration="9948000" />
+      <workItem from="1599404181622" duration="1821000" />
+      <workItem from="1599406026078" duration="1529000" />
     </task>
     <task id="LOCAL-00001" summary="set up react">
       <created>1597506570832</created>
@@ -333,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599369462879</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="display error message for API failures">
+      <created>1599407641682</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1599407641682</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +360,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add tests for Home and LandingPage" />
     <MESSAGE value="set up coverage" />
     <MESSAGE value="add tests for App.tsx" />
     <MESSAGE value="exclude coverage files from commits" />
@@ -378,7 +384,8 @@
     <MESSAGE value="upgrade typescript" />
     <MESSAGE value="ignore api file for coverage because it has no logic" />
     <MESSAGE value="add test files" />
-    <option name="LAST_COMMIT_MESSAGE" value="add test files" />
+    <MESSAGE value="display error message for API failures" />
+    <option name="LAST_COMMIT_MESSAGE" value="display error message for API failures" />
   </component>
   <component name="WindowStateProjectService">
     <state x="437" y="260" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1598585178826">
@@ -390,11 +397,11 @@
     </state>
     <state x="425" y="173" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598589760799" />
     <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1598932533215" />
-    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1599369455063">
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1599407633315">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599369455063" />
-    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599403815068" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1599407633315" />
     <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1599106942949" />
     <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
     <state x="251" y="2" key="CommitChangelistDialog2/1440.0.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598582704733" />
@@ -408,21 +415,21 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state x="213" y="185" key="EditFileWatcherDialog/0.0.1280.800@0.0.1280.800" timestamp="1598052146405" />
-    <state x="461" y="119" key="RollbackChangesDialog" timestamp="1599366377100">
+    <state x="461" y="119" key="RollbackChangesDialog" timestamp="1599407199488">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="461" y="119" key="RollbackChangesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599366377100" />
+    <state x="461" y="119" key="RollbackChangesDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599407199488" />
     <state x="159" y="44" key="SettingsEditor" timestamp="1598188964647">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
     <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
     <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1599369465373">
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1599407644018">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599369465373" />
-    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1599407644018" />
     <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1599106954012" />
     <state x="240" y="159" key="Vcs.Push.Dialog.v2/0.23.1280.777@0.23.1280.777" timestamp="1599101002008" />
     <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
@@ -439,9 +446,9 @@
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1599363728354" />
     <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1599104877187" />
     <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598584058095" />
-    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599361435425">
+    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1599406301980">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599361435425" />
+    <state x="450" y="319" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1599406301980" />
   </component>
 </project>
