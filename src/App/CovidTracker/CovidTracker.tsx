@@ -114,7 +114,7 @@ const CovidTracker: React.FunctionComponent<{
   ]);
 
   return (
-    <div className={"CovidTracker"}>
+    <div className={"CovidTracker"} data-testid={"CovidTracker"}>
       <main>
         <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
         {loading && !error && (

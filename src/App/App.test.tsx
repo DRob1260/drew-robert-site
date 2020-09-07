@@ -1,6 +1,6 @@
 import React from "react";
 import { axe } from "jest-axe";
-import { render } from "@testing-library/react";
+import { render, fireEvent, waitFor } from "@testing-library/react";
 import { App } from "./App";
 
 it("should be accessible", async () => {
@@ -19,4 +19,9 @@ it("renders the home page by default", () => {
   expect(queryByTestId("Home")).not.toBeNull();
 });
 
-// I couldn't figure out how to route to the other paths
+it("renders the covid metrics tracker project", async () => {
+  const { queryByTestId, getByTestId, getByText } = render(<App />);
+  fireEvent.click(getByTestId("projects-menu"));
+  fireEvent.click(getByText("COVID-19 Metrics Tracker"));
+  await waitFor(() => expect(queryByTestId("CovidTracker")).not.toBeNull());
+});
