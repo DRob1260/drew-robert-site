@@ -2,6 +2,7 @@ $primary: #9131f7;
 $totalCasesColor: #00c2ad;
 $totalDeathsColor: #107568;
 $totalTestsColor: #46fce4;
+$regionMenuColor: #4b8078;
 
 .CovidTracker {
   margin-top: 100px;
@@ -33,7 +34,7 @@ $totalTestsColor: #46fce4;
     .region-button {
       margin: 0.5em;
       background-color: white;
-      color: #4b8078;
+      color: $regionMenuColor;
       font-weight: bold;
     }
 
@@ -84,5 +85,12 @@ $totalTestsColor: #46fce4;
   .Graph {
     height: 500px;
     width: 100%;
+  }
+}
+
+#region-menu {
+  a {
+    text-decoration: none;
+    color: $primary;
   }
 }

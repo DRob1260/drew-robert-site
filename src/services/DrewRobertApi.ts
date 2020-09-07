@@ -3,10 +3,13 @@ import axios from "axios";
 import { RegionData } from "../models/CovidTracker/api/RegionData";
 import { Urls } from "../config";
 
-const getIllinoisCovidData = (): Promise<RegionData> => {
+const getStateCovidData = (
+  country: string,
+  state: string
+): Promise<RegionData> => {
   return new Promise<RegionData>((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid/country/usa/state/il`)
+      .get(`${Urls.drewRobertApi}/covid/country/${country}/state/${state}`)
       .then((response) => {
         resolve(response.data);
       })
@@ -16,10 +19,16 @@ const getIllinoisCovidData = (): Promise<RegionData> => {
   });
 };
 
-const getIllinoisCountyCovidData = (county: string): Promise<RegionData> => {
+const getRegionCovidData = (
+  country: string,
+  state: string,
+  region: string
+): Promise<RegionData> => {
   return new Promise<RegionData>((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid/country/usa/state/il/county/${county}`)
+      .get(
+        `${Urls.drewRobertApi}/covid/country/${country}/state/${state}/county/${region}`
+      )
       .then((response) => {
         resolve(response.data);
       })
@@ -29,4 +38,4 @@ const getIllinoisCountyCovidData = (county: string): Promise<RegionData> => {
   });
 };
 
-export { getIllinoisCovidData, getIllinoisCountyCovidData };
+export { getStateCovidData, getRegionCovidData };

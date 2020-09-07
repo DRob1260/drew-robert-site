@@ -45,14 +45,15 @@ const Navigator: React.FunctionComponent = () => {
               Projects
             </Button>
             <Menu
+              id={"projects-menu"}
               open={Boolean(projectsMenuAnchor)}
               anchorEl={projectsMenuAnchor}
               keepMounted={true}
               onClose={() => closeProjectsMenu()}
             >
               <MenuItem onClick={closeProjectsMenu} className={"Link"}>
-                <Link to={"/covid"} className={"Link"}>
-                  <span>COVID-19 Metrics Tracker</span>
+                <Link to={"/covid/usa/il/illinois"} className={"Link"}>
+                  COVID-19 Metrics Tracker
                 </Link>
               </MenuItem>
             </Menu>
