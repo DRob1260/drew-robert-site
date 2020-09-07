@@ -53,7 +53,7 @@ const Navigator: React.FunctionComponent = () => {
               onClose={() => closeProjectsMenu()}
             >
               <MenuItem onClick={closeProjectsMenu} className={"Link"}>
-                <Link to={"/covid/usa/il/illinois"} className={"Link"}>
+                <Link to={"/covid/usa/il/Illinois"} className={"Link"}>
                   COVID-19 Metrics Tracker
                 </Link>
               </MenuItem>
