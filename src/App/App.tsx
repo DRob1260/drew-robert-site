@@ -10,9 +10,16 @@ const App: React.FunctionComponent = () => {
       <BrowserRouter>
         <Navigator />
         <Switch>
-          <Route path={"/covid"}>
-            <CovidTracker />
-          </Route>
+          <Route
+            path={"/covid/:country/:state/:region?"}
+            render={(routeProps) => (
+              <CovidTracker
+                country={routeProps.match.params.country}
+                state={routeProps.match.params.state}
+                region={routeProps.match.params.region}
+              />
+            )}
+          />
           <Route path={"/"}>
             <Home />
           </Route>

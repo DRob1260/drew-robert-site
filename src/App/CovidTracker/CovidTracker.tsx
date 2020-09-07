@@ -12,6 +12,7 @@ import {
   CircularProgress,
   Snackbar,
 } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import {
   buildGraphData,
   buildTotalCasesGraphLine,
@@ -22,8 +23,8 @@ import {
 } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import {
-  getIllinoisCountyCovidData,
-  getIllinoisCovidData,
+  getRegionCovidData,
+  getStateCovidData,
 } from "../../services/DrewRobertApi";
 import "./CovidTracker.scss";
 
@@ -35,9 +36,12 @@ const icon = (selected: boolean) => {
   );
 };
 
-const CovidTracker: React.FunctionComponent = () => {
+const CovidTracker: React.FunctionComponent<{
+  country: string;
+  state: string;
+  region: string;
+}> = ({ country, state, region }) => {
   const [regions, setRegions] = useState<string[]>([]);
-  const [currentRegion, setCurrentRegion] = useState<string>();
   const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<GraphLine>();
   const [totalDeathsGraphLine, setTotalDeathsGraphLine] = useState<GraphLine>();
   const [totalTestsGraphLine, setTotalTestsGraphLine] = useState<GraphLine>();
@@ -52,41 +56,41 @@ const CovidTracker: React.FunctionComponent = () => {
     setRegionMenuAnchor,
   ] = React.useState<HTMLElement | null>(null);
 
-  // initial page load
   useEffect(() => {
     setLoading(true);
-    getIllinoisCovidData()
+    getStateCovidData(country, state)
       .then((regionData) => {
-        const historicalRecords = regionData.historicalRecords;
-        setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
-        setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
-        setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
         setRegions(regionData.region.subRegions);
         setLoading(false);
         setError(false);
       })
       .catch(() => {
+        setLoading(false);
         setError(true);
       });
-  }, []);
+  }, [country, state]);
 
   useEffect(() => {
     setLoading(true);
-    if (currentRegion) {
-      getIllinoisCountyCovidData(currentRegion)
-        .then((regionData) => {
-          const historicalRecords = regionData.historicalRecords;
-          setTotalCasesGraphLine(buildTotalCasesGraphLine(historicalRecords));
-          setTotalDeathsGraphLine(buildTotalDeathsGraphLine(historicalRecords));
-          setTotalTestsGraphLine(buildTotalTestsGraphLines(historicalRecords));
-          setLoading(false);
-          setError(false);
-        })
-        .catch(() => {
-          setError(true);
-        });
-    }
-  }, [currentRegion]);
+    getRegionCovidData(country, state, region)
+      .then((regionData) => {
+        const regionHistoricalRecords = regionData.historicalRecords;
+        setTotalTestsGraphLine(
+          buildTotalTestsGraphLines(regionHistoricalRecords)
+        );
+        setTotalCasesGraphLine(
+          buildTotalCasesGraphLine(regionHistoricalRecords)
+        );
+        setTotalDeathsGraphLine(
+          buildTotalDeathsGraphLine(regionHistoricalRecords)
+        );
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+        setError(true);
+      });
+  }, [country, region, state]);
 
   // when a GraphLine or showTotal* changes
   useEffect(() => {
@@ -110,7 +114,7 @@ const CovidTracker: React.FunctionComponent = () => {
   ]);
 
   return (
-    <div className={"CovidTracker"}>
+    <div className={"CovidTracker"} data-testid={"CovidTracker"}>
       <main>
         <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
         {loading && !error && (
@@ -137,7 +141,7 @@ const CovidTracker: React.FunctionComponent = () => {
             aria-haspopup={"true"}
             onClick={(event) => setRegionMenuAnchor(event.currentTarget)}
           >
-            {currentRegion || "Illinois"}
+            {region || state}
           </Button>
           <Menu
             id={"region-menu"}
@@ -148,21 +152,21 @@ const CovidTracker: React.FunctionComponent = () => {
           >
             <MenuItem
               onClick={() => {
-                setCurrentRegion("Illinois");
                 setRegionMenuAnchor(null);
               }}
             >
-              Illinois
+              <Link to={`/covid/${country}/${state}/Illinois`}>Illinois</Link>
             </MenuItem>
             {regions.map((region) => (
               <MenuItem
                 key={region}
                 onClick={() => {
-                  setCurrentRegion(region);
                   setRegionMenuAnchor(null);
                 }}
               >
-                {region}
+                <Link to={`/covid/${country}/${state}/${region}`}>
+                  {region}
+                </Link>
               </MenuItem>
             ))}
           </Menu>
@@ -201,7 +205,7 @@ const CovidTracker: React.FunctionComponent = () => {
         <div className={"Graph"}>
           <p
             id={"Graph-label"}
-          >{`Graph of COVID-19 data for the ${currentRegion} region.`}</p>
+          >{`Graph of COVID-19 data for the ${region} region.`}</p>
           <ResponsiveLine
             aria-labelledby={"Graph-label"}
             data={graphData}
