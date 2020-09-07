@@ -2,6 +2,10 @@ import React from "react";
 import { axe } from "jest-axe";
 import { render, waitFor, fireEvent } from "@testing-library/react";
 import { CovidTracker } from "./CovidTracker";
+import { rest } from "msw";
+import { Urls } from "../../config";
+import { setupServer } from "msw/native";
+import { IllinoisRegionData } from "../../mocks/CovidTracker/MockRegionData";
 
 // coverage is pretty low for this component, but a lot of the uncovered code is surrounding the nivo graph component
 
@@ -41,5 +45,50 @@ describe("region selection", () => {
     await waitFor(() => expect(queryByText("McLean")).not.toBeNull());
     fireEvent.click(getByText("McLean"));
     expect(regionButton).toHaveTextContent("McLean");
+  });
+});
+
+describe("error handling", () => {
+  test("API call to retrieve Illinois region data fails", async () => {
+    const server = setupServer(
+      rest.get(
+        `${Urls.drewRobertApi}/covid/country/:country/state/:state`,
+        (req, res, ctx) => {
+          return res(ctx.status(200), ctx.body(IllinoisRegionData));
+        }
+      ),
+      rest.get(
+        `${Urls.drewRobertApi}/covid/country/:country/state/:state/county/:county`,
+        (req, res, ctx) => {
+          return res(ctx.status(500));
+        }
+      )
+    );
+    server.listen();
+    const { getByTestId, queryByTestId, queryByText, getByText } = render(
+      <CovidTracker />
+    );
+    const regionButton = getByTestId("region-button");
+    fireEvent.click(regionButton);
+    await waitFor(() => expect(queryByText("McLean")).not.toBeNull());
+    fireEvent.click(getByText("McLean"));
+    await waitFor(() => expect(queryByTestId("error-message")).not.toBeNull());
+    server.resetHandlers();
+    server.close();
+  });
+  test("API call to retrieve Illinois data fails", async () => {
+    const server = setupServer(
+      rest.get(
+        `${Urls.drewRobertApi}/covid/country/:country/state/:state`,
+        (req, res, ctx) => {
+          return res(ctx.status(500));
+        }
+      )
+    );
+    server.listen();
+    const { queryByTestId } = render(<CovidTracker />);
+    await waitFor(() => expect(queryByTestId("error-message")).not.toBeNull());
+    server.resetHandlers();
+    server.close();
   });
 });

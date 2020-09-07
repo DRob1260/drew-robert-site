@@ -45,6 +45,7 @@ const Navigator: React.FunctionComponent = () => {
               Projects
             </Button>
             <Menu
+              data-testid={"projects-menu"}
               id={"projects-menu"}
               open={Boolean(projectsMenuAnchor)}
               anchorEl={projectsMenuAnchor}
