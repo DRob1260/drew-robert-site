@@ -1,15 +1,16 @@
 /* istanbul ignore file */
 import axios from "axios";
-import { RegionData } from "../models/CovidTracker/api/RegionData";
 import { Urls } from "../config";
+import { LocationHistoricalRecordsClass } from "../models/CovidTracker/api/LocationHistoricalRecordsClass";
+import { LocationClass } from "../models/CovidTracker/api/LocationClass";
 
-const getStateCovidData = (
-  country: string,
-  state: string
-): Promise<RegionData> => {
-  return new Promise<RegionData>((resolve, reject) => {
+export const getCountries = (): Promise<{
+  countries: LocationClass[];
+  territory: string;
+}> => {
+  return new Promise((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid/country/${country}/state/${state}`)
+      .get(`${Urls.drewRobertApi}/covid.historicalRecords/country`)
       .then((response) => {
         resolve(response.data);
       })
@@ -19,15 +20,31 @@ const getStateCovidData = (
   });
 };
 
-const getRegionCovidData = (
-  country: string,
-  state: string,
-  region: string
-): Promise<RegionData> => {
-  return new Promise<RegionData>((resolve, reject) => {
+export const getCountryHistoricalRecords = (
+  country: string
+): Promise<LocationHistoricalRecordsClass> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(`${Urls.drewRobertApi}/covid/historicalRecords/country/${country}`)
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const getTerritories = (
+  country: string
+): Promise<{
+  territories: LocationClass[];
+  region: "/";
+}> => {
+  return new Promise((resolve, reject) => {
     axios
       .get(
-        `${Urls.drewRobertApi}/covid/country/${country}/state/${state}/county/${region}`
+        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory`
       )
       .then((response) => {
         resolve(response.data);
@@ -38,4 +55,59 @@ const getRegionCovidData = (
   });
 };
 
-export { getStateCovidData, getRegionCovidData };
+export const getTerritoryHistoricalRecords = (
+  country: string,
+  territory: string
+): Promise<LocationHistoricalRecordsClass> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(
+        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}`
+      )
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const getRegions = (
+  country: string,
+  territory: string
+): Promise<{
+  regions: LocationClass[];
+}> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(
+        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}/region`
+      )
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};
+
+export const getRegionHistoricalRecords = (
+  country: string,
+  territory: string,
+  region: string
+): Promise<LocationHistoricalRecordsClass> => {
+  return new Promise((resolve, reject) => {
+    axios
+      .get(
+        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}/region/${region}`
+      )
+      .then((response) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
+};

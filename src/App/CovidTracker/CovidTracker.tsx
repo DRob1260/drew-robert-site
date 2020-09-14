@@ -23,10 +23,11 @@ import {
 } from "./CovidTrackerUtils";
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import {
-  getRegionCovidData,
-  getStateCovidData,
+  getTerritoryHistoricalRecords,
+  getRegionHistoricalRecords,
 } from "../../services/DrewRobertApi";
 import "./CovidTracker.scss";
+import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
 
 const icon = (selected: boolean) => {
   return selected ? (
@@ -41,7 +42,7 @@ const CovidTracker: React.FunctionComponent<{
   state: string;
   region: string;
 }> = ({ country, state, region }) => {
-  const [regions, setRegions] = useState<string[]>([]);
+  const [regions, setRegions] = useState<LocationClass[]>([]);
   const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<GraphLine>();
   const [totalDeathsGraphLine, setTotalDeathsGraphLine] = useState<GraphLine>();
   const [totalTestsGraphLine, setTotalTestsGraphLine] = useState<GraphLine>();
@@ -58,9 +59,9 @@ const CovidTracker: React.FunctionComponent<{
 
   useEffect(() => {
     setLoading(true);
-    getStateCovidData(country, state)
+    getTerritoryHistoricalRecords(country, state)
       .then((regionData) => {
-        setRegions(regionData.region.subRegions);
+        setRegions(regionData.subLocations);
         setLoading(false);
         setError(false);
       })
@@ -72,7 +73,7 @@ const CovidTracker: React.FunctionComponent<{
 
   useEffect(() => {
     setLoading(true);
-    getRegionCovidData(country, state, region)
+    getRegionHistoricalRecords(country, state, region)
       .then((regionData) => {
         const regionHistoricalRecords = regionData.historicalRecords;
         setTotalTestsGraphLine(
@@ -133,16 +134,19 @@ const CovidTracker: React.FunctionComponent<{
           message={"An error occurred while retrieving COVID-19 data."}
         />
         <div className={"toolbar"}>
-          <Button
-            className={"region-button"}
-            data-testid={"region-button"}
-            variant={"contained"}
-            aria-controls={"region-menu"}
-            aria-haspopup={"true"}
-            onClick={(event) => setRegionMenuAnchor(event.currentTarget)}
-          >
-            {region || state}
-          </Button>
+          <span>
+            {"Region: "}
+            <Button
+              className={"region-button"}
+              data-testid={"region-button"}
+              variant={"contained"}
+              aria-controls={"region-menu"}
+              aria-haspopup={"true"}
+              onClick={(event) => setRegionMenuAnchor(event.currentTarget)}
+            >
+              {region || state}
+            </Button>
+          </span>
           <Menu
             id={"region-menu"}
             anchorEl={regionMenuAnchor}
@@ -159,7 +163,7 @@ const CovidTracker: React.FunctionComponent<{
             </MenuItem>
             {regions.map((region) => (
               <MenuItem
-                key={region}
+                key={region.key}
                 onClick={() => {
                   setRegionMenuAnchor(null);
                 }}
