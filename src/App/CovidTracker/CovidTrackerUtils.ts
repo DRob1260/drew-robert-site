@@ -1,8 +1,12 @@
 import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import { GraphDataPoint } from "../../models/CovidTracker/graph/GraphDataPoint";
 import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
+import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 
-const buildTotalCasesGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
+const buildTotalCasesGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalCasesGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
     return {
       x: formatDate(new Date(apiData.testDate)),
@@ -11,12 +15,19 @@ const buildTotalCasesGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
   });
 
   return {
-    id: "Total Cases",
-    data: totalCasesGraphDataPoints,
+    graphLine: {
+      id: "Total Cases",
+      data: totalCasesGraphDataPoints,
+    },
+    show: show,
+    color: "#00C2AD",
   };
 };
 
-const buildTotalDeathsGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
+const buildTotalDeathsGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalDeathsGraphDataPoints: GraphDataPoint[] = apiData.map(
     (apiData) => {
       return {
@@ -27,12 +38,19 @@ const buildTotalDeathsGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
   );
 
   return {
-    id: "Total Deaths",
-    data: totalDeathsGraphDataPoints,
+    graphLine: {
+      id: "Total Deaths",
+      data: totalDeathsGraphDataPoints,
+    },
+    show: show,
+    color: "#107568",
   };
 };
 
-const buildTotalTestsGraphLines = (apiData: HistoricalRecord[]): GraphLine => {
+const buildTotalTestsGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalTestsGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
     return {
       x: formatDate(new Date(apiData.testDate)),
@@ -41,8 +59,12 @@ const buildTotalTestsGraphLines = (apiData: HistoricalRecord[]): GraphLine => {
   });
 
   return {
-    id: "Total Tests",
-    data: totalTestsGraphDataPoints,
+    graphLine: {
+      id: "Total Tests",
+      data: totalTestsGraphDataPoints,
+    },
+    show: show,
+    color: "#46FCE4",
   };
 };
 
@@ -93,9 +115,9 @@ const formatNumber = (num: number): string => {
 };
 
 export {
-  buildTotalCasesGraphLine,
-  buildTotalDeathsGraphLine,
-  buildTotalTestsGraphLines,
+  buildTotalCasesGraphLineWithProperties,
+  buildTotalDeathsGraphLineWithProperties,
+  buildTotalTestsGraphLineWithProperties,
   buildGraphData,
   buildGraphColors,
   formatNumber,

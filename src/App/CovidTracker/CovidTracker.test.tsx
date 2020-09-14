@@ -15,7 +15,7 @@ it("is accessible", async () => {
     <BrowserRouter>
       <CovidTracker
         country={"usa"}
-        state={"il"}
+        territory={"il"}
         region={IllinoisRegionData.region.name}
       />
     </BrowserRouter>
@@ -31,7 +31,7 @@ it("shows a loading indicator while fetching COVID data", async () => {
     <BrowserRouter>
       <CovidTracker
         country={"usa"}
-        state={"il"}
+        territory={"il"}
         region={IllinoisRegionData.region.name}
       />
     </BrowserRouter>
@@ -47,7 +47,7 @@ describe("region selection", () => {
       <BrowserRouter>
         <CovidTracker
           country={"usa"}
-          state={"il"}
+          territory={"il"}
           region={IllinoisRegionData.region.subRegions[0]}
         />
       </BrowserRouter>
@@ -62,7 +62,7 @@ describe("region selection", () => {
       <BrowserRouter>
         <CovidTracker
           country={"usa"}
-          state={"il"}
+          territory={"il"}
           region={IllinoisRegionData.region.name}
         />
       </BrowserRouter>
@@ -77,7 +77,7 @@ describe("region selection", () => {
       <BrowserRouter>
         <CovidTracker
           country={"usa"}
-          state={"il"}
+          territory={"il"}
           region={IllinoisRegionData.region.name}
         />
       </BrowserRouter>
@@ -113,7 +113,7 @@ describe("error handling", () => {
       <BrowserRouter>
         <CovidTracker
           country={"usa"}
-          state={"il"}
+          territory={"il"}
           region={IllinoisRegionData.region.name}
         />
       </BrowserRouter>
@@ -140,7 +140,7 @@ describe("error handling", () => {
       <BrowserRouter>
         <CovidTracker
           country={"usa"}
-          state={"il"}
+          territory={"il"}
           region={IllinoisRegionData.region.name}
         />
       </BrowserRouter>

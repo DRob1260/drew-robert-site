@@ -10,7 +10,7 @@ export const getCountries = (): Promise<{
 }> => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid.historicalRecords/country`)
+      .get(`${Urls.drewRobertApi}/covid/historicalRecords/country`)
       .then((response) => {
         resolve(response.data);
       })

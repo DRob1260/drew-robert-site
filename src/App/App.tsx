@@ -15,7 +15,7 @@ const App: React.FunctionComponent = () => {
             render={(routeProps) => (
               <CovidTracker
                 country={routeProps.match.params.country}
-                state={routeProps.match.params.state}
+                territory={routeProps.match.params.state}
                 region={routeProps.match.params.region}
               />
             )}

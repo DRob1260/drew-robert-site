@@ -1,7 +1,7 @@
 import {
-  buildTotalCasesGraphLine,
+  buildTotalCasesGraphLineWithProperties,
   buildTotalDeathsGraphLine,
-  buildTotalTestsGraphLines,
+  buildTotalTestsGraphLine,
   buildGraphData,
   buildGraphColors,
   formatNumber,
@@ -12,7 +12,7 @@ import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 describe("building graph lines", () => {
   test("buildTotalCasesGraphLine", () => {
     expect(
-      buildTotalCasesGraphLine(IllinoisRegionData.historicalRecords)
+      buildTotalCasesGraphLineWithProperties(IllinoisRegionData.historicalRecords)
     ).toEqual(expectedTotalCasesGraphLine);
   });
   test("buildTotalDeathsGraphLine", () => {
@@ -22,7 +22,7 @@ describe("building graph lines", () => {
   });
   test("buildTotalTestsGraphLine", () => {
     expect(
-      buildTotalTestsGraphLines(IllinoisRegionData.historicalRecords)
+      buildTotalTestsGraphLine(IllinoisRegionData.historicalRecords)
     ).toEqual(expectedTotalTestsGraphLine);
   });
 });
