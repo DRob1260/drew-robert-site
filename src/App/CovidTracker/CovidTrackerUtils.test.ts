@@ -12,7 +12,9 @@ import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 describe("building graph lines", () => {
   test("buildTotalCasesGraphLine", () => {
     expect(
-      buildTotalCasesGraphLineWithProperties(IllinoisRegionData.historicalRecords)
+      buildTotalCasesGraphLineWithProperties(
+        IllinoisRegionData.historicalRecords
+      )
     ).toEqual(expectedTotalCasesGraphLine);
   });
   test("buildTotalDeathsGraphLine", () => {

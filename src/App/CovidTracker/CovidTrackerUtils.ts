@@ -68,28 +68,6 @@ const buildTotalTestsGraphLineWithProperties = (
   };
 };
 
-const buildGraphData = (
-  showTotalCases: boolean,
-  showTotalDeaths: boolean,
-  showTotalTests: boolean,
-  totalCasesGraphLine: GraphLine | undefined,
-  totalDeathsGraphLine: GraphLine | undefined,
-  totalTestsGraphLine: GraphLine | undefined
-): GraphLine[] => {
-  const graphLines: GraphLine[] = [];
-
-  if (showTotalCases && totalCasesGraphLine)
-    graphLines.push(totalCasesGraphLine);
-
-  if (showTotalDeaths && totalDeathsGraphLine)
-    graphLines.push(totalDeathsGraphLine);
-
-  if (showTotalTests && totalTestsGraphLine)
-    graphLines.push(totalTestsGraphLine);
-
-  return graphLines;
-};
-
 const buildGraphColors = (
   showTotalCases: boolean,
   showTotalDeaths: boolean,
@@ -118,7 +96,6 @@ export {
   buildTotalCasesGraphLineWithProperties,
   buildTotalDeathsGraphLineWithProperties,
   buildTotalTestsGraphLineWithProperties,
-  buildGraphData,
   buildGraphColors,
   formatNumber,
 };
