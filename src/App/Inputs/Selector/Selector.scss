@@ -1,5 +1,19 @@
+$selectorColor: #4b8078;
+
 .Selector {
-  .MuiSelect-root {
-    min-width: 100px;
+  min-width: 100px;
+  .MuiFormControl-root {
+    width: 100%;
+    color: $selectorColor;
+  }
+
+  .MuiFormLabel-root.Mui-focused {
+    color: $selectorColor;
+  }
+  .MuiInputBase-root {
+    color: $selectorColor;
+  }
+  .MuiInput-underline:after {
+    border-bottom-color: $selectorColor;
   }
 }

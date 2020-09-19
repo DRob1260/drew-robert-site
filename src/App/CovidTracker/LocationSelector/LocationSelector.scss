@@ -1,7 +1,10 @@
 .LocationSelector {
   width: 100%;
-
-  .MuiFormControl-root {
-    min-width: 200px;
+  padding: 0;
+  margin: 0;
+  .Selector {
+    width: 250px;
+    float: left;
+    margin: 5px;
   }
 }

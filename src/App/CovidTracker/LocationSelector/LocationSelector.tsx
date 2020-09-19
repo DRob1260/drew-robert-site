@@ -3,9 +3,9 @@ import "./LocationSelector.scss";
 import { Selector, SelectorValues } from "../../Inputs/Selector/Selector";
 
 export interface LocationSelectorProps {
-  countryValues: SelectorValues;
-  territoryValues: SelectorValues;
-  regionValues: SelectorValues;
+  countryValues: SelectorValues | undefined;
+  territoryValues: SelectorValues | undefined;
+  regionValues: SelectorValues | undefined;
 }
 
 export const LocationSelector: React.FunctionComponent<LocationSelectorProps> = ({
@@ -15,24 +15,31 @@ export const LocationSelector: React.FunctionComponent<LocationSelectorProps> = 
 }) => {
   return (
     <div className={"LocationSelector"}>
-      <Selector
-        selectorValues={countryValues}
-        selectorConfiguration={{
-          label: "Country",
-        }}
-      />
-      <Selector
-        selectorValues={territoryValues}
-        selectorConfiguration={{
-          label: "Territory",
-        }}
-      />
-      <Selector
-        selectorValues={regionValues}
-        selectorConfiguration={{
-          label: "Region",
-        }}
-      />
+      {countryValues && (
+        <Selector
+          selectorValues={countryValues}
+          selectorConfiguration={{
+            label: "Country",
+          }}
+        />
+      )}
+      {territoryValues && (
+        <Selector
+          selectorValues={territoryValues}
+          selectorConfiguration={{
+            label: "Territory",
+          }}
+        />
+      )}
+      {regionValues && (
+        <Selector
+          selectorValues={regionValues}
+          selectorConfiguration={{
+            label: "Region",
+            noValue: "None",
+          }}
+        />
+      )}
     </div>
   );
 };

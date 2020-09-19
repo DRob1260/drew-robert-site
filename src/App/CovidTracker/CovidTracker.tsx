@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ResponsiveLine } from "@nivo/line";
 import {
   RadioButtonCheckedRounded,
   RadioButtonUncheckedRounded,
@@ -8,19 +7,15 @@ import {
   Chip,
   CircularProgress,
   Snackbar,
-  Card,
-  CardContent,
   Typography,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {
+  buildLocationSelectorValues,
   buildTotalCasesGraphLineWithProperties,
-  buildGraphColors,
-  formatNumber,
   buildTotalDeathsGraphLineWithProperties,
   buildTotalTestsGraphLineWithProperties,
 } from "./CovidTrackerUtils";
-import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import {
   getTerritoryHistoricalRecords,
   getRegionHistoricalRecords,
@@ -29,11 +24,12 @@ import {
   getRegions,
   getCountryHistoricalRecords,
 } from "../../services/DrewRobertApi";
-import "./CovidTracker.scss";
-import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
 import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineGraph";
+import { LocationSelector } from "./LocationSelector/LocationSelector";
+import "./CovidTracker.scss";
+import { SelectorValues, Value } from "../Inputs/Selector/Selector";
 
 const icon = (selected: boolean) => {
   return selected ? (
@@ -54,10 +50,24 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   territory,
   region,
 }) => {
-  const [countries, setCountries] = useState<LocationClass[]>([]);
-  const [territories, setTerritories] = useState<LocationClass[]>([]);
-  const [regions, setRegions] = useState<LocationClass[]>([]);
-  const [locations, setLocations] = useState<LocationClass[]>([]);
+  const [currentCountryValue, setCurrentCountryValue] = useState<
+    Value | undefined
+  >();
+  const [countrySelectorValues, setCountrySelectorValues] = useState<
+    SelectorValues
+  >();
+  const [currentTerritoryValue, setCurrentTerritoryValue] = useState<
+    Value | undefined
+  >();
+  const [territorySelectorValues, setTerritorySelectorValues] = useState<
+    SelectorValues
+  >();
+  const [currentRegionValue, setCurrentRegionValue] = useState<
+    Value | undefined
+  >();
+  const [regionSelectorValues, setRegionSelectorValues] = useState<
+    SelectorValues
+  >();
   const [locationHistoricalRecords, setLocationHistoricalRecords] = useState<
     LocationHistoricalRecordsClass
   >();
@@ -77,48 +87,107 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  const history = useHistory();
+
+  // retrieve countries
   useEffect(() => {
     getCountries().then((response) => {
-      setCountries(response.countries);
+      const countryLocationClass = response.countries.find(
+        (c) => c.key === country
+      );
+      setCountrySelectorValues(
+        buildLocationSelectorValues(
+          countryLocationClass,
+          setCurrentCountryValue,
+          response.countries
+        )
+      );
     });
-  }, []);
-
-  useEffect(() => {
-    getTerritories(country).then((response) => {
-      setTerritories(response.territories);
-    });
-    setLoading(true);
-    getCountryHistoricalRecords(country).then((response) => {
-      setLocationHistoricalRecords(response);
-    });
-    setLoading(false);
   }, [country]);
 
+  // retrieve territories
+  useEffect(() => {
+    getTerritories(country).then((response) => {
+      const territoryLocationClass = response.territories.find(
+        (t) => t.key === territory
+      );
+      setTerritorySelectorValues(
+        buildLocationSelectorValues(
+          territoryLocationClass,
+          setCurrentTerritoryValue,
+          response.territories
+        )
+      );
+    });
+  }, [country, territory]);
+
+  // retrieve regions
   useEffect(() => {
     if (territory) {
       getRegions(country, territory).then((response) => {
-        setRegions(response.regions);
+        const regionLocationClass = response.regions.find(
+          (r) => r.key === region
+        );
+        setRegionSelectorValues(
+          buildLocationSelectorValues(
+            regionLocationClass,
+            setCurrentRegionValue,
+            response.regions
+          )
+        );
       });
+    }
+  }, [country, region, territory]);
+
+  // retrieve countryHistoricalRecords
+  useEffect(() => {
+    if (!territory) {
       setLoading(true);
-      getTerritoryHistoricalRecords(country, territory).then((response) => {
-        setLocationHistoricalRecords(response);
-      });
-      setLoading(false);
+      getCountryHistoricalRecords(country)
+        .then((response) => {
+          setLocationHistoricalRecords(response);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+          setError(true);
+        });
     }
   }, [country, territory]);
 
+  // retrieve territoryHistoricalRecords
+  useEffect(() => {
+    if (territory && !region) {
+      setLoading(true);
+      getTerritoryHistoricalRecords(country, territory)
+        .then((response) => {
+          setLocationHistoricalRecords(response);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+          setError(true);
+        });
+    }
+  }, [country, region, territory]);
+
+  // retrieve regionHistoricalRecords
   useEffect(() => {
     if (territory && region) {
       setLoading(true);
-      getRegionHistoricalRecords(country, territory, region).then(
-        (response) => {
+      getRegionHistoricalRecords(country, territory, region)
+        .then((response) => {
           setLocationHistoricalRecords(response);
-        }
-      );
-      setLoading(false);
+          setLoading(false);
+        })
+        .catch(() => {
+          setLoading(false);
+          setError(true);
+        });
     }
   }, [territory, region, country]);
 
+  // set graphLines
   useEffect(() => {
     if (locationHistoricalRecords) {
       const records = locationHistoricalRecords.historicalRecords;
@@ -139,6 +208,7 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     showTotalTests,
   ]);
 
+  // set graphData
   useEffect(() => {
     const newGraphData: GraphLineWithProperties[] = [];
     if (totalDeathsGraphLine) newGraphData.push(totalDeathsGraphLine);
@@ -146,6 +216,40 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     if (totalTestsGraphLine) newGraphData.push(totalTestsGraphLine);
     setGraphData(newGraphData);
   }, [totalDeathsGraphLine, totalCasesGraphLine, totalTestsGraphLine]);
+
+  // route to path for location changes
+  useEffect(() => {
+    if (currentCountryValue && currentTerritoryValue) {
+      // if currentRegionValue is unset
+      if (!currentRegionValue && region) {
+        history.push(
+          `/covid/${currentCountryValue.key}/${currentTerritoryValue.key}`
+        );
+      }
+      if (currentRegionValue && currentRegionValue.key !== region)
+        history.push(
+          `/covid/${currentCountryValue.key}/${currentTerritoryValue.key}/${currentRegionValue.key}`
+        );
+    } else if (
+      currentCountryValue &&
+      currentTerritoryValue &&
+      currentTerritoryValue.key !== territory
+    ) {
+      history.push(
+        `/covid/${currentCountryValue.key}/${currentTerritoryValue.key}`
+      );
+    } else if (currentCountryValue && currentCountryValue.key !== country) {
+      history.push(`/covid/${currentCountryValue.key}`);
+    }
+  }, [
+    country,
+    currentCountryValue,
+    currentRegionValue,
+    currentTerritoryValue,
+    history,
+    region,
+    territory,
+  ]);
 
   return (
     <div className={"CovidTracker"} data-testid={"CovidTracker"}>
@@ -167,7 +271,12 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
           message={"An error occurred while retrieving COVID-19 data."}
         />
         <div className={"toolbar"}>
-          <div>
+          <LocationSelector
+            countryValues={countrySelectorValues}
+            territoryValues={territorySelectorValues}
+            regionValues={regionSelectorValues}
+          />
+          <div id={"Chips"}>
             <Chip
               className={`Chip totalDeaths ${
                 showTotalDeaths ? "selected" : ""
@@ -206,7 +315,6 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
               </Typography>
             )}
         </div>
-        <div></div>
         <div>
           <CovidTrackerLineGraph
             location={locationHistoricalRecords?.location.name || "Unknown"}
