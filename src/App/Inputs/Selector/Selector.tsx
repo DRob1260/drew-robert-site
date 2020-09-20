@@ -54,6 +54,7 @@ export const Selector: React.FunctionComponent<SelectorProps> = ({
         </InputLabel>
         <Select
           labelId={`Selector-${selectorConfiguration.label}-label`}
+          data-testid={"Selector-Select"}
           value={currentValueKey}
           onChange={handleChange}
         >

@@ -1,6 +1,7 @@
 import React from "react";
 import { Selector, SelectorProps } from "./Selector";
 import { Story } from "@storybook/react";
+import { selectorValues } from "../../../data/Inputs/Selector/SelectorValues";
 
 export default {
   title: "Selector",
@@ -9,34 +10,22 @@ export default {
 
 const Template: Story<SelectorProps> = (args) => <Selector {...args} />;
 
-export const SelectorWithValues = Template.bind({});
-SelectorWithValues.args = {
+export const SelectorWithoutValueSelected = Template.bind({});
+SelectorWithoutValueSelected.args = {
   selectorConfiguration: {
     label: "Colors",
   },
-  selectorValues: {
-    values: [
-      {
-        name: "Red",
-        key: "red",
-        value: { color: "red" },
-      },
-      {
-        name: "Blue",
-        key: "blue",
-        value: { color: "blue" },
-      },
-      {
-        name: "Yellow",
-        key: "yellow",
-        value: { color: "yellow" },
-      },
-    ],
-    current: {
-      name: "Red",
-      key: "red",
-      value: { color: "red" },
-    },
-    setCurrent: (value) => alert(`You selected ${value}`),
-  },
+  selectorValues: selectorValues,
 };
+
+const selectorValuesWithValueSelected = selectorValues;
+selectorValuesWithValueSelected.current =
+  selectorValuesWithValueSelected.values[0];
+export const SelectorWithValueSelected = Template.bind({});
+SelectorWithValueSelected.args = {
+  selectorConfiguration: {
+    label: "Colors",
+  },
+  selectorValues: selectorValuesWithValueSelected,
+};
+
