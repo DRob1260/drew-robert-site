@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export class LocationClass {
   key: string;
   name: string;

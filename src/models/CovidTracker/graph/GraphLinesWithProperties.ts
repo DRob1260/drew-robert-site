@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { GraphLine } from "./GraphLine";
 
 export interface GraphLineWithProperties {

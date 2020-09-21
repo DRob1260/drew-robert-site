@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { GraphLineWithProperties } from "../../../models/CovidTracker/graph/GraphLinesWithProperties";
 
 export const graphLineWithPropertiesList: GraphLineWithProperties[] = [

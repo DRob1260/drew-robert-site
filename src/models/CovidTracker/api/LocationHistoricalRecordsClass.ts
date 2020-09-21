@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { LocationClass } from "./LocationClass";
 
 export class LocationHistoricalRecordsClass {

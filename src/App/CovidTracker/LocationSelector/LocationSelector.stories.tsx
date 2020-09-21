@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import { LocationSelector, LocationSelectorProps } from "./LocationSelector";
 import { Story } from "@storybook/react";

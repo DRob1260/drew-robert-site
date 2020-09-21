@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 export const unitedStatesHistoricalRecords = {
   location: {
     name: "United States of America",

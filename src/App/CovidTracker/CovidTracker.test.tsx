@@ -2,12 +2,7 @@ import React from "react";
 import { axe } from "jest-axe";
 import { render, waitFor, fireEvent } from "@testing-library/react";
 import { CovidTracker } from "./CovidTracker";
-import { rest } from "msw";
-import { Urls } from "../../config";
-import { setupServer } from "msw/native";
 import { BrowserRouter } from "react-router-dom";
-
-// coverage is pretty low for this component, but a lot of the uncovered code is surrounding the nivo graph component
 
 it("is accessible", async () => {
   const { container, getByTestId } = render(

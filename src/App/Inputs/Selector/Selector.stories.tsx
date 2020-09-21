@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import { Selector, SelectorProps, SelectorValues } from "./Selector";
 import { Story } from "@storybook/react";

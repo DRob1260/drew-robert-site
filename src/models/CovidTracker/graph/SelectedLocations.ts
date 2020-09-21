@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { LocationClass } from "../api/LocationClass";
 
 export interface SelectedLocations {

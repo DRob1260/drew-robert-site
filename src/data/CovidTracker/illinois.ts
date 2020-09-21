@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
 import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
 

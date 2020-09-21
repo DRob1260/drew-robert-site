@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import { SelectorValues } from "../../../App/Inputs/Selector/Selector";
 
 export const selectorValues: SelectorValues = {
