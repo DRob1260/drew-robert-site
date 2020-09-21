@@ -1,5 +1,5 @@
 import React from "react";
-import { Selector, SelectorProps } from "./Selector";
+import { Selector, SelectorProps, SelectorValues } from "./Selector";
 import { Story } from "@storybook/react";
 import { selectorValues } from "../../../data/Inputs/Selector/SelectorValues";
 
@@ -27,9 +27,11 @@ SelectorWithoutValueSelected.args = {
   selectorValues: selectorValues,
 };
 
-const selectorValuesWithValueSelected = selectorValues;
-selectorValuesWithValueSelected.current =
-  selectorValuesWithValueSelected.values[0];
+const selectorValuesWithValueSelected: SelectorValues = {
+  values: selectorValues.values,
+  current: selectorValues.values[0],
+  setCurrent: () => {},
+};
 export const SelectorWithValueSelected = Template.bind({});
 SelectorWithValueSelected.args = {
   selectorConfiguration: {
