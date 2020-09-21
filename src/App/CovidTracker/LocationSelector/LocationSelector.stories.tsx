@@ -1,8 +1,11 @@
 import React from "react";
 import { LocationSelector, LocationSelectorProps } from "./LocationSelector";
 import { Story } from "@storybook/react";
-import { SelectedLocations } from "../../../models/CovidTracker/graph/SelectedLocations";
-import { Value } from "../../Inputs/Selector/Selector";
+import {
+  countryValues,
+  regionValues,
+  territoryValues,
+} from "../../../data/CovidTracker/LocationSelector/LocationSelector";
 
 export default {
   title: "LocationSelector",
@@ -13,87 +16,28 @@ const Template: Story<LocationSelectorProps> = (args) => (
   <LocationSelector {...args} />
 );
 
-export const LocationSelectorWithValues = Template.bind({});
-LocationSelectorWithValues.args = {
-  countryValues: {
-    values: [
-      {
-        name: "United States of America",
-        key: "unitedstates",
-        value: {
-          name: "United States of America",
-          key: "unitedstates",
-          source: { name: "", apiUrl: "", infoUrl: "" },
-        },
-      },
-    ],
-    current: {
-      name: "United States of America",
-      key: "unitedstates",
-      value: {
-        name: "United States of America",
-        key: "unitedstates",
-        source: { name: "", apiUrl: "", infoUrl: "" },
-      },
-    },
-    setCurrent: (value) => alert(value),
-  },
-  territoryValues: {
-    values: [
-      {
-        name: "Illinois",
-        key: "illinois",
-        value: {
-          name: "Illinois",
-          key: "illinois",
-          source: {
-            name: "Illinois Department of Public Health",
-            apiUrl:
-              "https://www.dph.illinois.gov/sitefiles/COVIDHistoricalTestResults.json?nocache=1",
-            infoUrl: "https://www.dph.illinois.gov/covid19/covid19-statistics",
-          },
-        },
-      },
-    ],
-    current: {
-      name: "Illinois",
-      key: "illinois",
-      value: {
-        name: "Illinois",
-        key: "illinois",
-        source: {
-          name: "Illinois Department of Public Health",
-          apiUrl:
-            "https://www.dph.illinois.gov/sitefiles/COVIDHistoricalTestResults.json?nocache=1",
-          infoUrl: "https://www.dph.illinois.gov/covid19/covid19-statistics",
-        },
-      },
-    },
-    setCurrent: (value) => alert(value),
-  },
-  regionValues: {
-    values: [
-      {
-        name: "McLean",
-        key: "mclean",
-        value: {
-          name: "Illinois Department of Public Health",
-          apiUrl:
-            "https://www.dph.illinois.gov/sitefiles/COVIDHistoricalTestResults.json?nocache=1",
-          infoUrl: "https://www.dph.illinois.gov/covid19/covid19-statistics",
-        },
-      },
-    ],
-    current: {
-      name: "McLean",
-      key: "mclean",
-      value: {
-        name: "Illinois Department of Public Health",
-        apiUrl:
-          "https://www.dph.illinois.gov/sitefiles/COVIDHistoricalTestResults.json?nocache=1",
-        infoUrl: "https://www.dph.illinois.gov/covid19/covid19-statistics",
-      },
-    },
-    setCurrent: (value) => alert(value),
-  },
+export const LocationSelectorDefault = Template.bind({});
+
+export const LocationSelectorWithOnlyCountry = Template.bind({});
+LocationSelectorWithOnlyCountry.args = {
+  countryValues: countryValues,
+  territoryValues: undefined,
+  regionValues: undefined,
+};
+
+const countryValuesWithNoCurrent = {
+  values: countryValues.values,
+  current: undefined,
+  setCurrent: () => {},
+};
+export const LocationSelectorWithNoCountrySelected = Template.bind({});
+LocationSelectorWithNoCountrySelected.args = {
+  countryValues: countryValuesWithNoCurrent,
+};
+
+export const LocationSelectorWithAllValuesSelected = Template.bind({});
+LocationSelectorWithAllValuesSelected.args = {
+  countryValues: countryValues,
+  territoryValues: territoryValues,
+  regionValues: regionValues,
 };

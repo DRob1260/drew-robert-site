@@ -17,6 +17,7 @@ export const LocationSelector: React.FunctionComponent<LocationSelectorProps> = 
     <div className={"LocationSelector"}>
       {countryValues && (
         <Selector
+          data-testid={"LocationSelector-Country"}
           selectorValues={countryValues}
           selectorConfiguration={{
             label: "Country",
@@ -25,6 +26,7 @@ export const LocationSelector: React.FunctionComponent<LocationSelectorProps> = 
       )}
       {territoryValues && (
         <Selector
+          data-testid={"LocationSelector-Territory"}
           selectorValues={territoryValues}
           selectorConfiguration={{
             label: "Territory",
@@ -33,6 +35,7 @@ export const LocationSelector: React.FunctionComponent<LocationSelectorProps> = 
       )}
       {regionValues && (
         <Selector
+          data-testid={"LocationSelector-Region"}
           selectorValues={regionValues}
           selectorConfiguration={{
             label: "Region",
