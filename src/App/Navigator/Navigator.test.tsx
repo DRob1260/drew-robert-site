@@ -61,6 +61,6 @@ describe("projects menu", () => {
     fireEvent.click(getByTestId("Navigator-projects"));
     fireEvent.click(getByText("COVID-19 Metrics Tracker"));
     const path = document.location.pathname;
-    expect(path).toEqual("/covid/usa/il/Illinois");
+    expect(path).toEqual("/covid/unitedstates/illinois");
   });
 });
