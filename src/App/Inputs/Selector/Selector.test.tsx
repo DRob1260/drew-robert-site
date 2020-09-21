@@ -1,5 +1,5 @@
 import React from "react";
-import { Selector, SelectorProps } from "./Selector";
+import { Selector, SelectorProps, SelectorValues } from "./Selector";
 import { axe } from "jest-axe";
 import { render, waitFor, fireEvent } from "@testing-library/react";
 import { selectorValues } from "../../../data/Inputs/Selector/SelectorValues";
@@ -55,11 +55,60 @@ test("selectorConfiguration", async () => {
       selectorValues={selectorValues}
     />
   );
+  // test label
   expect(queryByText(selectorProps.selectorConfiguration.label)).not.toBeNull();
-  fireEvent.click(getByTestId("Selector-Select"));
-  await waitFor(() =>
-    expect(
-      queryByText(selectorProps.selectorConfiguration.noValue)
-    ).not.toBeNull()
+  // test noValue
+  fireEvent.change(getByTestId("Selector-Select"), {
+    target: { value: "yellow" },
+  });
+  await waitFor(() => expect(queryByText("Yellow")).not.toBeNull());
+  fireEvent.change(getByTestId("Selector-Select"), {
+    target: { value: "" },
+  });
+  await waitFor(() => expect(queryByText("Yellow")).toBeNull());
+});
+
+test("selectorValues", async () => {
+  const setCurrent = jest.fn();
+  const selectorValues: SelectorValues = {
+    values: [
+      {
+        name: "Thing 1",
+        key: "thing1",
+        value: { my: "value1" },
+      },
+      {
+        name: "Thing 2",
+        key: "thing2",
+        value: { my: "value2" },
+      },
+    ],
+    current: {
+      name: "Thing 1",
+      key: "thing1",
+      value: { my: "value1" },
+    },
+    setCurrent: setCurrent,
+  };
+  const { queryByText, getByTestId } = render(
+    <Selector
+      selectorValues={selectorValues}
+      selectorConfiguration={{
+        label: "Things",
+      }}
+    />
   );
+  expect(queryByText("Thing 1")).not.toBeNull();
+  fireEvent.change(getByTestId("Selector-Select"), {
+    target: { value: "thing2" },
+  });
+  await waitFor(() => {
+    expect(queryByText("Thing 1")).toBeNull();
+    expect(queryByText("Thing 2")).not.toBeNull();
+  });
+  expect(setCurrent).toBeCalledWith({
+    name: "Thing 2",
+    key: "thing2",
+    value: { my: "value2" },
+  });
 });

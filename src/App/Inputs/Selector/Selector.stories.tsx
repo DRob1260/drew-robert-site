@@ -10,6 +10,15 @@ export default {
 
 const Template: Story<SelectorProps> = (args) => <Selector {...args} />;
 
+export const SelectorWithNoValueOption = Template.bind({});
+SelectorWithNoValueOption.args = {
+  selectorConfiguration: {
+    label: "Colors",
+    noValue: "None",
+  },
+  selectorValues: selectorValues,
+};
+
 export const SelectorWithoutValueSelected = Template.bind({});
 SelectorWithoutValueSelected.args = {
   selectorConfiguration: {
@@ -28,4 +37,3 @@ SelectorWithValueSelected.args = {
   },
   selectorValues: selectorValuesWithValueSelected,
 };
-
