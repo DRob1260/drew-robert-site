@@ -28,8 +28,8 @@ export const Selector: React.FunctionComponent<SelectorProps> = ({
   selectorConfiguration,
   selectorValues,
 }) => {
-  const [currentValueKey, setCurrentValueKey] = useState<string | undefined>(
-    selectorValues.current?.key
+  const [currentValueKey, setCurrentValueKey] = useState<string>(
+    selectorValues.current?.key || ""
   );
 
   useEffect(() => {
@@ -54,12 +54,19 @@ export const Selector: React.FunctionComponent<SelectorProps> = ({
         </InputLabel>
         <Select
           labelId={`Selector-${selectorConfiguration.label}-label`}
-          data-testid={"Selector-Select"}
           value={currentValueKey}
           onChange={handleChange}
+          autoWidth={true}
+          inputProps={{
+            "data-testid": "Selector-Select",
+          }}
         >
           {selectorConfiguration.noValue && (
-            <MenuItem key={undefined} value={undefined}>
+            <MenuItem
+              key={undefined}
+              value={""}
+              data-testid={"Selector-noValue"}
+            >
               {selectorConfiguration.noValue}
             </MenuItem>
           )}
