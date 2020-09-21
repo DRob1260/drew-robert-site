@@ -2,24 +2,62 @@
 import { rest } from "msw";
 import { Urls } from "../config";
 import {
-  IllinoisRegionData,
-  IllinoisCountyRegionData,
-} from "./CovidTracker/MockRegionData";
+  countries,
+  illinoisRegions,
+  unitedStatesTerritories,
+} from "./covid/Locations";
+import {
+  illinoisHistoricalRecords,
+  mcleanHistoricalRecords,
+  unitedStatesHistoricalRecords,
+} from "./covid/HistoricalRecords";
 
 export const handlers = [
-  // getIllinoisCovidData
+  // getCountries
   rest.get(
-    `${Urls.drewRobertApi}/covid/country/:country/state/:state`,
+    `${Urls.drewRobertApi}/covid/historicalRecords/country`,
     (req, res, ctx) => {
-      return res(ctx.status(200), ctx.body(IllinoisRegionData));
+      return res(ctx.status(200), ctx.body(countries));
     }
   ),
 
-  // getIllinoisCountyCovidData
+  // getTerritories
   rest.get(
-    `${Urls.drewRobertApi}/covid/country/:country/state/:state/county/:county`,
+    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory`,
     (req, res, ctx) => {
-      return res(ctx.status(200), ctx.body(IllinoisCountyRegionData));
+      return res(ctx.status(200), ctx.body(unitedStatesTerritories));
+    }
+  ),
+
+  // getRegions
+  rest.get(
+    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory/region`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.body(illinoisRegions));
+    }
+  ),
+
+  //getCountryHistoricalRecords
+  rest.get(
+    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.body(unitedStatesHistoricalRecords));
+    }
+  ),
+
+  // getTerritoryHistoricalRecords
+  rest.get(
+    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.body(illinoisHistoricalRecords));
+    }
+  ),
+
+  // getRegionHistoricalRecords
+  rest.get(
+    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory/region/:region`,
+    (req, res, ctx) => {
+      return res(ctx.status(200), ctx.body(mcleanHistoricalRecords));
     }
   ),
 ];

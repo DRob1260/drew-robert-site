@@ -31,11 +31,13 @@ $regionMenuColor: #4b8078;
   .toolbar {
     margin-left: 10px;
 
-    .region-button {
-      margin: 0.5em;
-      background-color: white;
-      color: $regionMenuColor;
-      font-weight: bold;
+    .LocationSelector {
+      width: 100%;
+      overflow: auto;
+    }
+
+    #Chips {
+      width: 100%;
     }
 
     .Chip {
@@ -85,12 +87,5 @@ $regionMenuColor: #4b8078;
   .Graph {
     height: 500px;
     width: 100%;
-  }
-}
-
-#region-menu {
-  a {
-    text-decoration: none;
-    color: $primary;
   }
 }

@@ -1,8 +1,13 @@
-import { GraphLine } from "../../models/CovidTracker/graph/GraphLine";
 import { GraphDataPoint } from "../../models/CovidTracker/graph/GraphDataPoint";
 import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
+import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
+import { SelectorValues, Value } from "../Inputs/Selector/Selector";
+import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
 
-const buildTotalCasesGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
+export const buildTotalCasesGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalCasesGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
     return {
       x: formatDate(new Date(apiData.testDate)),
@@ -11,12 +16,19 @@ const buildTotalCasesGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
   });
 
   return {
-    id: "Total Cases",
-    data: totalCasesGraphDataPoints,
+    graphLine: {
+      id: "Total Cases",
+      data: totalCasesGraphDataPoints,
+    },
+    show: show,
+    color: "#00C2AD",
   };
 };
 
-const buildTotalDeathsGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
+export const buildTotalDeathsGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalDeathsGraphDataPoints: GraphDataPoint[] = apiData.map(
     (apiData) => {
       return {
@@ -27,12 +39,19 @@ const buildTotalDeathsGraphLine = (apiData: HistoricalRecord[]): GraphLine => {
   );
 
   return {
-    id: "Total Deaths",
-    data: totalDeathsGraphDataPoints,
+    graphLine: {
+      id: "Total Deaths",
+      data: totalDeathsGraphDataPoints,
+    },
+    show: show,
+    color: "#107568",
   };
 };
 
-const buildTotalTestsGraphLines = (apiData: HistoricalRecord[]): GraphLine => {
+export const buildTotalTestsGraphLineWithProperties = (
+  apiData: HistoricalRecord[],
+  show: boolean
+): GraphLineWithProperties => {
   const totalTestsGraphDataPoints: GraphDataPoint[] = apiData.map((apiData) => {
     return {
       x: formatDate(new Date(apiData.testDate)),
@@ -41,34 +60,16 @@ const buildTotalTestsGraphLines = (apiData: HistoricalRecord[]): GraphLine => {
   });
 
   return {
-    id: "Total Tests",
-    data: totalTestsGraphDataPoints,
+    graphLine: {
+      id: "Total Tests",
+      data: totalTestsGraphDataPoints,
+    },
+    show: show,
+    color: "#46FCE4",
   };
 };
 
-const buildGraphData = (
-  showTotalCases: boolean,
-  showTotalDeaths: boolean,
-  showTotalTests: boolean,
-  totalCasesGraphLine: GraphLine | undefined,
-  totalDeathsGraphLine: GraphLine | undefined,
-  totalTestsGraphLine: GraphLine | undefined
-): GraphLine[] => {
-  const graphLines: GraphLine[] = [];
-
-  if (showTotalCases && totalCasesGraphLine)
-    graphLines.push(totalCasesGraphLine);
-
-  if (showTotalDeaths && totalDeathsGraphLine)
-    graphLines.push(totalDeathsGraphLine);
-
-  if (showTotalTests && totalTestsGraphLine)
-    graphLines.push(totalTestsGraphLine);
-
-  return graphLines;
-};
-
-const buildGraphColors = (
+export const buildGraphColors = (
   showTotalCases: boolean,
   showTotalDeaths: boolean,
   showTotalTests: boolean
@@ -84,19 +85,36 @@ const buildGraphColors = (
   return colors;
 };
 
-const formatDate = (date: Date) => {
-  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
-};
-
-const formatNumber = (num: number): string => {
+export const formatNumber = (num: number): string => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 };
 
-export {
-  buildTotalCasesGraphLine,
-  buildTotalDeathsGraphLine,
-  buildTotalTestsGraphLines,
-  buildGraphData,
-  buildGraphColors,
-  formatNumber,
+export const buildLocationSelectorValues = (
+  currentLocation: LocationClass | undefined,
+  setCurrentLocation: (value: Value | undefined) => void,
+  locations: LocationClass[]
+): SelectorValues => {
+  const values: Value[] = locations.map((location) => {
+    return {
+      name: location.name,
+      key: location.key,
+      value: location,
+    };
+  });
+  const current: Value | undefined = currentLocation
+    ? {
+        name: currentLocation.name,
+        key: currentLocation.key,
+        value: currentLocation,
+      }
+    : undefined;
+  return {
+    values: values,
+    current: current,
+    setCurrent: setCurrentLocation,
+  };
+};
+
+const formatDate = (date: Date) => {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
 };
