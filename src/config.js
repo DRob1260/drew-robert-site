@@ -1,7 +1,6 @@
 /* istanbul ignore file */
-const environment = process.env.NODE_ENV;
+const docker = process.env.DOCKER;
 
 export const Urls = {
-  drewRobertApi:
-    environment === "production" ? "/api" : "https://drewrobert.com/api",
+  covidApi: docker ? "/covid-api" : "http://localhost:8080/covid-api",
 };

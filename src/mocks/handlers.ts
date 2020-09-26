@@ -15,7 +15,7 @@ import {
 export const handlers = [
   // getCountries
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country`,
+    `${Urls.covidApi}/covid/historicalRecords/country`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(countries));
     }
@@ -23,7 +23,7 @@ export const handlers = [
 
   // getTerritories
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory`,
+    `${Urls.covidApi}/covid/historicalRecords/country/:country/territory`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(unitedStatesTerritories));
     }
@@ -31,7 +31,7 @@ export const handlers = [
 
   // getRegions
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory/region`,
+    `${Urls.covidApi}/covid/historicalRecords/country/:country/territory/:territory/region`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(illinoisRegions));
     }
@@ -39,7 +39,7 @@ export const handlers = [
 
   //getCountryHistoricalRecords
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country`,
+    `${Urls.covidApi}/covid/historicalRecords/country/:country`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(unitedStatesHistoricalRecords));
     }
@@ -47,7 +47,7 @@ export const handlers = [
 
   // getTerritoryHistoricalRecords
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory`,
+    `${Urls.covidApi}/covid/historicalRecords/country/:country/territory/:territory`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(illinoisHistoricalRecords));
     }
@@ -55,7 +55,7 @@ export const handlers = [
 
   // getRegionHistoricalRecords
   rest.get(
-    `${Urls.drewRobertApi}/covid/historicalRecords/country/:country/territory/:territory/region/:region`,
+    `${Urls.covidApi}/covid/historicalRecords/country/:country/territory/:territory/region/:region`,
     (req, res, ctx) => {
       return res(ctx.status(200), ctx.body(mcleanHistoricalRecords));
     }
