@@ -37,9 +37,9 @@ jobs:
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
-        file: ./prod.Dockerfile
         with:
           push: true
           tags: ${{ steps.prep.outputs.tags }}
+          file: ./prod.Dockerfile
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
