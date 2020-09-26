@@ -40,5 +40,6 @@ jobs:
         with:
           push: true
           tags: ${{ steps.prep.outputs.tags }}
+          file: ./prod.Dockerfile
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

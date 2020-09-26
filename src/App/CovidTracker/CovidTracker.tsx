@@ -23,7 +23,7 @@ import {
   getTerritories,
   getRegions,
   getCountryHistoricalRecords,
-} from "../../services/DrewRobertApi";
+} from "../../services/CovidApi";
 import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineGraph";

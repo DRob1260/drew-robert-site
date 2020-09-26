@@ -10,7 +10,7 @@ export const getCountries = (): Promise<{
 }> => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid/historicalRecords/country`)
+      .get(`${Urls.covidApi}/historicalRecords/country`)
       .then((response) => {
         resolve(response.data);
       })
@@ -25,7 +25,7 @@ export const getCountryHistoricalRecords = (
 ): Promise<LocationHistoricalRecordsClass> => {
   return new Promise((resolve, reject) => {
     axios
-      .get(`${Urls.drewRobertApi}/covid/historicalRecords/country/${country}`)
+      .get(`${Urls.covidApi}/historicalRecords/country/${country}`)
       .then((response) => {
         resolve(response.data);
       })
@@ -43,9 +43,7 @@ export const getTerritories = (
 }> => {
   return new Promise((resolve, reject) => {
     axios
-      .get(
-        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory`
-      )
+      .get(`${Urls.covidApi}/historicalRecords/country/${country}/territory`)
       .then((response) => {
         resolve(response.data);
       })
@@ -62,7 +60,7 @@ export const getTerritoryHistoricalRecords = (
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}`
+        `${Urls.covidApi}/historicalRecords/country/${country}/territory/${territory}`
       )
       .then((response) => {
         resolve(response.data);
@@ -82,7 +80,7 @@ export const getRegions = (
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}/region`
+        `${Urls.covidApi}/historicalRecords/country/${country}/territory/${territory}/region`
       )
       .then((response) => {
         resolve(response.data);
@@ -101,7 +99,7 @@ export const getRegionHistoricalRecords = (
   return new Promise((resolve, reject) => {
     axios
       .get(
-        `${Urls.drewRobertApi}/covid/historicalRecords/country/${country}/territory/${territory}/region/${region}`
+        `${Urls.covidApi}/historicalRecords/country/${country}/territory/${territory}/region/${region}`
       )
       .then((response) => {
         resolve(response.data);

@@ -20,7 +20,7 @@ const App: React.FunctionComponent = () => {
               />
             )}
           />
-          <Route path={"/"}>
+          <Route path={"/*"}>
             <Home />
           </Route>
         </Switch>
