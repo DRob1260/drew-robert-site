@@ -1,20 +1,27 @@
 @import "../../index";
 $color-guldentech-background: #5d5e60;
+$footer-height: 150px;
 
 .Footer {
-  position: fixed;
-  height: 100%;
-  margin: 0;
+  height: $footer-height;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 0;
 
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 4px);
+    margin: -2px;
+  }
   .MuiPaper-root {
-    border-radius: 0;
-    height: 100%;
+    height: $footer-height;
     padding: 1em;
+    border-radius: 0;
   }
   #primary {
     background-color: $color-primary;
   }
   #guldentech {
+    padding: .25em;
     .MuiTypography-root {
       color: white;
       margin: 0.5px;
@@ -27,7 +34,5 @@ $color-guldentech-background: #5d5e60;
       display: block;
     }
     background-color: $color-guldentech-background;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
   }
 }

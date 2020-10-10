@@ -5,17 +5,13 @@ import "./Footer.scss";
 
 export const Footer: React.FunctionComponent = () => {
   return (
-    <div className={"Footer"}>
+    <div className={"Footer"} data-testid={"Footer"}>
       <footer>
         <Grid container spacing={1}>
-          <Grid item sm={9} xs={12}>
-            <Paper id={"primary"}>
-              <Typography>{"Drew's stuff"}</Typography>
-            </Paper>
-          </Grid>
-          <Grid item sm={3} xs={12}>
-            <Paper id={"guldentech"}>
-              <Typography variant={"h6"}>HOSTED BY:</Typography>
+          <Grid item sm={10} xs={12} />
+          <Grid item sm={2} xs={12}>
+            <Paper id={"guldentech"} data-testid={"guldentech"}>
+              <Typography variant={"body1"}>HOSTED BY:</Typography>
               <a
                 href={"//guldentech.com"}
                 target={"_blank"}

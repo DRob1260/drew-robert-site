@@ -14,6 +14,11 @@ it("renders the navigator", () => {
   expect(queryByTestId("Navigator")).not.toBeNull();
 });
 
+it("renders the footer", () => {
+  const { queryByTestId } = render(<App />);
+  expect(queryByTestId("Footer")).not.toBeNull();
+});
+
 it("renders the home page by default", () => {
   const { queryByTestId } = render(<App />);
   expect(queryByTestId("Home")).not.toBeNull();
