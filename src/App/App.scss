@@ -1,13 +1,16 @@
 .App {
-  height: 100%;
+  position: relative;
+  min-height: 100vh;
 
-  #content {
-    min-height: 100%;
-    padding-bottom: 5rem; /* Footer height */
+  #content-wrapper {
+    padding-bottom: 200px;
   }
-  #content:after {
-    content: "";
+
+  #footer-wrapper {
+    position: absolute;
     display: block;
-    height: 5rem;
+    bottom: 8px;
+    width: 100%;
+    height: 200px;
   }
 }

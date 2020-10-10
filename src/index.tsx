@@ -1,9 +1,9 @@
 /* istanbul ignore file */
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.scss";
 import * as serviceWorker from "./serviceWorker";
 import { App } from "./App/App";
+import "./index.scss";
 
 if (process.env.NODE_ENV !== "production") {
   import("react-axe").then((axe) => {
