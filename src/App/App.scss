@@ -2,8 +2,13 @@
   position: relative;
   min-height: 100vh;
 
-  #content-wrapper {
+  .top-padding {
+    padding-top: 100px;
+  }
+
+  .content-wrapper {
     padding-bottom: 200px;
+    width: 100%;
   }
 
   #footer-wrapper {

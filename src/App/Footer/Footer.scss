@@ -1,12 +1,10 @@
 @import "../../index";
-$color-guldentech-background: #5D5E60;
+$color-guldentech-background: #5d5e60;
 
 .Footer {
   position: fixed;
   height: 100%;
   margin: 0;
-  border-collapse: separate;
-  overflow: hidden;
 
   .MuiPaper-root {
     border-radius: 0;
@@ -19,7 +17,7 @@ $color-guldentech-background: #5D5E60;
   #guldentech {
     .MuiTypography-root {
       color: white;
-      margin: .5px;
+      margin: 0.5px;
       text-align: center;
     }
     img {

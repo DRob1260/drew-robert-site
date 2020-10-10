@@ -12,20 +12,22 @@ const App: React.FunctionComponent = () => {
       <BrowserRouter>
         <Navigator />
         <Switch>
-          <div id={"content-wrapper"}>
-            <Route
-              path={"/covid/:country/:state/:region?"}
-              render={(routeProps) => (
+          <Route
+            path={"/covid/:country/:state/:region?"}
+            render={(routeProps) => (
+              <div className={"content-wrapper top-padding"}>
                 <CovidTracker
                   country={routeProps.match.params.country}
                   territory={routeProps.match.params.state}
                   region={routeProps.match.params.region}
                 />
-              )}
-            />
-          </div>
-          <Route path={"/*"}>
-            <Home />
+              </div>
+            )}
+          />
+          <Route path={"/"}>
+            <div className={"content-wrapper"}>
+              <Home />
+            </div>
           </Route>
         </Switch>
       </BrowserRouter>
