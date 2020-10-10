@@ -1,4 +1,4 @@
-$primary: #9131f7;
+@import "../../index";
 $totalCasesColor: #00c2ad;
 $totalDeathsColor: #107568;
 $totalTestsColor: #46fce4;
@@ -21,10 +21,10 @@ $regionMenuColor: #4b8078;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    color: $primary;
+    color: $color-primary;
 
     .MuiCircularProgress-colorPrimary {
-      color: $primary;
+      color: $color-primary;
     }
   }
 
