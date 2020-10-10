@@ -15,7 +15,7 @@ export const Footer: React.FunctionComponent = () => {
               <a
                 href={"//guldentech.com"}
                 target={"_blank"}
-                rel={"noreferrer"}
+                rel={"noopener noreferrer"}
                 id={"logo-link"}
               >
                 <img src={GuldenTechLogo} alt={"Gulden Tech"} />
