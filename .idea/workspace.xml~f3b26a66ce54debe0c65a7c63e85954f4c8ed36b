@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/App/App.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Footer/Footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App/Footer/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/LandingPage/LandingPage.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App/Navigator/Navigator.tsx" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="improve-nav" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1g8pilnSCpLEvgUe3Q4Xt7LoXhE" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.standard" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.standard" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.standard" value="" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/App" />
+      <recent name="$PROJECT_DIR$/src/App/LandingPage" />
+    </key>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="870dd329-5af3-4944-a1b4-b9b5cffadd72" name="Default Changelist" comment="" />
+      <created>1597506202298</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597506202298</updated>
+      <workItem from="1597506220058" duration="4466000" />
+      <workItem from="1597524944511" duration="22648000" />
+    </task>
+    <task id="LOCAL-00001" summary="set up react">
+      <created>1597506570832</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1597506570832</updated>
+    </task>
+    <task id="LOCAL-00002" summary="starting on home page">
+      <created>1597525203958</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1597525203958</updated>
+    </task>
+    <task id="LOCAL-00003" summary="very basic start">
+      <created>1598056632632</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1598056632632</updated>
+    </task>
+    <task id="LOCAL-00004" summary="some refinements">
+      <created>1598128100463</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598128100463</updated>
+    </task>
+    <task id="LOCAL-00005" summary="some refinements">
+      <created>1598185407167</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598185407167</updated>
+    </task>
+    <task id="LOCAL-00006" summary="handle focus on nav-icon">
+      <created>1598186377158</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598186377158</updated>
+    </task>
+    <task id="LOCAL-00007" summary="formatting tweaks">
+      <created>1598186405035</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598186405035</updated>
+    </task>
+    <task id="LOCAL-00008" summary="configure eslint">
+      <created>1598189141163</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598189141163</updated>
+    </task>
+    <task id="LOCAL-00009" summary="implement accessibility improvements">
+      <created>1598190159678</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598190159678</updated>
+    </task>
+    <task id="LOCAL-00010" summary="set up tests">
+      <created>1598194400472</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598194400472</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add tests for Navigator.tsx">
+      <created>1598194421505</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598194421505</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add tests for Home and LandingPage">
+      <created>1598194698410</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598194698410</updated>
+    </task>
+    <task id="LOCAL-00013" summary="set up coverage">
+      <created>1598197923714</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598197923714</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add tests for App.tsx">
+      <created>1598197957529</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598197957529</updated>
+    </task>
+    <task id="LOCAL-00015" summary="exclude coverage files from commits">
+      <created>1598198494321</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598198494321</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add firebase config">
+      <created>1598202362953</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598202362953</updated>
+    </task>
+    <task id="LOCAL-00017" summary="adjust landing page header">
+      <created>1598224458539</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1598224458539</updated>
+    </task>
+    <task id="LOCAL-00018" summary="formatting changes">
+      <created>1598224477450</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1598224477450</updated>
+    </task>
+    <task id="LOCAL-00019" summary="move Home files under App folder">
+      <created>1598224581084</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1598224581084</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="set up react" />
+    <MESSAGE value="starting on home page" />
+    <MESSAGE value="very basic start" />
+    <MESSAGE value="some refinements" />
+    <MESSAGE value="handle focus on nav-icon" />
+    <MESSAGE value="formatting tweaks" />
+    <MESSAGE value="configure eslint" />
+    <MESSAGE value="implement accessibility improvements" />
+    <MESSAGE value="set up tests" />
+    <MESSAGE value="add tests for Navigator.tsx" />
+    <MESSAGE value="add tests for Home and LandingPage" />
+    <MESSAGE value="set up coverage" />
+    <MESSAGE value="add tests for App.tsx" />
+    <MESSAGE value="exclude coverage files from commits" />
+    <MESSAGE value="add firebase config" />
+    <MESSAGE value="adjust landing page header" />
+    <MESSAGE value="formatting changes" />
+    <MESSAGE value="move Home files under App folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="move Home files under App folder" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1597509809589">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="378" y="154" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.800@0.0.1280.800" timestamp="1597509809589" />
+    <state x="251" y="2" key="CommitChangelistDialog2" timestamp="1598224573620">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598224573620" />
+    <state x="251" y="2" key="CommitChangelistDialog2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598224324867" />
+    <state x="223" y="2" key="CommitChangelistDialog2/0.0.1280.800@0.0.1280.800" timestamp="1597525201196" />
+    <state x="251" y="2" key="CommitChangelistDialog2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598190149342" />
+    <state x="92" y="30" key="DiffContextDialog" timestamp="1598197936478">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="92" y="30" key="DiffContextDialog/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598197936478" />
+    <state x="92" y="30" key="DiffContextDialog/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598186328802" />
+    <state x="213" y="185" key="EditFileWatcherDialog" timestamp="1598052146405">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="213" y="185" key="EditFileWatcherDialog/0.0.1280.800@0.0.1280.800" timestamp="1598052146405" />
+    <state x="159" y="44" key="SettingsEditor" timestamp="1598188964647">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="141" y="39" key="SettingsEditor/0.0.1280.800@0.0.1280.800" timestamp="1597510457762" />
+    <state x="159" y="44" key="SettingsEditor/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598188964647" />
+    <state x="159" y="44" key="SettingsEditor/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598188369380" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2" timestamp="1598202370489">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598202370489" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/-1194.89.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598128108738" />
+    <state x="240" y="140" key="Vcs.Push.Dialog.v2/0.0.1280.800@0.0.1280.800" timestamp="1597525210527" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-811.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598190159099" />
+    <state x="270" y="158" key="Vcs.Push.Dialog.v2/116.-834.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598189151836" />
+    <state x="307" y="198" key="git4idea.merge.GitPullDialog" timestamp="1598124085236">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="307" y="198" key="git4idea.merge.GitPullDialog/0.0.1280.800@0.0.1280.800" timestamp="1598124085236" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup" timestamp="1598580202854">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/-1194.66.1194.834/0.0.1440.900@0.0.1440.900" timestamp="1598225056419" />
+    <state x="305" y="124" width="670" height="676" key="search.everywhere.popup/0.0.1280.800@0.0.1280.800" timestamp="1598052334928" />
+    <state x="343" y="140" width="754" height="761" key="search.everywhere.popup/1440.23.1194.811/0.0.1440.900@0.0.1440.900" timestamp="1598580202854" />
+  </component>
+</project>

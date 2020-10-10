@@ -1,0 +1,17 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .top-padding {
+    padding-top: 100px;
+  }
+
+  .content-wrapper {
+    width: 100%;
+  }
+
+  #footer-wrapper {
+    margin-top: auto;
+  }
+}

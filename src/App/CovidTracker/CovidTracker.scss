@@ -1,12 +1,10 @@
-$primary: #9131f7;
+@import "../../index";
 $totalCasesColor: #00c2ad;
 $totalDeathsColor: #107568;
 $totalTestsColor: #46fce4;
 $regionMenuColor: #4b8078;
 
 .CovidTracker {
-  margin-top: 100px;
-
   .text {
     margin: 10px;
   }
@@ -21,10 +19,10 @@ $regionMenuColor: #4b8078;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1000;
-    color: $primary;
+    color: $color-primary;
 
     .MuiCircularProgress-colorPrimary {
-      color: $primary;
+      color: $color-primary;
     }
   }
 
@@ -84,8 +82,9 @@ $regionMenuColor: #4b8078;
     }
   }
 
-  .Graph {
+  .CovidTrackerLineGraph {
     height: 500px;
     width: 100%;
+    padding-bottom: 100px;
   }
 }

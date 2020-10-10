@@ -1,0 +1,38 @@
+@import "../../index";
+$color-guldentech-background: #5d5e60;
+$footer-height: 150px;
+
+.Footer {
+  height: $footer-height;
+  margin-left: 4px;
+  margin-right: 4px;
+  margin-bottom: 0;
+
+  .MuiGrid-spacing-xs-1 {
+    width: calc(100% + 4px);
+    margin: -2px;
+  }
+  .MuiPaper-root {
+    height: $footer-height;
+    padding: 1em;
+    border-radius: 0;
+  }
+  #primary {
+    background-color: $color-primary;
+  }
+  #guldentech {
+    padding: 0.25em;
+    .MuiTypography-root {
+      color: white;
+      margin: 0.5px;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+      display: block;
+    }
+    background-color: $color-guldentech-background;
+  }
+}
