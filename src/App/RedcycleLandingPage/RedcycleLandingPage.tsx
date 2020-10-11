@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, ButtonGroup, Link } from "@material-ui/core";
+import { Button, ButtonGroup } from "@material-ui/core";
 import "./RedcycleLandingPage.scss";
 
 export const RedcycleLandingPage: React.FunctionComponent = () => {
