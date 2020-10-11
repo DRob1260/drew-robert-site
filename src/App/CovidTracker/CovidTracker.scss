@@ -27,15 +27,16 @@ $regionMenuColor: #4b8078;
   }
 
   .toolbar {
-    padding-left: .5em;
-    padding-right: .5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 
     #Chips {
       width: 100%;
+      margin-top: 0.5em;
     }
 
     .Chip {
-      margin: 0.5em;
+      margin-right: 0.25em;
     }
 
     .Chip.selected.totalCases {
