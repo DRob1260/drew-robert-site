@@ -1,7 +1,7 @@
 import React from "react";
 import { axe } from "jest-axe";
 import { render } from "@testing-library/react";
-import { LocationSelector } from "./LocationSelector";
+import { CovidTrackerSelectors } from "./LocationSelector";
 import {
   countryValues,
   regionValues,
@@ -10,7 +10,7 @@ import {
 
 it("should be accessible", async () => {
   const { container } = render(
-    <LocationSelector
+    <CovidTrackerSelectors
       countryValues={countryValues}
       territoryValues={territoryValues}
       regionValues={regionValues}
@@ -22,7 +22,7 @@ it("should be accessible", async () => {
 
 it("displays nothing when values are undefined", () => {
   const { queryByTestId } = render(
-    <LocationSelector
+    <CovidTrackerSelectors
       countryValues={undefined}
       territoryValues={undefined}
       regionValues={undefined}
@@ -35,7 +35,7 @@ it("displays nothing when values are undefined", () => {
 
 it("displays inputs when values are defined", () => {
   const { queryByTestId } = render(
-    <LocationSelector
+    <CovidTrackerSelectors
       countryValues={countryValues}
       territoryValues={territoryValues}
       regionValues={regionValues}

@@ -27,12 +27,8 @@ $regionMenuColor: #4b8078;
   }
 
   .toolbar {
-    margin-left: 10px;
-
-    .LocationSelector {
-      width: 100%;
-      overflow: auto;
-    }
+    padding-left: .5em;
+    padding-right: .5em;
 
     #Chips {
       width: 100%;

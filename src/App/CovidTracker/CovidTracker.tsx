@@ -27,7 +27,7 @@ import {
 import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineGraph";
-import { LocationSelector } from "./LocationSelector/LocationSelector";
+import { CovidTrackerSelectors } from "./CovidTrackerSelectors/CovidTrackerSelectors";
 import "./CovidTracker.scss";
 import { SelectorValues, Value } from "../Inputs/Selector/Selector";
 
@@ -271,7 +271,22 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
           message={"An error occurred while retrieving COVID-19 data."}
         />
         <div className={"toolbar"}>
-          <LocationSelector
+          <CovidTrackerSelectors
+            timePeriodValues={{
+              values: [
+                {
+                  name: "All Days",
+                  key: "all",
+                  value: 0,
+                },
+              ],
+              current: {
+                name: "All Days",
+                key: "all",
+                value: 0,
+              },
+              setCurrent: (value) => {},
+            }}
             countryValues={countrySelectorValues}
             territoryValues={territorySelectorValues}
             regionValues={regionSelectorValues}
