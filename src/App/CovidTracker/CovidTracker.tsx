@@ -12,6 +12,7 @@ import {
 import { useHistory } from "react-router-dom";
 import {
   buildLocationSelectorValues,
+  buildTimePeriodSelectorValues,
   buildTotalCasesGraphLineWithProperties,
   buildTotalDeathsGraphLineWithProperties,
   buildTotalTestsGraphLineWithProperties,
@@ -24,7 +25,10 @@ import {
   getRegions,
   getCountryHistoricalRecords,
 } from "../../services/CovidApi";
-import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
+import {
+  HistoricalRecord,
+  LocationHistoricalRecordsClass,
+} from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineGraph";
 import { CovidTrackerSelectors } from "./CovidTrackerSelectors/CovidTrackerSelectors";
@@ -50,6 +54,12 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   territory,
   region,
 }) => {
+  const [currentTimePeriodValue, setCurrentTimePeriodValue] = useState<
+    Value | undefined
+  >();
+  const [timePeriodSelectorValues, setTimePeriodSelectorValues] = useState<
+    SelectorValues
+  >();
   const [currentCountryValue, setCurrentCountryValue] = useState<
     Value | undefined
   >();
@@ -187,25 +197,49 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     }
   }, [territory, region, country]);
 
-  // set graphLines
+  // set time period
   useEffect(() => {
     if (locationHistoricalRecords) {
       const records = locationHistoricalRecords.historicalRecords;
+      setTimePeriodSelectorValues(
+        buildTimePeriodSelectorValues(records.length, setCurrentTimePeriodValue)
+      );
+    }
+  }, [locationHistoricalRecords]);
+
+  // set graph lines
+  useEffect(() => {
+    if (currentTimePeriodValue && locationHistoricalRecords) {
+      const timePeriodRecords: HistoricalRecord[] = locationHistoricalRecords.historicalRecords.slice(
+        locationHistoricalRecords.historicalRecords.length -
+          currentTimePeriodValue.value,
+        locationHistoricalRecords.historicalRecords.length
+      );
       setTotalDeathsGraphLine(
-        buildTotalDeathsGraphLineWithProperties(records, showTotalDeaths)
+        buildTotalDeathsGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalDeaths
+        )
       );
       setTotalCasesGraphLine(
-        buildTotalCasesGraphLineWithProperties(records, showTotalCases)
+        buildTotalCasesGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalCases
+        )
       );
       setTotalTestsGraphLine(
-        buildTotalTestsGraphLineWithProperties(records, showTotalTests)
+        buildTotalTestsGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalTests
+        )
       );
     }
   }, [
-    locationHistoricalRecords,
-    showTotalCases,
+    currentTimePeriodValue,
     showTotalDeaths,
+    showTotalCases,
     showTotalTests,
+    locationHistoricalRecords,
   ]);
 
   // set graphData
@@ -272,21 +306,7 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
         />
         <div className={"toolbar"}>
           <CovidTrackerSelectors
-            timePeriodValues={{
-              values: [
-                {
-                  name: "All Days",
-                  key: "all",
-                  value: 0,
-                },
-              ],
-              current: {
-                name: "All Days",
-                key: "all",
-                value: 0,
-              },
-              setCurrent: (value) => {},
-            }}
+            timePeriodValues={timePeriodSelectorValues}
             countryValues={countrySelectorValues}
             territoryValues={territorySelectorValues}
             regionValues={regionSelectorValues}

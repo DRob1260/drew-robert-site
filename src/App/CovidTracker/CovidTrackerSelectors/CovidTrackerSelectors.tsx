@@ -3,7 +3,7 @@ import { Grid } from "@material-ui/core";
 import { Selector, SelectorValues } from "../../Inputs/Selector/Selector";
 
 export interface LocationSelectorProps {
-  timePeriodValues: SelectorValues;
+  timePeriodValues: SelectorValues | undefined;
   countryValues: SelectorValues | undefined;
   territoryValues: SelectorValues | undefined;
   regionValues: SelectorValues | undefined;
@@ -19,12 +19,14 @@ export const CovidTrackerSelectors: React.FunctionComponent<LocationSelectorProp
     <div className={"CovidTrackerSelectors"}>
       <Grid container spacing={1}>
         <Grid item xs={12} sm={6} md={3}>
-          <Selector
-            selectorValues={timePeriodValues}
-            selectorConfiguration={{
-              label: "Time Period",
-            }}
-          />
+          {timePeriodValues && (
+            <Selector
+              selectorValues={timePeriodValues}
+              selectorConfiguration={{
+                label: "Time Period",
+              }}
+            />
+          )}
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
           {countryValues && (
