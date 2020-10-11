@@ -1,0 +1,28 @@
+@import "../../index";
+
+.RedcycleLandingPage {
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100vh;
+
+  #intro {
+    h1 {
+      margin: 0;
+    }
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  #description {
+    padding: 8px;
+    margin-top: 2em;
+  }
+
+  #buttons {
+    margin-top: 2em;
+    text-align: center;
+    .MuiButtonGroup-root {
+      width: 100%;
+    }
+  }
+}

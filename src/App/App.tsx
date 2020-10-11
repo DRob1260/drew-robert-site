@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navigator } from "./Navigator/Navigator";
 import { Home } from "./Home/Home";
 import { CovidTracker } from "./CovidTracker/CovidTracker";
+import { RedcycleLandingPage } from "./RedcycleLandingPage/RedcycleLandingPage";
 import { Footer } from "./Footer/Footer";
 import "./App.scss";
 
@@ -21,6 +22,14 @@ const App: React.FunctionComponent = () => {
                   territory={routeProps.match.params.state}
                   region={routeProps.match.params.region}
                 />
+              </div>
+            )}
+          />
+          <Route
+            path={"/redcycle-landing-page"}
+            render={() => (
+              <div className={"content-wrapper top-padding"}>
+                <RedcycleLandingPage />
               </div>
             )}
           />

@@ -52,11 +52,16 @@ const Navigator: React.FunctionComponent = () => {
               keepMounted={true}
               onClose={() => closeProjectsMenu()}
             >
-              <MenuItem onClick={closeProjectsMenu} className={"Link"}>
-                <Link to={"/covid/unitedstates/illinois"} className={"Link"}>
+              <Link to={"/covid/unitedstates/illinois"} className={"Link"}>
+                <MenuItem onClick={closeProjectsMenu} className={"Link"}>
                   COVID-19 Metrics Tracker
-                </Link>
-              </MenuItem>
+                </MenuItem>
+              </Link>
+              <Link to={"/redcycle-landing-page"} className={"Link"}>
+                <MenuItem onClick={closeProjectsMenu} className={"Link"}>
+                  Redcycle
+                </MenuItem>
+              </Link>
             </Menu>
           </Toolbar>
         </nav>

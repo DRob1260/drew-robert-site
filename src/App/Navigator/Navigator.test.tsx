@@ -63,4 +63,15 @@ describe("projects menu", () => {
     const path = document.location.pathname;
     expect(path).toEqual("/covid/unitedstates/illinois");
   });
+  it("navigates to the correct route for the Redcycle project", () => {
+    const { getByTestId, getByText } = render(
+      <BrowserRouter>
+        <Navigator />
+      </BrowserRouter>
+    );
+    fireEvent.click(getByTestId("Navigator-projects"));
+    fireEvent.click(getByText("Redcycle"));
+    const path = document.location.pathname;
+    expect(path).toEqual("/redcycle-landing-page");
+  });
 });
