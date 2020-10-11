@@ -30,3 +30,12 @@ it("renders the covid metrics tracker project", async () => {
   fireEvent.click(getByText("COVID-19 Metrics Tracker"));
   await waitFor(() => expect(queryByTestId("CovidTracker")).not.toBeNull());
 });
+
+it("renders the Redcycle landing page", async () => {
+  const { queryByTestId, getByTestId, getByText } = render(<App />);
+  fireEvent.click(getByTestId("projects-menu"));
+  fireEvent.click(getByText("Redcycle"));
+  await waitFor(() =>
+    expect(queryByTestId("RedcycleLandingPage")).not.toBeNull()
+  );
+});
