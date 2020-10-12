@@ -9,6 +9,7 @@ RUN npm install
 COPY . .
 
 ENV CI=true
+ENV DOCKER=true
 
 EXPOSE 3000
 
