@@ -9,7 +9,7 @@ import {
   countryValues,
   regionValues,
   territoryValues,
-} from "../../../data/CovidTracker/LocationSelector/LocationSelector";
+} from "../../../data/CovidTracker/CovidTrackerSelectors/CovidTrackerSelectors";
 import { SelectorValues } from "../../Inputs/Selector/Selector";
 
 export default {

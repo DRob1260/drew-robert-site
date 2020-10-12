@@ -91,7 +91,7 @@ export const formatNumber = (num: number): string => {
 
 export const buildTimePeriodSelectorValues = (
   numberOfRecords: number,
-  setCurrentTimePeriodValues: (value: Value | undefined) => void
+  setCurrentTimePeriod: (value: Value | undefined) => void
 ): SelectorValues => {
   const numberOfTimePeriods = Math.floor(numberOfRecords / 30);
   const values: Value[] = [];
@@ -100,11 +100,6 @@ export const buildTimePeriodSelectorValues = (
     numberOfDays < 30 * numberOfTimePeriods;
     numberOfDays += 30
   ) {
-    console.log({
-      name: `Past ${numberOfDays} Days`,
-      key: numberOfDays.toString(),
-      value: numberOfDays,
-    });
     values.push({
       name: `Past ${numberOfDays} Days`,
       key: numberOfDays.toString(),
@@ -114,7 +109,7 @@ export const buildTimePeriodSelectorValues = (
   return {
     values: values,
     current: values[0],
-    setCurrent: setCurrentTimePeriodValues,
+    setCurrent: setCurrentTimePeriod,
   };
 };
 

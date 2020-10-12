@@ -210,10 +210,15 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   // set graph lines
   useEffect(() => {
     if (currentTimePeriodValue && locationHistoricalRecords) {
-      const timePeriodRecords: HistoricalRecord[] = locationHistoricalRecords.historicalRecords.slice(
-        locationHistoricalRecords.historicalRecords.length -
-          currentTimePeriodValue.value,
-        locationHistoricalRecords.historicalRecords.length
+      const sortedHistoricalRecords = locationHistoricalRecords.historicalRecords.sort(
+        (a, b) => {
+          // @ts-ignore
+          return new Date(b.testDate) - new Date(a.testDate);
+        }
+      );
+      const timePeriodRecords: HistoricalRecord[] = sortedHistoricalRecords.slice(
+        0,
+        currentTimePeriodValue.value
       );
       setTotalDeathsGraphLine(
         buildTotalDeathsGraphLineWithProperties(
