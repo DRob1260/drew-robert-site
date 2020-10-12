@@ -5,11 +5,11 @@ import {
   buildGraphColors,
   formatNumber,
   buildLocationSelectorValues,
+  buildTimePeriodSelectorValues,
 } from "./CovidTrackerUtils";
 import { illinoisHistoricalRecords } from "../../mocks/covid/HistoricalRecords";
 import { Value } from "../Inputs/Selector/Selector";
 import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
-import { countries, illinoisRegions } from "../../mocks/covid/Locations";
 
 describe("building graph lines", () => {
   test("buildTotalCasesGraphLine", () => {
@@ -79,6 +79,20 @@ describe("buildGraphColors", () => {
 
 test("number formatting", () => {
   expect(formatNumber(1000000)).toEqual("1,000,000");
+});
+
+test("buildTimePeriodSelectorValues", () => {
+  const setCurrentTimePeriod = (value: Value | undefined) => {};
+  const timePeriodSelectorValues = buildTimePeriodSelectorValues(
+    230,
+    setCurrentTimePeriod
+  );
+  expect(timePeriodSelectorValues.values).toEqual(
+    expectedTimePeriodSelectorValues.values
+  );
+  expect(timePeriodSelectorValues.current).toEqual(
+    expectedTimePeriodSelectorValues.current
+  );
 });
 
 test("buildLocationSelectorValues", () => {
@@ -754,6 +768,18 @@ const expectedTotalTestsGraphLine = {
   },
   show: true,
   color: "#46FCE4",
+};
+
+const expectedTimePeriodSelectorValues = {
+  values: [
+    { name: "Past 30 Days", key: "30", value: 30 },
+    { name: "Past 60 Days", key: "60", value: 60 },
+    { name: "Past 90 Days", key: "90", value: 90 },
+    { name: "Past 120 Days", key: "120", value: 120 },
+    { name: "Past 150 Days", key: "150", value: 150 },
+    { name: "Past 180 Days", key: "180", value: 180 },
+  ],
+  current: { name: "Past 30 Days", key: "30", value: 30 },
 };
 
 const expectedLocationSelectorValues = {

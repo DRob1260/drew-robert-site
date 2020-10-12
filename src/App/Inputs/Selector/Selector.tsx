@@ -43,17 +43,19 @@ export const Selector: React.FunctionComponent<SelectorProps> = ({
     setCurrentValueKey(event.target.value as string);
   };
 
+  const labelWithoutSpaces = selectorConfiguration.label.replace(/\s/g, "");
+
   return (
     <div
-      data-testid={`Selector-${selectorConfiguration.label}`}
-      className={`Selector Selector-${selectorConfiguration.label}`}
+      data-testid={`Selector-${labelWithoutSpaces}`}
+      className={`Selector Selector-${labelWithoutSpaces}`}
     >
       <FormControl>
-        <InputLabel id={`Selector-${selectorConfiguration.label}-label`}>
+        <InputLabel id={`Selector-${labelWithoutSpaces}-label`}>
           {selectorConfiguration.label}
         </InputLabel>
         <Select
-          labelId={`Selector-${selectorConfiguration.label}-label`}
+          labelId={`Selector-${labelWithoutSpaces}-label`}
           value={currentValueKey}
           onChange={handleChange}
           autoWidth={true}

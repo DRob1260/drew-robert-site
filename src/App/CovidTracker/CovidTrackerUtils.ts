@@ -89,6 +89,30 @@ export const formatNumber = (num: number): string => {
   return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
 };
 
+export const buildTimePeriodSelectorValues = (
+  numberOfRecords: number,
+  setCurrentTimePeriod: (value: Value | undefined) => void
+): SelectorValues => {
+  const numberOfTimePeriods = Math.floor(numberOfRecords / 30);
+  const values: Value[] = [];
+  for (
+    let numberOfDays = 30;
+    numberOfDays < 30 * numberOfTimePeriods;
+    numberOfDays += 30
+  ) {
+    values.push({
+      name: `Past ${numberOfDays} Days`,
+      key: numberOfDays.toString(),
+      value: numberOfDays,
+    });
+  }
+  return {
+    values: values,
+    current: values[0],
+    setCurrent: setCurrentTimePeriod,
+  };
+};
+
 export const buildLocationSelectorValues = (
   currentLocation: LocationClass | undefined,
   setCurrentLocation: (value: Value | undefined) => void,

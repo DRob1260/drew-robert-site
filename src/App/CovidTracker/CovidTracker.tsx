@@ -12,6 +12,7 @@ import {
 import { useHistory } from "react-router-dom";
 import {
   buildLocationSelectorValues,
+  buildTimePeriodSelectorValues,
   buildTotalCasesGraphLineWithProperties,
   buildTotalDeathsGraphLineWithProperties,
   buildTotalTestsGraphLineWithProperties,
@@ -24,10 +25,13 @@ import {
   getRegions,
   getCountryHistoricalRecords,
 } from "../../services/CovidApi";
-import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
+import {
+  HistoricalRecord,
+  LocationHistoricalRecordsClass,
+} from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { GraphLineWithProperties } from "../../models/CovidTracker/graph/GraphLinesWithProperties";
 import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineGraph";
-import { LocationSelector } from "./LocationSelector/LocationSelector";
+import { CovidTrackerSelectors } from "./CovidTrackerSelectors/CovidTrackerSelectors";
 import "./CovidTracker.scss";
 import { SelectorValues, Value } from "../Inputs/Selector/Selector";
 
@@ -50,6 +54,12 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   territory,
   region,
 }) => {
+  const [currentTimePeriodValue, setCurrentTimePeriodValue] = useState<
+    Value | undefined
+  >();
+  const [timePeriodSelectorValues, setTimePeriodSelectorValues] = useState<
+    SelectorValues
+  >();
   const [currentCountryValue, setCurrentCountryValue] = useState<
     Value | undefined
   >();
@@ -187,25 +197,54 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     }
   }, [territory, region, country]);
 
-  // set graphLines
+  // set time period
   useEffect(() => {
     if (locationHistoricalRecords) {
       const records = locationHistoricalRecords.historicalRecords;
+      setTimePeriodSelectorValues(
+        buildTimePeriodSelectorValues(records.length, setCurrentTimePeriodValue)
+      );
+    }
+  }, [locationHistoricalRecords]);
+
+  // set graph lines
+  useEffect(() => {
+    if (currentTimePeriodValue && locationHistoricalRecords) {
+      const sortedHistoricalRecords = locationHistoricalRecords.historicalRecords.sort(
+        (a, b) => {
+          // @ts-ignore
+          return new Date(b.testDate) - new Date(a.testDate);
+        }
+      );
+      const timePeriodRecords: HistoricalRecord[] = sortedHistoricalRecords.slice(
+        0,
+        currentTimePeriodValue.value
+      );
       setTotalDeathsGraphLine(
-        buildTotalDeathsGraphLineWithProperties(records, showTotalDeaths)
+        buildTotalDeathsGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalDeaths
+        )
       );
       setTotalCasesGraphLine(
-        buildTotalCasesGraphLineWithProperties(records, showTotalCases)
+        buildTotalCasesGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalCases
+        )
       );
       setTotalTestsGraphLine(
-        buildTotalTestsGraphLineWithProperties(records, showTotalTests)
+        buildTotalTestsGraphLineWithProperties(
+          timePeriodRecords,
+          showTotalTests
+        )
       );
     }
   }, [
-    locationHistoricalRecords,
-    showTotalCases,
+    currentTimePeriodValue,
     showTotalDeaths,
+    showTotalCases,
     showTotalTests,
+    locationHistoricalRecords,
   ]);
 
   // set graphData
@@ -271,7 +310,8 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
           message={"An error occurred while retrieving COVID-19 data."}
         />
         <div className={"toolbar"}>
-          <LocationSelector
+          <CovidTrackerSelectors
+            timePeriodValues={timePeriodSelectorValues}
             countryValues={countrySelectorValues}
             territoryValues={territorySelectorValues}
             regionValues={regionSelectorValues}
