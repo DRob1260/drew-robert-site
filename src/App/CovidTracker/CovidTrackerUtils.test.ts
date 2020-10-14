@@ -772,6 +772,7 @@ const expectedTotalTestsGraphLine = {
 
 const expectedTimePeriodSelectorValues = {
   values: [
+    { name: "Past 10 Days", key: "10", value: 10 },
     { name: "Past 30 Days", key: "30", value: 30 },
     { name: "Past 60 Days", key: "60", value: 60 },
     { name: "Past 90 Days", key: "90", value: 90 },
@@ -779,7 +780,7 @@ const expectedTimePeriodSelectorValues = {
     { name: "Past 150 Days", key: "150", value: 150 },
     { name: "Past 180 Days", key: "180", value: 180 },
   ],
-  current: { name: "Past 30 Days", key: "30", value: 30 },
+  current: { name: "Past 10 Days", key: "10", value: 10 },
 };
 
 const expectedLocationSelectorValues = {

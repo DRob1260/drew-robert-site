@@ -18,18 +18,18 @@ export const CovidTrackerSelectors: React.FunctionComponent<LocationSelectorProp
   return (
     <div className={"CovidTrackerSelectors"}>
       <Grid container spacing={1}>
-        <Grid item xs={12} sm={6} md={3}>
-          {timePeriodValues && (
+        {timePeriodValues && (
+          <Grid item xs={12} sm={6} md={3}>
             <Selector
               selectorValues={timePeriodValues}
               selectorConfiguration={{
                 label: "Time Period",
               }}
             />
-          )}
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          {countryValues && (
+          </Grid>
+        )}
+        {countryValues && (
+          <Grid item xs={12} sm={6} md={3}>
             <Selector
               data-testid={"CovidTrackerSelectors-Country"}
               selectorValues={countryValues}
@@ -37,10 +37,10 @@ export const CovidTrackerSelectors: React.FunctionComponent<LocationSelectorProp
                 label: "Country",
               }}
             />
-          )}
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          {territoryValues && (
+          </Grid>
+        )}
+        {territoryValues && (
+          <Grid item xs={12} sm={6} md={3}>
             <Selector
               data-testid={"CovidTrackerSelectors-Territory"}
               selectorValues={territoryValues}
@@ -48,10 +48,10 @@ export const CovidTrackerSelectors: React.FunctionComponent<LocationSelectorProp
                 label: "Territory",
               }}
             />
-          )}
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          {regionValues && (
+          </Grid>
+        )}
+        {regionValues && (
+          <Grid item xs={12} sm={6} md={3}>
             <Selector
               data-testid={"CovidTrackerSelectors-Region"}
               selectorValues={regionValues}
@@ -60,8 +60,8 @@ export const CovidTrackerSelectors: React.FunctionComponent<LocationSelectorProp
                 noValue: "None",
               }}
             />
-          )}
-        </Grid>
+          </Grid>
+        )}
       </Grid>
     </div>
   );
