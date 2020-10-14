@@ -92,3 +92,12 @@ describe("location selection", () => {
     expect(path).toEqual("/covid/unitedstates/illinois/chicago");
   });
 });
+
+it("displays the about section", () => {
+  const { queryByTestId } = render(
+    <BrowserRouter>
+      <CovidTracker country={"unitedstates"} />
+    </BrowserRouter>
+  );
+  expect(queryByTestId("about")).not.toBeNull();
+});

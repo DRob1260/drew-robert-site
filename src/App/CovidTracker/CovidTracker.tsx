@@ -6,9 +6,13 @@ import {
 import {
   Chip,
   CircularProgress,
+  Grid,
   Snackbar,
   Typography,
+  IconButton,
+  Link,
 } from "@material-ui/core";
+import InfoIcon from "@material-ui/icons/Info";
 import { useHistory } from "react-router-dom";
 import {
   buildLocationSelectorValues,
@@ -293,7 +297,22 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
   return (
     <div className={"CovidTracker"} data-testid={"CovidTracker"}>
       <main>
-        <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
+        <Grid container>
+          <Grid item xs={10}>
+            <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
+          </Grid>
+          <Grid item xs={2}>
+            <div className={"info-icon-container"}>
+              <IconButton
+                href={"#about"}
+                aria-label={"More information on COVID-19 Metrics Tracker"}
+                data-testid={"info-button"}
+              >
+                <InfoIcon />
+              </IconButton>
+            </div>
+          </Grid>
+        </Grid>
         {loading && !error && (
           <div
             id={"loading-indicator-container"}
@@ -360,6 +379,51 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
             location={locationHistoricalRecords?.location.name || "Unknown"}
             graphLineWithPropertiesList={graphData}
           />
+        </div>
+        <div id={"about"} data-testid={"about"}>
+          <h2>About</h2>
+          <h3>Features</h3>
+          <p>
+            Currently, the COVID-19 Metrics Tracker provides a graph displaying
+            total deaths, total cases, and total tests for Illinois and regions
+            within Illinois. More data or features may be added in the future.
+          </p>
+          <h3>Data</h3>
+          <p>
+            All current data in this project is retrieved from the Illinois
+            Department of Public Health. It uses the most recent data that is
+            available from their website. More information is available at
+            &nbsp;
+            <Link
+              href={"https://www.dph.illinois.gov/covid19"}
+              target={"_blank"}
+            >
+              www.dph.illinois.gov/covid19
+            </Link>
+            .
+          </p>
+          <h3>Feedback</h3>
+          <p>
+            If you run into any problems or have any questions, feel free to
+            reach out to me at{" "}
+            <Link href={"mailto:drew.robert26@me.com"}>
+              drew.robert26@me.com
+            </Link>
+            .
+          </p>
+          <h3>Technical Information</h3>
+          <p>
+            {
+              "This project uses several open-source projects, including Express, React, Material UI, Nivo, and more. If you're interested, check out its "
+            }
+            <Link
+              href={"https://github.com/DRob1260/drew-robert-site"}
+              target={"_blank"}
+            >
+              GitHub repo
+            </Link>
+            .
+          </p>
         </div>
       </main>
     </div>
