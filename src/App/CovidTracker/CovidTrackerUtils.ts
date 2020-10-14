@@ -93,8 +93,13 @@ export const buildTimePeriodSelectorValues = (
   numberOfRecords: number,
   setCurrentTimePeriod: (value: Value | undefined) => void
 ): SelectorValues => {
+  const defaultTimePeriod: Value = {
+    name: "Past 10 Days",
+    key: "10",
+    value: 10,
+  };
   const numberOfTimePeriods = Math.floor(numberOfRecords / 30);
-  const values: Value[] = [];
+  const values: Value[] = [defaultTimePeriod];
   for (
     let numberOfDays = 30;
     numberOfDays < 30 * numberOfTimePeriods;
