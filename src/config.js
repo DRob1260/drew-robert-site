@@ -1,5 +1,5 @@
 /* istanbul ignore file */
 
 export const Urls = {
-  covidApi: "/covid-api",
+  covidApi: "http://localhost:8080/covid-api",
 };
