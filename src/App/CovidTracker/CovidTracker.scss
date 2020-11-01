@@ -9,6 +9,13 @@ $regionMenuColor: #4b8078;
     margin: 10px;
   }
 
+  .info-icon-container {
+    text-align: center;
+    .MuiSvgIcon-root {
+      color: $totalDeathsColor;
+    }
+  }
+
   #Graph-label {
     visibility: hidden;
   }
@@ -27,19 +34,16 @@ $regionMenuColor: #4b8078;
   }
 
   .toolbar {
-    margin-left: 10px;
-
-    .LocationSelector {
-      width: 100%;
-      overflow: auto;
-    }
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 
     #Chips {
       width: 100%;
+      margin-top: 0.5em;
     }
 
     .Chip {
-      margin: 0.5em;
+      margin-right: 0.25em;
     }
 
     .Chip.selected.totalCases {
@@ -85,6 +89,12 @@ $regionMenuColor: #4b8078;
   .CovidTrackerLineGraph {
     height: 500px;
     width: 100%;
-    padding-bottom: 100px;
+  }
+
+  #about {
+    margin: 2em;
+    a {
+      color: $totalDeathsColor;
+    }
   }
 }
