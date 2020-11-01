@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, ButtonGroup } from "@material-ui/core";
 import "./RedcycleLandingPage.scss";
+import { Urls } from "../../config";
 
 export const RedcycleLandingPage: React.FunctionComponent = () => {
   return (
@@ -24,8 +25,15 @@ export const RedcycleLandingPage: React.FunctionComponent = () => {
         </div>
         <div id={"buttons"}>
           <ButtonGroup variant={"text"} orientation={"vertical"}>
-            <Button size={"large"} href={"/redcycle"} target={"_blank"}>
+            <Button size={"large"} href={Urls.redcycleUi} target={"_blank"}>
               Redcycle Application
+            </Button>
+            <Button
+              size={"large"}
+              href={`${Urls.redcycleApi}/admin`}
+              target={"_blank"}
+            >
+              Redcycle Admin Dashboard
             </Button>
             <Button
               size={"large"}
