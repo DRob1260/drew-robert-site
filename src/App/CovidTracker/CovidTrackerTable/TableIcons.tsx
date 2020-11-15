@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 /* eslint-disable */
 import React, { forwardRef } from "react";
 import { Icons } from "material-table";
@@ -41,23 +42,3 @@ export const tableIcons: Icons = {
   ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
   ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />),
 };
-
-// export const tableIcons = {
-//   Add: AddBox,
-//   Check: Check,
-//   Clear: Clear,
-//   Delete: DeleteOutline,
-//   DetailPanel: ChevronRight,
-//   Edit: Edit,
-//   Export: SaveAlt,
-//   Filter: FilterList,
-//   FirstPage: FirstPage,
-//   LastPage: LastPage,
-//   NextPage: ChevronRight,
-//   PreviousPage: ChevronLeft,
-//   ResetSearch: Clear,
-//   Search: Search,
-//   SortArrow: ArrowDownward,
-//   ThirdStateCheck: Remove,
-//   ViewColumn: ViewColumn,
-// };

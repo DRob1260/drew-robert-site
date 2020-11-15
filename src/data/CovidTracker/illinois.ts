@@ -1,6 +1,7 @@
 /* istanbul ignore file */
 import { HistoricalRecord } from "../../models/CovidTracker/api/HistoricalRecord";
 import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
+import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 
 export const illinoisLocation: LocationClass = {
   name: "Illinois",
@@ -692,3 +693,14 @@ export const illinoisHistoricalRecords: HistoricalRecord[] = [
     totals: { cases: 261371, tested: 4735866, deaths: 8309 },
   },
 ];
+
+export const illinoisLocationHistoricalRecordsClass: LocationHistoricalRecordsClass = {
+  location: illinoisLocation,
+  subLocations: [],
+  historicalRecords: [
+    {
+      testDate: "9/13/2020",
+      totals: { cases: 261371, tested: 4735866, deaths: 8309 },
+    },
+  ],
+};

@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import { Story } from "@storybook/react";
 import { CovidTrackerTable, CovidTrackerTableProps } from "./CovidTrackerTable";
@@ -16,4 +17,5 @@ const Template: Story<CovidTrackerTableProps> = (args) => (
 export const CovidTrackerWithData = Template.bind({});
 CovidTrackerWithData.args = {
   tableRows: buildCovidTrackerTableRows(illinoisHistoricalRecords),
+  location: "Illinois",
 };

@@ -395,7 +395,12 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
           />
         </div>
         <div>
-          <CovidTrackerTable tableRows={covidTrackerTableRows} />
+          {covidTrackerTableRows.length > 0 && (
+            <CovidTrackerTable
+              tableRows={covidTrackerTableRows}
+              location={locationHistoricalRecords?.location.name || ""}
+            />
+          )}
         </div>
         <div id={"about"} data-testid={"about"}>
           <h2>About</h2>

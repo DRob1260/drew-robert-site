@@ -1,5 +1,6 @@
+/* istanbul ignore file */
 export interface CovidTrackerTableRow {
-  day: string;
+  day: Date;
   totalDeaths: number;
   totalCases: number;
   totalTests: number;
