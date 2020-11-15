@@ -27,7 +27,6 @@ const getDate = (dateString: string): Date => {
     month: month,
   });
   const isoDate = datetime.toISODate();
-  console.log(isoDate);
   return new Date(isoDate);
 };
 
