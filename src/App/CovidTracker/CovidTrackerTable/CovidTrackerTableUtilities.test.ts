@@ -4,11 +4,17 @@ import {
 } from "./CovidTrackerTableUtilities";
 import { illinoisLocationHistoricalRecordsClass } from "../../../data/CovidTracker/illinois";
 import { CovidTrackerTableRow } from "../../../models/CovidTracker/table/CovidTrackerTableRow";
+import { DateTime } from "luxon";
 
 test("buildCovidTrackerTableRows", () => {
+  const expectedDay = DateTime.fromObject({
+    year: 2020,
+    month: 9,
+    day: 13,
+  }).toJSDate();
   const expectedCovidTrackerTableRows: CovidTrackerTableRow[] = [
     {
-      day: new Date("2020-09-13T05:00:00.000Z"),
+      day: expectedDay,
       totalDeaths: 8309,
       totalCases: 261371,
       totalTests: 4735866,
