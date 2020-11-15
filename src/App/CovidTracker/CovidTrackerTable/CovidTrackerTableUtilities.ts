@@ -1,6 +1,7 @@
 import { LocationHistoricalRecordsClass } from "../../../models/CovidTracker/api/LocationHistoricalRecordsClass";
 import { CovidTrackerTableRow } from "../../../models/CovidTracker/table/CovidTrackerTableRow";
 import { Column } from "material-table";
+import { DateTime } from "luxon";
 
 export const buildCovidTrackerTableRows = (
   locationHistoricalRecords: LocationHistoricalRecordsClass
@@ -16,7 +17,17 @@ export const buildCovidTrackerTableRows = (
 };
 
 const getDate = (dateString: string): Date => {
-  return new Date(dateString.replace(/\//gi, "-"));
+  const dateSplit = dateString.split("/");
+  const year = parseInt(dateSplit[2], 10);
+  const day = parseInt(dateSplit[1], 10);
+  const month = parseInt(dateSplit[0], 10);
+  const datetime = DateTime.fromObject({
+    year: year,
+    day: day,
+    month: month,
+  });
+  const isoDate = datetime.toISODate();
+  return new Date(isoDate);
 };
 
 export const getExportName = (): string => {

@@ -8,7 +8,7 @@ import { CovidTrackerTableRow } from "../../../models/CovidTracker/table/CovidTr
 test("buildCovidTrackerTableRows", () => {
   const expectedCovidTrackerTableRows: CovidTrackerTableRow[] = [
     {
-      day: new Date("9-13-2020"),
+      day: new Date("2020-09-13T00:00:00.000Z"),
       totalDeaths: 8309,
       totalCases: 261371,
       totalTests: 4735866,
