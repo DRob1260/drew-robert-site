@@ -26,8 +26,7 @@ const getDate = (dateString: string): Date => {
     day: day,
     month: month,
   });
-  const isoDate = datetime.toISODate();
-  return new Date(isoDate);
+  return datetime.toJSDate();
 };
 
 export const getExportName = (): string => {
