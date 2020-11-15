@@ -38,6 +38,9 @@ import { CovidTrackerLineGraph } from "./CovidTrackerLineGraph/CovidTrackerLineG
 import { CovidTrackerSelectors } from "./CovidTrackerSelectors/CovidTrackerSelectors";
 import "./CovidTracker.scss";
 import { SelectorValues, Value } from "../Inputs/Selector/Selector";
+import { CovidTrackerTable } from "./CovidTrackerTable/CovidTrackerTable";
+import { CovidTrackerTableRow } from "../../models/CovidTracker/table/CovidTrackerTableRow";
+import { buildCovidTrackerTableRows } from "./CovidTrackerTable/CovidTrackerTableUtilities";
 
 const icon = (selected: boolean) => {
   return selected ? (
@@ -95,6 +98,9 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     GraphLineWithProperties
   >();
   const [graphData, setGraphData] = useState<GraphLineWithProperties[]>([]);
+  const [covidTrackerTableRows, setCovidTrackerTableRows] = useState<
+    CovidTrackerTableRow[]
+  >([]);
   const [showTotalCases, setShowTotalCases] = useState(true);
   const [showTotalDeaths, setShowTotalDeaths] = useState(true);
   const [showTotalTests, setShowTotalTests] = useState(false);
@@ -260,6 +266,14 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
     setGraphData(newGraphData);
   }, [totalDeathsGraphLine, totalCasesGraphLine, totalTestsGraphLine]);
 
+  useEffect(() => {
+    if (locationHistoricalRecords) {
+      setCovidTrackerTableRows(
+        buildCovidTrackerTableRows(locationHistoricalRecords)
+      );
+    }
+  }, [locationHistoricalRecords]);
+
   // route to path for location changes
   useEffect(() => {
     if (currentCountryValue && currentTerritoryValue) {
@@ -379,6 +393,14 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
             location={locationHistoricalRecords?.location.name || "Unknown"}
             graphLineWithPropertiesList={graphData}
           />
+        </div>
+        <div>
+          {covidTrackerTableRows.length > 0 && (
+            <CovidTrackerTable
+              tableRows={covidTrackerTableRows}
+              location={locationHistoricalRecords?.location.name || ""}
+            />
+          )}
         </div>
         <div id={"about"} data-testid={"about"}>
           <h2>About</h2>

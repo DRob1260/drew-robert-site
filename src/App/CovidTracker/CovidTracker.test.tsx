@@ -93,6 +93,21 @@ describe("location selection", () => {
   });
 });
 
+it("displays CovidTrackerTable", async () => {
+  const { queryByTestId } = render(
+    <BrowserRouter>
+      <CovidTracker
+        country={"unitedstates"}
+        territory={"illinois"}
+        region={"mclean"}
+      />
+    </BrowserRouter>
+  );
+  await waitFor(() =>
+    expect(queryByTestId("CovidTrackerTable")).not.toBeNull()
+  );
+});
+
 it("displays the about section", () => {
   const { queryByTestId } = render(
     <BrowserRouter>

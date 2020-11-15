@@ -1,0 +1,21 @@
+version: "2.4"
+services:
+  site:
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
+    ports:
+      - "32768:3000"
+    restart: on-failure
+    volumes:
+      - ./src:/usr/src/app/src
+      - ./public:/usr/src/app/public
+  router:
+    build:
+      context: ../drew-robert-api
+      dockerfile: dev.Dockerfile
+    ports:
+      - "2626:8080"
+    restart: on-failure
+    links:
+      - "site:site"
