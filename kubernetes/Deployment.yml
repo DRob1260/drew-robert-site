@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: drew-robert-site-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: drew-robert-site
+  template:
+    metadata:
+      labels:
+        app: drew-robert-site
+    spec:
+      containers:
+        - name: drew-robert-site
+          image: drob1260/drew-robert-site:latest
+          ports:
+            - containerPort: 3000
