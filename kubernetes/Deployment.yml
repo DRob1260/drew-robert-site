@@ -19,3 +19,4 @@ spec:
           image: drob1260/drew-robert-site:latest
           ports:
             - containerPort: 3000
+              protocol: TCP
