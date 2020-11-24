@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: drew-robert-site-service
+  namespace: drew-robert-site
+spec:
+  type: ClusterIP
+  ports:
+    - name: drew-robert-site-port
+      port: 2600
+      protocol: TCP
+      targetPort: 3000
+  selector:
+    app: drew-robert-site
