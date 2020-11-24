@@ -18,5 +18,5 @@ spec:
               servicePort: dr-api-port
           - path: /redcycle
             backend:
-              serviceName: redcycle
+              serviceName: redcycle-service
               servicePort: redcycle-port
