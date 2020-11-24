@@ -16,3 +16,7 @@ spec:
             backend:
               serviceName: drew-robert-api-service
               servicePort: dr-api-port
+          - path: /redcycle
+            backend:
+              serviceName: redcycle
+              servicePort: redcycle-port
