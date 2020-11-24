@@ -6,7 +6,7 @@ metadata:
 spec:
   type: ClusterIP
   ports:
-    - name: drew-robert-site-port
+    - name: dr-site-port
       port: 2600
       protocol: TCP
       targetPort: 3000
