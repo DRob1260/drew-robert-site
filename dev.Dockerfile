@@ -9,6 +9,7 @@ RUN npm install
 COPY . .
 
 ENV CI=true
+ENV REACT_APP_LOCAL=true
 
 EXPOSE 3000
 
