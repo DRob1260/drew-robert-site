@@ -28,11 +28,7 @@ export const RedcycleLandingPage: React.FunctionComponent = () => {
             <Button size={"large"} href={Urls.redcycleUi} target={"_blank"}>
               Redcycle Application
             </Button>
-            <Button
-              size={"large"}
-              href={`${Urls.redcycleApi}/admin`}
-              target={"_blank"}
-            >
+            <Button size={"large"} href={Urls.redcycleAdmin} target={"_blank"}>
               Redcycle Admin Dashboard
             </Button>
             <Button
