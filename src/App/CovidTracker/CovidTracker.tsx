@@ -28,7 +28,7 @@ import {
   getTerritories,
   getRegions,
   getCountryHistoricalRecords,
-} from "../../services/CovidApi";
+} from "../../services/DrewRobertApi/Covid";
 import {
   HistoricalRecord,
   LocationHistoricalRecordsClass,
