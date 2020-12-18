@@ -11,8 +11,14 @@ import {
   mcleanHistoricalRecords,
   unitedStatesHistoricalRecords,
 } from "./covid/HistoricalRecords";
+import { flickrUserPhotoUrls } from "./gallery/flickrUserPhotoUrls";
 
 export const handlers = [
+  // getFlickrUserPhotoUrls
+  rest.get(`${Urls.galleryApi}/flickr/users/*`, (req, res, ctx) => {
+    return res(ctx.status(200), ctx.body(flickrUserPhotoUrls));
+  }),
+
   // getCountries
   rest.get(`${Urls.covidApi}/historicalRecords/country`, (req, res, ctx) => {
     return res(ctx.status(200), ctx.body(countries));

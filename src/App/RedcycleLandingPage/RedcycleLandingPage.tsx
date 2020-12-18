@@ -31,6 +31,9 @@ export const RedcycleLandingPage: React.FunctionComponent = () => {
             <Button size={"large"} href={Urls.redcycleAdmin} target={"_blank"}>
               Redcycle Admin Dashboard
             </Button>
+            <Button size={"large"} href={Urls.redcycleApi} target={"_blank"}>
+              Redcycle API
+            </Button>
             <Button
               size={"large"}
               href={
@@ -40,10 +43,9 @@ export const RedcycleLandingPage: React.FunctionComponent = () => {
             >
               SRS Document
             </Button>
-
             <Button
               size={"large"}
-              href={"https://github.com/DRob1260/drew-robert-site"}
+              href={"https://github.com/project-redcycle/redcycle-api"}
               target={"_blank"}
             >
               GitHub Repo

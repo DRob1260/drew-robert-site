@@ -19,3 +19,6 @@ services:
     restart: on-failure
     links:
       - "site:site"
+    environment:
+      - FLICKR_API_KEY
+      - FLICKR_API_SECRET

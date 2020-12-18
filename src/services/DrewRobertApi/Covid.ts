@@ -1,8 +1,8 @@
 /* istanbul ignore file */
 import axios from "axios";
-import { Urls } from "../config";
-import { LocationHistoricalRecordsClass } from "../models/CovidTracker/api/LocationHistoricalRecordsClass";
-import { LocationClass } from "../models/CovidTracker/api/LocationClass";
+import { Urls } from "../../config";
+import { LocationHistoricalRecordsClass } from "../../models/CovidTracker/api/LocationHistoricalRecordsClass";
+import { LocationClass } from "../../models/CovidTracker/api/LocationClass";
 
 export const getCountries = (): Promise<{
   countries: LocationClass[];

@@ -3,3 +3,7 @@ build
 coverage
 .firebase/hosting.*.cache
 .idea/workspace.xml
+
+
+# Ignore DevSpace cache and log folder
+.devspace/
