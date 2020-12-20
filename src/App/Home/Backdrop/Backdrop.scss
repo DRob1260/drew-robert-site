@@ -14,6 +14,17 @@
       width: 100%;
       position: relative;
 
+      .MuiBackdrop-root {
+        position: absolute;
+        z-index: 1;
+
+        #image-placeholder {
+          background-color: #c4ccc4;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
       img {
         position: absolute;
         margin: 0;
@@ -23,6 +34,7 @@
         object-fit: fill;
         display: block;
         filter: brightness(75%);
+        z-index: 0;
       }
     }
 
@@ -30,6 +42,7 @@
       position: absolute;
       bottom: 50px;
       width: 100%;
+      z-index: 2;
     }
 
     #greeting {
