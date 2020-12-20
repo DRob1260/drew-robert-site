@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { Backdrop as MaterialBackdrop } from "@material-ui/core";
+import {
+  Backdrop as MaterialBackdrop,
+  Button,
+  IconButton,
+  Modal,
+  Paper,
+  Typography,
+  Fade,
+} from "@material-ui/core";
+import { Fullscreen, FullscreenExit } from "@material-ui/icons";
 import { getFlickrUserPhotoUrls } from "../../../services/DrewRobertApi/Gallery";
 import { randomValue } from "../../../utilities/ArrayUtilities";
 import "./Backdrop.scss";
@@ -7,6 +16,7 @@ import "./Backdrop.scss";
 export const Backdrop: React.FunctionComponent = () => {
   const [photoUrl, setPhotoUrl] = useState("");
   const [loading, setLoading] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     getFlickrUserPhotoUrls("69728079%40N03").then((photoUrls) => {
@@ -36,7 +46,56 @@ export const Backdrop: React.FunctionComponent = () => {
         <div id={"greeting-container"}>
           {!loading && <h1 id={"greeting"}>Hello World!</h1>}
         </div>
+        <IconButton
+          size={"medium"}
+          onClick={() => setOpenModal(true)}
+          id={"full-screen-button"}
+        >
+          <Fullscreen fontSize={"large"} />
+        </IconButton>
       </div>
+      <Modal
+        open={openModal}
+        closeAfterTransition={true}
+        BackdropComponent={MaterialBackdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
+        onClose={() => setOpenModal(false)}
+        style={{
+          height: "90vh",
+          width: "90vw",
+          margin: "auto",
+        }}
+      >
+        <div id={"photo-viewer-container"}>
+          <Fade in={openModal}>
+            <Paper>
+              <IconButton
+                size={"medium"}
+                onClick={() => setOpenModal(false)}
+                id={"full-screen-exit-button"}
+              >
+                <FullscreenExit fontSize={"large"} />
+              </IconButton>
+              <img src={photoUrl} alt={"from my flickr feed"} />
+              <Button variant={"contained"} id={"flickr-link-button"}>
+                <a
+                  href={"https://www.flickr.com/photos/69728079@N03"}
+                  target={"_blank"}
+                  rel={"noreferrer"}
+                >
+                  View More Photos
+                </a>
+              </Button>
+              <Typography align={"center"} variant={"subtitle2"}>
+                This product uses the Flickr API but is not endorsed or
+                certified by SmugMug, Inc.
+              </Typography>
+            </Paper>
+          </Fade>
+        </div>
+      </Modal>
     </div>
   );
 };
