@@ -81,7 +81,10 @@
     background-color: $color-primary;
     color: white;
 
-    :link, :visited, :hover, :active {
+    :link,
+    :visited,
+    :hover,
+    :active {
       color: white;
       text-decoration: none;
     }
@@ -95,4 +98,3 @@
     max-height: 85vh;
   }
 }
-

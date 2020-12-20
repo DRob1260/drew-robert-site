@@ -49,7 +49,9 @@ export const Backdrop: React.FunctionComponent = () => {
         <IconButton
           size={"medium"}
           onClick={() => setOpenModal(true)}
+          data-testid={"full-screen-button"}
           id={"full-screen-button"}
+          aria-label={"view full-size photo"}
         >
           <Fullscreen fontSize={"large"} />
         </IconButton>
@@ -75,15 +77,25 @@ export const Backdrop: React.FunctionComponent = () => {
                 size={"medium"}
                 onClick={() => setOpenModal(false)}
                 id={"full-screen-exit-button"}
+                data-testid={"full-screen-exit-button"}
               >
                 <FullscreenExit fontSize={"large"} />
               </IconButton>
-              <img src={photoUrl} alt={"from my flickr feed"} />
-              <Button variant={"contained"} id={"flickr-link-button"}>
+              <img
+                src={photoUrl}
+                alt={"from my flickr feed"}
+                data-testid={"full-screen-image"}
+              />
+              <Button
+                variant={"contained"}
+                id={"flickr-link-button"}
+                data-testid={"flickr-link-button"}
+              >
                 <a
                   href={"https://www.flickr.com/photos/69728079@N03"}
                   target={"_blank"}
                   rel={"noreferrer"}
+                  data-testid={"flickr-link"}
                 >
                   View More Photos
                 </a>
