@@ -24,7 +24,10 @@ export const Projects: React.FunctionComponent = () => {
         </GridListTile>
         {ProjectPreviewCards.map((previewCard, index) => {
           return (
-            <GridListTile key={`project-grid-tile-${index}`}>
+            <GridListTile
+              key={`project-grid-tile-${index}`}
+              data-testid={"grid-list-tile"}
+            >
               {previewCard}
             </GridListTile>
           );

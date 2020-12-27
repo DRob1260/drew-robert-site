@@ -34,9 +34,9 @@ export const PreviewCard: React.FunctionComponent<PreviewCardProps> = ({
         <CardMedia>
           {!loading && <div className={"children-container"}>{children}</div>}
           <Backdrop open={!!loading}>
-            <div id={"backdrop-placeholder"}>
+            <div className={"backdrop-placeholder"}>
               <div
-                id={"loading-indicator-container"}
+                className={"loading-indicator-container"}
                 data-testid={"loading-indicator-container"}
               >
                 <CircularProgress />
