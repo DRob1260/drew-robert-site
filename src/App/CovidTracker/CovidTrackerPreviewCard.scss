@@ -3,6 +3,9 @@
     height: 100%;
     width: 100%;
     background-color: white;
+    .MuiTypography-root {
+      color: #424242;
+    }
   }
   .CovidTrackerLineGraph {
     display: block;

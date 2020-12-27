@@ -9,7 +9,7 @@ export const RedcyclePreviewCard: React.FunctionComponent = () => {
       <PreviewCard
         title={"Redcycle"}
         description={
-          "Redcycle is a project created by myself and 4 other classmates while completing Principles of Software Engineering (IT 326) at Illinois State University. It aims to be a community tool for giving away items you no longer need."
+          "Redcycle is a project created by myself and 4 other classmates while completing Principles of Software Engineering (IT 326) at Illinois State University. It aims to be a community tool for giving away items no longer wanted/needed."
         }
         path={"/redcycle-landing-page"}
       >
