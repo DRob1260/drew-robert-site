@@ -14,18 +14,22 @@ const Template: Story<PreviewCardProps> = (args) => (
   </BrowserRouter>
 );
 
-export const PreviewCardLoading = Template.bind({});
-PreviewCardLoading.args = {
-  title: "Thing that's loading",
-  description: "This loading thing is really cool.",
-  loading: true,
-};
-
 export const PreviewCardWithPath = Template.bind({});
 PreviewCardWithPath.args = {
   title: "Thing with path defined",
   description: "This thing has a link to the thing.",
   path: "/path/to/thing",
+};
+
+export const PreviewCardLoading: Story<PreviewCardProps> = (args) => (
+  <PreviewCard {...args}>
+    <div />
+  </PreviewCard>
+);
+PreviewCardLoading.args = {
+  title: "Thing that's loading",
+  description: "This loading thing is really cool.",
+  loading: true,
 };
 
 export const PreviewCardWithChildren: Story<PreviewCardProps> = (args) => (

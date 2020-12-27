@@ -23,7 +23,6 @@ export const CovidTrackerPreviewCard: React.FunctionComponent = () => {
     getTerritoryHistoricalRecords("unitedstates", "illinois")
       .then((response) => {
         setIllinoisHistoricalRecords(response);
-        setLoading(false);
       })
       .catch(() => {
         setLoading(false);
@@ -43,6 +42,7 @@ export const CovidTrackerPreviewCard: React.FunctionComponent = () => {
       setTotalCasesGraphLine(
         buildTotalCasesGraphLineWithProperties(sortedHistoricalRecords, true)
       );
+      setLoading(false);
     }
   }, [illinoisHistoricalRecords]);
 
@@ -57,15 +57,15 @@ export const CovidTrackerPreviewCard: React.FunctionComponent = () => {
         loading={loading || error}
       >
         {error && <img src={BackupImage} alt={"COVID-19 total cases graph"} />}
-        {totalCasesGraphLine && (
-          <div id={"graph-preview-container"}>
-            <Typography align={"center"}>Illinois Cases</Typography>
-            <CovidTrackerLineGraph
-              location={"Illinois"}
-              graphLineWithPropertiesList={[totalCasesGraphLine]}
-            />
-          </div>
-        )}
+        <div id={"graph-preview-container"}>
+          <Typography align={"center"}>Illinois Cases</Typography>
+          <CovidTrackerLineGraph
+            location={"Illinois"}
+            graphLineWithPropertiesList={
+              totalCasesGraphLine ? [totalCasesGraphLine] : []
+            }
+          />
+        </div>
       </PreviewCard>
     </div>
   );

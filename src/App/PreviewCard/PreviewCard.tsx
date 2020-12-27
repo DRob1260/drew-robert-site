@@ -7,6 +7,7 @@ import {
   CardMedia,
   Typography,
   Button,
+  Fade,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./PreviewCard.scss";
@@ -30,7 +31,11 @@ export const PreviewCard: React.FunctionComponent<PreviewCardProps> = ({
       <Card raised={true}>
         <CardHeader title={title} />
         <CardMedia>
-          {children && <div className={"children-container"}>{children}</div>}
+          {children && (
+            <Fade in={!loading} timeout={1000}>
+              <div className={"children-container"}>{children}</div>
+            </Fade>
+          )}
         </CardMedia>
         <CardContent>
           <Typography>{description}</Typography>
