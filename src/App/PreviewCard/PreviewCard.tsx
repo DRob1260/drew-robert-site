@@ -7,7 +7,8 @@ import {
   CardMedia,
   Typography,
   Button,
-  Fade,
+  CircularProgress,
+  Backdrop,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import "./PreviewCard.scss";
@@ -31,11 +32,17 @@ export const PreviewCard: React.FunctionComponent<PreviewCardProps> = ({
       <Card raised={true}>
         <CardHeader title={title} />
         <CardMedia>
-          {children && (
-            <Fade in={!loading} timeout={1000}>
-              <div className={"children-container"}>{children}</div>
-            </Fade>
-          )}
+          {!loading && <div className={"children-container"}>{children}</div>}
+          <Backdrop open={!!loading}>
+            <div id={"backdrop-placeholder"}>
+              <div
+                id={"loading-indicator-container"}
+                data-testid={"loading-indicator-container"}
+              >
+                <CircularProgress />
+              </div>
+            </div>
+          </Backdrop>
         </CardMedia>
         <CardContent>
           <Typography>{description}</Typography>
@@ -43,7 +50,9 @@ export const PreviewCard: React.FunctionComponent<PreviewCardProps> = ({
         <CardActions>
           {path && (
             <Link to={path} className={"link"}>
-              <Button>Visit Project</Button>
+              <Button data-testid={"visit-project-button"}>
+                Visit Project
+              </Button>
             </Link>
           )}
         </CardActions>

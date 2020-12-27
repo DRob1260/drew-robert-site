@@ -16,7 +16,7 @@ export const CovidTrackerPreviewCard: React.FunctionComponent = () => {
   const [totalCasesGraphLine, setTotalCasesGraphLine] = useState<
     GraphLineWithProperties
   >();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
