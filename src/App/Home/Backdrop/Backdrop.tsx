@@ -71,7 +71,7 @@ export const Backdrop: React.FunctionComponent = () => {
         }}
       >
         <div id={"photo-viewer-container"}>
-          <Fade in={openModal}>
+          <Fade in={openModal} timeout={1000}>
             <Paper>
               <IconButton
                 size={"medium"}
