@@ -27,9 +27,11 @@ export const PreviewCard: React.FunctionComponent<PreviewCardProps> = ({
 }) => {
   return (
     <div className={"PreviewCard"}>
-      <Card>
+      <Card raised={true}>
         <CardHeader title={title} />
-        {children && <CardMedia>{children}</CardMedia>}
+        <CardMedia>
+          {children && <div className={"children-container"}>{children}</div>}
+        </CardMedia>
         <CardContent>
           <Typography>{description}</Typography>
         </CardContent>

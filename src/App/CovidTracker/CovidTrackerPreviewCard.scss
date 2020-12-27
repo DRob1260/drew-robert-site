@@ -1,0 +1,21 @@
+.CovidTrackerPreviewCard {
+  #graph-preview-container {
+    height: 100%;
+    width: 100%;
+    background-color: white;
+  }
+  .CovidTrackerLineGraph {
+    display: block;
+    top: 0;
+    height: 90%;
+    width: 100%;
+  }
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  height: 100%;
+}

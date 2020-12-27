@@ -1,17 +1,27 @@
 import React from "react";
-import { GridList, GridListTile } from "@material-ui/core";
-import { RedcycleLandingPagePreviewCard } from "../../RedcycleLandingPage/RedcycleLandingPagePreviewCard";
+import { GridList, GridListTile, Typography } from "@material-ui/core";
+import { RedcyclePreviewCard } from "../../RedcycleLandingPage/RedcyclePreviewCard";
 import "./Projects.scss";
+import { CovidTrackerPreviewCard } from "../../CovidTracker/CovidTrackerPreviewCard";
 
 const ProjectPreviewCards = [
-  <RedcycleLandingPagePreviewCard key={"project-preview-card-0"} />,
+  <CovidTrackerPreviewCard key={"project-preview-card-0"} />,
+  <RedcyclePreviewCard key={"project-preview-card-1"} />,
 ];
 
 export const Projects: React.FunctionComponent = () => {
   return (
     <div className={"Projects"}>
-      {console.log(window.innerWidth)}
-      <GridList cellHeight={"auto"} cols={window.innerWidth > 500 ? 2.5 : 1}>
+      <GridList
+        cellHeight={"auto"}
+        cols={window.innerWidth > 500 ? 2.5 : 1}
+        spacing={10}
+      >
+        <GridListTile cols={2} style={{ height: "auto" }} id={"header-tile"}>
+          <Typography variant={"h4"} component={"h1"}>
+            Projects
+          </Typography>
+        </GridListTile>
         {ProjectPreviewCards.map((previewCard, index) => {
           return (
             <GridListTile key={`project-grid-tile-${index}`}>
