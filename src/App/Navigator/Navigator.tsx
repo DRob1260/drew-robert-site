@@ -53,12 +53,20 @@ const Navigator: React.FunctionComponent = () => {
               onClose={() => closeProjectsMenu()}
             >
               <Link to={"/covid/unitedstates/illinois"} className={"Link"}>
-                <MenuItem onClick={closeProjectsMenu} className={"Link"}>
+                <MenuItem
+                  onClick={closeProjectsMenu}
+                  className={"Link"}
+                  data-testid={"covid-metrics-link"}
+                >
                   COVID-19 Metrics Tracker
                 </MenuItem>
               </Link>
               <Link to={"/redcycle-landing-page"} className={"Link"}>
-                <MenuItem onClick={closeProjectsMenu} className={"Link"}>
+                <MenuItem
+                  onClick={closeProjectsMenu}
+                  className={"Link"}
+                  data-testid={"redcycle-link"}
+                >
                   Redcycle
                 </MenuItem>
               </Link>

@@ -11,7 +11,7 @@ const ProjectPreviewCards = [
 
 export const Projects: React.FunctionComponent = () => {
   return (
-    <div className={"Projects"}>
+    <div className={"Projects"} data-testid={"Projects"}>
       <GridList
         cellHeight={"auto"}
         cols={window.innerWidth > 500 ? 2.5 : 1}
