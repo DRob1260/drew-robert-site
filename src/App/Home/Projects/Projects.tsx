@@ -10,14 +10,16 @@ const ProjectPreviewCards = [
 ];
 
 export const Projects: React.FunctionComponent = () => {
+  const mobileSize = window.innerWidth < 500;
+
   return (
     <div className={"Projects"} data-testid={"Projects"}>
-      <GridList
-        cellHeight={"auto"}
-        cols={window.innerWidth > 500 ? 2.5 : 1}
-        spacing={10}
-      >
-        <GridListTile cols={2} style={{ height: "auto" }} id={"header-tile"}>
+      <GridList cellHeight={"auto"} cols={mobileSize ? 1 : 2.5} spacing={10}>
+        <GridListTile
+          cols={mobileSize ? 1 : 2}
+          style={{ height: "auto" }}
+          id={"header-tile"}
+        >
           <Typography variant={"h4"} component={"h1"}>
             Projects
           </Typography>
