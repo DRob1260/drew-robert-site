@@ -54,7 +54,7 @@ export const CovidTrackerPreviewCard: React.FunctionComponent = () => {
           "My custom-built COVID-19 Metrics Tracker provides live data on COVID-19 tests, cases, and deaths using an interactive graph and a table. It uses data from the Illinois Department of Public Health."
         }
         path={"/covid/unitedstates/illinois"}
-        loading={loading || error}
+        loading={loading}
       >
         {error && <img src={BackupImage} alt={"COVID-19 total cases graph"} />}
         <div id={"graph-preview-container"}>
