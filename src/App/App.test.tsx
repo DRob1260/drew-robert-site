@@ -27,16 +27,6 @@ it("renders the navigator", async () => {
   expect(queryByTestId("Navigator")).not.toBeNull();
 });
 
-it("renders the footer", async () => {
-  const { queryByTestId, queryByText } = render(
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  );
-  // wait for CovidTrackerPreviewCard to finish loading
-  await waitFor(() => expect(queryByText("Illinois Cases")).not.toBeNull());
-  expect(queryByTestId("Footer")).not.toBeNull();
-});
 describe("rendering pages", () => {
   it("renders the home page by default", async () => {
     const { queryByTestId, queryByText } = render(
@@ -50,7 +40,7 @@ describe("rendering pages", () => {
   });
 
   it("renders the Redcycle landing page", async () => {
-    const { queryByTestId, getByTestId, queryByText } = render(
+    const { queryByTestId, getByTestId } = render(
       <BrowserRouter>
         <App />
       </BrowserRouter>
