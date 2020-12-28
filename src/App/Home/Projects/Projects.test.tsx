@@ -15,6 +15,18 @@ it("should be accessible", async () => {
   expect(await axe(container)).toHaveNoViolations();
 });
 
+it("renders for a mobile screen size", async () => {
+  global.innerWidth = 450;
+  const { queryByText } = render(
+    <BrowserRouter>
+      <Projects />
+    </BrowserRouter>
+  );
+  // wait for CovidTrackerPreviewCard to finish loading
+  await waitFor(() => expect(queryByText("Illinois Cases")).not.toBeNull());
+  expect(queryByText("Projects")).not.toBeNull();
+});
+
 it("displays a header", async () => {
   const { queryByText } = render(
     <BrowserRouter>
