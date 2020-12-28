@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 import React from "react";
 import { Story } from "@storybook/react";
 import { Projects } from "./Projects";
