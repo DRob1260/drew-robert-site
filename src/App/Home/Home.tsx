@@ -1,5 +1,6 @@
 import React from "react";
 import { Backdrop } from "./Backdrop/Backdrop";
+import { Projects } from "./Projects/Projects";
 import "./Home.scss";
 
 const Home: React.FunctionComponent = () => {
@@ -8,14 +9,9 @@ const Home: React.FunctionComponent = () => {
       <main>
         <Backdrop />
         <div id={"content"}>
-          <p>
-            This website is in active development. Feel free to look around or
-            visit its{" "}
-            <a href={"https://github.com/DRob1260/drew-robert-site"}>
-              repository
-            </a>
-            !
-          </p>
+          <div id={"projects-section"}>
+            <Projects />
+          </div>
         </div>
       </main>
     </div>

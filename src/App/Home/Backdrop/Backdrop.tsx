@@ -94,7 +94,7 @@ export const Backdrop: React.FunctionComponent = () => {
                 <a
                   href={"https://www.flickr.com/photos/69728079@N03"}
                   target={"_blank"}
-                  rel={"noreferrer"}
+                  rel={"noopener noreferrer"}
                   data-testid={"flickr-link"}
                 >
                   View More Photos
