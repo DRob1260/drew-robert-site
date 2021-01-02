@@ -1,38 +1,34 @@
 @import "../../index";
-$color-guldentech-background: #5d5e60;
-$footer-height: 150px;
 
 .Footer {
-  height: $footer-height;
-  margin-left: 4px;
-  margin-right: 4px;
-  margin-bottom: 0;
-
-  .MuiGrid-spacing-xs-1 {
-    width: calc(100% + 4px);
-    margin: -2px;
+  .twitter-tile {
+    .MuiPaper-root {
+      background-color: #1DA1F2;
+    }
   }
-  .MuiPaper-root {
-    height: $footer-height;
-    padding: 1em;
-    border-radius: 0;
+  .flickr-tile {
+    .MuiPaper-root {
+      background-color: white;
+    }
+    .MuiCardContent-root {
+      .footer-card-children {
+        img {
+          width: 50%;
+        }
+      }
+    }
   }
-  #primary {
-    background-color: $color-primary;
-  }
-  #guldentech {
-    padding: 0.25em;
-    .MuiTypography-root {
-      color: white;
-      margin: 0.5px;
-      text-align: center;
+  .github-tile {
+    .MuiPaper-root {
+      background-color: black;
     }
     img {
-      max-width: 100%;
-      max-height: 100%;
-      margin: auto;
-      display: block;
+      background-color: white;
     }
-    background-color: $color-guldentech-background;
+  }
+  .email-tile {
+    .MuiPaper-root {
+      background-color: $color-primary;
+    }
   }
 }

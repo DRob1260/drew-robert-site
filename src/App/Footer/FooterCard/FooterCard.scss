@@ -1,0 +1,58 @@
+.FooterCard {
+  height: 100%;
+
+  .filter {
+    filter: brightness(50%) blur(.5rem);
+  }
+  .MuiCard-root {
+    height: 100%;
+    color: white;
+    .MuiCardHeader-title{
+      font-size: 15px;
+    }
+    .MuiCardContent-root {
+      height: 100%;
+      min-height: 100px;
+      padding: 0;
+      text-align: center;
+      display: grid;
+      .footer-card-children {
+        margin: auto;
+        img {
+          width: 100%;
+        }
+        .MuiSvgIcon-root {
+          height: 50%;
+          width: 50%;
+        }
+      }
+      .MuiTypography-subtitle2 {
+        font-size: 9px;
+      }
+    }
+    .MuiCardActions-root {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 0 2px 2px;
+
+      .footer-card-open-button {
+        width: 100%;
+        text-align: right;
+      }
+      .footer-card-copy-button {
+        width: 100%;
+        text-align: left;
+      }
+      .MuiIconButton-root {
+        height: 15px;
+        width: 15px;
+        padding: 15px;
+      }
+    }
+  }
+
+  .MuiPaper-root {
+    background-color: #424242;
+  }
+}
