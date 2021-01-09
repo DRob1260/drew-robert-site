@@ -39,6 +39,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
       <Card
         onMouseEnter={() => setShowActions(true)}
         onMouseLeave={() => setShowActions(false)}
+        data-testid={"footer-card-muicard"}
       >
         {title && (
           <CardHeader title={title} className={showActions ? "filter" : ""} />
@@ -48,7 +49,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
         </CardContent>
         {actions && (
           <Fade in={showActions}>
-            <CardActions>
+            <CardActions data-testid={"footer-card-actions"}>
               {actions.copy && (
                 <span
                   className={"footer-card-copy-button"}
@@ -63,6 +64,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                       style={{
                         color: actions.copy.color || "white",
                       }}
+                      data-testid={"footer-card-copy-button-iconbutton"}
                     >
                       <FileCopy />
                     </IconButton>
@@ -83,6 +85,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                       style={{
                         color: actions.open.color || "white",
                       }}
+                      data-testid={"footer-card-open-button-iconbutton"}
                     >
                       <OpenInNew />
                     </IconButton>
