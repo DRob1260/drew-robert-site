@@ -5,6 +5,7 @@ import { App } from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 it("should be accessible", async () => {
+  jest.setTimeout(10000);
   const { container, queryByText } = render(
     <BrowserRouter>
       <App />
