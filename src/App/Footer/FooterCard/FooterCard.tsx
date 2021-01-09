@@ -25,8 +25,6 @@ export type FooterCardProps = {
       color?: string;
     };
   };
-  cols?: number;
-  rows?: number;
 };
 
 export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
