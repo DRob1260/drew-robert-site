@@ -1,5 +1,5 @@
 import React from "react";
-import { GridList, GridListTile, Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import { Twitter, AlternateEmail, GitHub } from "@material-ui/icons";
 import GuldenTechLogo from "./guldentech.png";
 import FlickrIcon from "./flickr-icon.svg";
@@ -10,8 +10,8 @@ export const Footer: React.FunctionComponent = () => {
   return (
     <div className={"Footer"} data-testid={"Footer"}>
       <footer>
-        <GridList cellHeight={"auto"} cols={4}>
-          <GridListTile cols={1} rows={1} className={"github-tile"}>
+        <Grid container spacing={1}>
+          <Grid item xs={4} md={1} className={"github-tile"}>
             <FooterCard
               actions={{
                 open: {
@@ -26,8 +26,8 @@ export const Footer: React.FunctionComponent = () => {
             >
               <GitHub />
             </FooterCard>
-          </GridListTile>
-          <GridListTile cols={1} rows={1} className={"twitter-tile"}>
+          </Grid>
+          <Grid item xs={4} md={1} className={"twitter-tile"}>
             <FooterCard
               actions={{
                 open: {
@@ -42,8 +42,8 @@ export const Footer: React.FunctionComponent = () => {
             >
               <Twitter />
             </FooterCard>
-          </GridListTile>
-          <GridListTile cols={1} rows={1} className={"flickr-tile"}>
+          </Grid>
+          <Grid item xs={4} md={1} className={"flickr-tile"}>
             <FooterCard
               actions={{
                 open: {
@@ -58,10 +58,10 @@ export const Footer: React.FunctionComponent = () => {
                 },
               }}
             >
-              <img src={FlickrIcon} alt={"Flickr"} />
+              <img src={FlickrIcon} alt={"Flickr"} style={{ width: "65%" }} />
             </FooterCard>
-          </GridListTile>
-          <GridListTile rows={1} cols={1} className={"email-tile"}>
+          </Grid>
+          <Grid item xs={4} md={1} className={"email-tile"}>
             <FooterCard
               actions={{
                 open: {
@@ -76,9 +76,9 @@ export const Footer: React.FunctionComponent = () => {
             >
               <AlternateEmail />
             </FooterCard>
-          </GridListTile>
-          <GridListTile rows={1} cols={2} />
-          <GridListTile rows={1} cols={2} className={"guldentech-tile"}>
+          </Grid>
+          <Grid item xs={false} md />
+          <Grid item xs md={2} className={"guldentech-tile"}>
             <FooterCard
               actions={{
                 open: {
@@ -94,8 +94,8 @@ export const Footer: React.FunctionComponent = () => {
               <Typography variant={"h5"}>Hosted on:</Typography>
               <img src={GuldenTechLogo} alt={"Gulden Tech"} />
             </FooterCard>
-          </GridListTile>
-        </GridList>
+          </Grid>
+        </Grid>
       </footer>
     </div>
   );

@@ -4,15 +4,20 @@
   .filter {
     filter: brightness(50%) blur(.5rem);
   }
+  .MuiCard-root:before {
+    content: "";
+    float: left;
+    padding-top: 100%;
+  }
   .MuiCard-root {
-    height: 100%;
+    position: relative;
     color: white;
-    .MuiCardHeader-title{
-      font-size: 15px;
-    }
     .MuiCardContent-root {
+      position: absolute;
+      top: 0;
+      left: 0;
       height: 100%;
-      min-height: 100px;
+      width: 100%;
       padding: 0;
       text-align: center;
       display: grid;
@@ -25,9 +30,9 @@
           height: 50%;
           width: 50%;
         }
-      }
-      .MuiTypography-subtitle2 {
-        font-size: 9px;
+        .MuiTypography-root {
+          font-size: 3vw;
+        }
       }
     }
     .MuiCardActions-root {
