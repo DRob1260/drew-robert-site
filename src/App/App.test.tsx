@@ -27,6 +27,11 @@ it("renders the navigator", async () => {
   expect(queryByTestId("Navigator")).not.toBeNull();
 });
 
+it("renders the footer", () => {
+  const { queryByTestId } = render(<App />);
+  expect(queryByTestId("Footer")).not.toBeNull();
+});
+
 describe("rendering pages", () => {
   it("renders the home page by default", async () => {
     const { queryByTestId, queryByText } = render(

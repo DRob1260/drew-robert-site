@@ -9,7 +9,11 @@ it("should be accessible", async () => {
   expect(results).toHaveNoViolations();
 });
 
-it("plugs gulden tech", () => {
+it("contains the expected content tiles", () => {
   const { queryByTestId } = render(<Footer />);
-  expect(queryByTestId("guldentech")).not.toBeNull();
+  expect(queryByTestId("github-tile")).not.toBeNull();
+  expect(queryByTestId("twitter-tile")).not.toBeNull();
+  expect(queryByTestId("flickr-tile")).not.toBeNull();
+  expect(queryByTestId("email-tile")).not.toBeNull();
+  expect(queryByTestId("guldentech-tile")).not.toBeNull();
 });

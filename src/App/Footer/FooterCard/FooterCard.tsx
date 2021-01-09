@@ -50,7 +50,10 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
           <Fade in={showActions}>
             <CardActions>
               {actions.copy && (
-                <span className={"footer-card-copy-button"}>
+                <span
+                  className={"footer-card-copy-button"}
+                  data-testid={"footer-card-copy-button"}
+                >
                   <Tooltip title={actions.copy.label}>
                     <IconButton
                       onClick={() => {
@@ -67,7 +70,10 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                 </span>
               )}
               {actions.open && (
-                <span className={"footer-card-open-button"}>
+                <span
+                  className={"footer-card-open-button"}
+                  data-testid={"footer-card-open-button"}
+                >
                   <Tooltip title={actions.open.label}>
                     <IconButton
                       onClick={() => {

@@ -11,7 +11,13 @@ export const Footer: React.FunctionComponent = () => {
     <div className={"Footer"} data-testid={"Footer"}>
       <footer>
         <Grid container spacing={1}>
-          <Grid item xs={4} md={1} className={"github-tile"}>
+          <Grid
+            item
+            xs={4}
+            md={1}
+            className={"github-tile"}
+            data-testid={"github-tile"}
+          >
             <FooterCard
               actions={{
                 open: {
@@ -27,7 +33,13 @@ export const Footer: React.FunctionComponent = () => {
               <GitHub />
             </FooterCard>
           </Grid>
-          <Grid item xs={4} md={1} className={"twitter-tile"}>
+          <Grid
+            item
+            xs={4}
+            md={1}
+            className={"twitter-tile"}
+            data-testid={"twitter-tile"}
+          >
             <FooterCard
               actions={{
                 open: {
@@ -43,7 +55,13 @@ export const Footer: React.FunctionComponent = () => {
               <Twitter />
             </FooterCard>
           </Grid>
-          <Grid item xs={4} md={1} className={"flickr-tile"}>
+          <Grid
+            item
+            xs={4}
+            md={1}
+            className={"flickr-tile"}
+            data-testid={"flickr-tile"}
+          >
             <FooterCard
               actions={{
                 open: {
@@ -61,7 +79,13 @@ export const Footer: React.FunctionComponent = () => {
               <img src={FlickrIcon} alt={"Flickr"} style={{ width: "65%" }} />
             </FooterCard>
           </Grid>
-          <Grid item xs={4} md={1} className={"email-tile"}>
+          <Grid
+            item
+            xs={4}
+            md={1}
+            className={"email-tile"}
+            data-testid={"email-tile"}
+          >
             <FooterCard
               actions={{
                 open: {
@@ -78,7 +102,13 @@ export const Footer: React.FunctionComponent = () => {
             </FooterCard>
           </Grid>
           <Grid item xs={false} md />
-          <Grid item xs md={2} className={"guldentech-tile"}>
+          <Grid
+            item
+            xs
+            md={2}
+            className={"guldentech-tile"}
+            data-testid={"guldentech-tile"}
+          >
             <FooterCard
               actions={{
                 open: {
@@ -91,7 +121,9 @@ export const Footer: React.FunctionComponent = () => {
                 },
               }}
             >
-              <Typography variant={"h5"}>Hosted on:</Typography>
+              <Typography variant={"h5"} component={"h1"}>
+                Hosted on:
+              </Typography>
               <img src={GuldenTechLogo} alt={"Gulden Tech"} />
             </FooterCard>
           </Grid>
