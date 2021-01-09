@@ -22,8 +22,6 @@ export const FooterCardWithAllProps = () => (
         label: "Copy URL",
       },
     }}
-    rows={1}
-    cols={1}
   >
     <img src={GuldenTechLogo} alt={"Gulden Tech"} />
   </FooterCard>
