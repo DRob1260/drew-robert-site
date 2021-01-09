@@ -1,6 +1,5 @@
 .App {
-  display: flex;
-  flex-direction: column;
+  position: relative;
   min-height: 100vh;
 
   .top-padding {
@@ -9,9 +8,13 @@
 
   .content-wrapper {
     width: 100%;
+    padding-bottom: 500px;
   }
 
   #footer-wrapper {
-    margin-top: auto;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 300px;
   }
 }

@@ -40,6 +40,9 @@ const App: React.FunctionComponent = () => {
           </Route>
         </Switch>
       </BrowserRouter>
+      <div id={"footer-wrapper"}>
+        <Footer />
+      </div>
     </div>
   );
 };
