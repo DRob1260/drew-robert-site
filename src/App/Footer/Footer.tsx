@@ -13,7 +13,8 @@ export const Footer: React.FunctionComponent = () => {
         <Grid container spacing={1}>
           <Grid
             item
-            xs={4}
+            xs={6}
+            sm={2}
             md={1}
             className={"github-tile"}
             data-testid={"github-tile"}
@@ -35,7 +36,8 @@ export const Footer: React.FunctionComponent = () => {
           </Grid>
           <Grid
             item
-            xs={4}
+            xs={6}
+            sm={2}
             md={1}
             className={"twitter-tile"}
             data-testid={"twitter-tile"}
@@ -57,7 +59,8 @@ export const Footer: React.FunctionComponent = () => {
           </Grid>
           <Grid
             item
-            xs={4}
+            xs={6}
+            sm={2}
             md={1}
             className={"flickr-tile"}
             data-testid={"flickr-tile"}
@@ -81,7 +84,8 @@ export const Footer: React.FunctionComponent = () => {
           </Grid>
           <Grid
             item
-            xs={4}
+            xs={6}
+            sm={2}
             md={1}
             className={"email-tile"}
             data-testid={"email-tile"}
@@ -101,15 +105,17 @@ export const Footer: React.FunctionComponent = () => {
               <AlternateEmail />
             </FooterCard>
           </Grid>
-          <Grid item xs={false} md />
+          <Grid item xs={false} sm />
           <Grid
             item
-            xs
+            xs={12}
+            sm={3}
             md={2}
             className={"guldentech-tile"}
             data-testid={"guldentech-tile"}
           >
             <FooterCard
+              title={"Hosted by:"}
               actions={{
                 open: {
                   value: "https://www.guldentech.com",
@@ -121,10 +127,13 @@ export const Footer: React.FunctionComponent = () => {
                 },
               }}
             >
-              <Typography variant={"h5"} component={"h1"}>
-                Hosted on:
-              </Typography>
-              <img src={GuldenTechLogo} alt={"Gulden Tech"} />
+              <img
+                style={{
+                  width: "100%",
+                }}
+                src={GuldenTechLogo}
+                alt={"Gulden Tech"}
+              />
             </FooterCard>
           </Grid>
         </Grid>

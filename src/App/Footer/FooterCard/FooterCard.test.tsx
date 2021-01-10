@@ -54,9 +54,9 @@ describe("actions", () => {
       />
     );
     expect(getByTestId("footer-card-actions")).not.toBeVisible();
-    fireEvent.mouseEnter(getByTestId("footer-card-muicard"));
+    fireEvent.mouseEnter(getByTestId("footer-card-muipaper"));
     expect(getByTestId("footer-card-actions")).toBeVisible();
-    fireEvent.mouseLeave(getByTestId("footer-card-muicard"));
+    fireEvent.mouseLeave(getByTestId("footer-card-muipaper"));
     expect(getByTestId("footer-card-actions")).not.toBeVisible();
   });
   it("can include a button to open a URL", () => {

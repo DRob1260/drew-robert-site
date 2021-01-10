@@ -12,13 +12,6 @@
     .MuiPaper-root {
       background-color: white;
     }
-    .MuiCardContent-root {
-      .footer-card-children {
-        img {
-          width: 50%;
-        }
-      }
-    }
   }
   .github-tile {
     .MuiPaper-root {
@@ -31,6 +24,11 @@
   .email-tile {
     .MuiPaper-root {
       background-color: $color-primary;
+    }
+  }
+  .guldentech-tile {
+    .MuiPaper-root:after {
+      padding-bottom: 100px;
     }
   }
 }

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import {
-  Card,
+  Paper,
+  Typography,
   CardActions,
-  CardContent,
-  CardHeader,
   Fade,
   IconButton,
   Tooltip,
@@ -36,17 +35,29 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
 
   return (
     <div className={"FooterCard"}>
-      <Card
+      <Paper
         onMouseEnter={() => setShowActions(true)}
         onMouseLeave={() => setShowActions(false)}
-        data-testid={"footer-card-muicard"}
+        data-testid={"footer-card-muipaper"}
       >
         {title && (
-          <CardHeader title={title} className={showActions ? "filter" : ""} />
+          <div
+            className={`footer-card-title-container ${
+              showActions ? "filter" : ""
+            }`}
+          >
+            <Typography
+              variant={"h6"}
+              component={"div"}
+              className={showActions ? "filter" : ""}
+            >
+              {title}
+            </Typography>
+          </div>
         )}
-        <CardContent className={showActions ? "filter" : ""}>
-          <div className={"footer-card-children"}>{children}</div>
-        </CardContent>
+        <div className={`footer-card-children ${showActions ? "filter" : ""}`}>
+          {children}
+        </div>
         {actions && (
           <Fade in={showActions}>
             <CardActions data-testid={"footer-card-actions"}>
@@ -95,7 +106,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
             </CardActions>
           </Fade>
         )}
-      </Card>
+      </Paper>
     </div>
   );
 };
