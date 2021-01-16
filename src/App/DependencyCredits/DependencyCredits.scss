@@ -1,0 +1,58 @@
+@import '../../index';
+
+.DependencyCredits {
+  background-color: #424242;
+  color: white;
+  #primary-grid-container {
+    height: 100%;
+    padding: 15px;
+    .heading {
+      text-align: center;
+    }
+    #featured-dependencies {
+      .MuiCard-root {
+        position: relative;
+        height: 100%;
+        .MuiCardHeader-root {
+          background-color: $color-primary;
+          color: white;
+        }
+        .MuiCardActions-root {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          .MuiButtonBase-root {
+            margin-left: auto;
+            margin-right: 10px;
+            color: white;
+          }
+        }
+      }
+      .MuiPaper-root {
+        background-color: white;
+        color: black;
+      }
+    }
+    #all-dependencies-list {
+      position: relative;
+      height: 90%;
+      min-height: 500px;
+      .MuiList-root {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        background-color: white;
+        color: black;
+        overflow: auto;
+        li {
+          background-color: white;
+        }
+        ul {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
