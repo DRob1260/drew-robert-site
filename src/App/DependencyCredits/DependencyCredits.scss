@@ -1,4 +1,4 @@
-@import '../../index';
+@import "../../index";
 
 .DependencyCredits {
   background-color: #424242;
@@ -10,6 +10,7 @@
       text-align: center;
     }
     #featured-dependencies {
+      height: 100%;
       .MuiCard-root {
         position: relative;
         height: 100%;
@@ -34,10 +35,18 @@
         color: black;
       }
     }
+    #all-dependencies {
+      height: 100%;
+    }
     #all-dependencies-list {
       position: relative;
-      height: 90%;
+      height: 100%;
       min-height: 500px;
+      padding-top: 10px;
+      .MuiListSubheader-root {
+        background-color: $color-primary !important;
+        color: white;
+      }
       .MuiList-root {
         position: absolute;
         height: 100%;
@@ -48,6 +57,7 @@
         overflow: auto;
         li {
           background-color: white;
+          font-size: 20px;
         }
         ul {
           padding: 0;
