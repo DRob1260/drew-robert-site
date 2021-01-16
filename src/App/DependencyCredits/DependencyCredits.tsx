@@ -31,21 +31,22 @@ export const DependencyCredits: React.FunctionComponent = () => {
         id={"primary-grid-container"}
       >
         <Grid item sm={12} md={8} lg={9}>
+          <Typography variant={"h4"} component={"div"} className={"heading"}>
+            Featured Dependencies
+          </Typography>
+        </Grid>
+        <Grid item xs={12} md={4} lg={3}>
+          <Typography variant={"h4"} component={"div"} className={"heading"}>
+            All Dependencies
+          </Typography>
+        </Grid>
+        <Grid item sm={12} md={8} lg={9}>
           <Grid
             container
             spacing={1}
             alignItems={"stretch"}
             id={"featured-dependencies"}
           >
-            <Grid item xs={12}>
-              <Typography
-                variant={"h4"}
-                component={"div"}
-                className={"heading"}
-              >
-                Featured Dependencies
-              </Typography>
-            </Grid>
             {featuredDependencies.map((featuredDependency) => {
               return (
                 <Grid
@@ -77,11 +78,6 @@ export const DependencyCredits: React.FunctionComponent = () => {
           </Grid>
         </Grid>
         <Grid item xs={12} md={4} lg={3} id={"all-dependencies"}>
-          <Grid item xs={12}>
-            <Typography variant={"h4"} component={"div"} className={"heading"}>
-              All Dependencies
-            </Typography>
-          </Grid>
           <Grid item xs={12}>
             <div id={"all-dependencies-list"}>
               <List subheader={<li />}>
