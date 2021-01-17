@@ -15,7 +15,10 @@ import "./FeaturedDependencies.scss";
 
 export const FeaturedDependencies: React.FunctionComponent = () => {
   return (
-    <div className={"FeaturedDependencies"}>
+    <div
+      className={"FeaturedDependencies"}
+      data-testid={"FeaturedDependencies"}
+    >
       <Typography variant={"h5"} component={"h2"} className={"heading"}>
         <Star fontSize={"inherit"} />
         Featured
@@ -41,6 +44,8 @@ export const FeaturedDependencies: React.FunctionComponent = () => {
                 <CardActions>
                   <IconButton
                     onClick={() => window.open(featuredDependency.url)}
+                    aria-label={`Open ${featuredDependency.url}`}
+                    data-testid={`link-to-${featuredDependency.name}`}
                   >
                     <OpenInNew />
                   </IconButton>

@@ -107,6 +107,7 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                       style={{
                         color: actions.launch.button?.color || "white",
                       }}
+                      data-testid={"footer-card-launch-button-iconbutton"}
                     >
                       {actions.launch.button?.icon || <Launch />}
                     </IconButton>

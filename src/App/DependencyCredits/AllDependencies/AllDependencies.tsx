@@ -17,7 +17,7 @@ import "./AllDependencies.scss";
 
 export const AllDependencies: React.FunctionComponent = () => {
   return (
-    <div className={"AllDependencies"}>
+    <div className={"AllDependencies"} data-testid={"AllDependencies"}>
       <Typography variant={"h5"} component={"h2"} className={"heading"}>
         <ListIcon fontSize={"inherit"} />
         All
@@ -32,7 +32,11 @@ export const AllDependencies: React.FunctionComponent = () => {
                   <ListItem key={dependency.name}>
                     <ListItemText primary={dependency.name} />
                     <ListItemSecondaryAction>
-                      <IconButton onClick={() => window.open(dependency.url)}>
+                      <IconButton
+                        onClick={() => window.open(dependency.url)}
+                        aria-label={`Open ${dependency.name}`}
+                        data-testid={`link-to-${dependency.name}`}
+                      >
                         <OpenInNew />
                       </IconButton>
                     </ListItemSecondaryAction>
@@ -49,7 +53,11 @@ export const AllDependencies: React.FunctionComponent = () => {
                   <ListItem key={dependency.name}>
                     <ListItemText primary={dependency.name} />
                     <ListItemSecondaryAction>
-                      <IconButton onClick={() => window.open(dependency.url)}>
+                      <IconButton
+                        onClick={() => window.open(dependency.url)}
+                        aria-label={`Open ${dependency.name}`}
+                        data-testid={`link-to-${dependency.name}`}
+                      >
                         <OpenInNew />
                       </IconButton>
                     </ListItemSecondaryAction>

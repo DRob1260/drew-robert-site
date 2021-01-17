@@ -2,6 +2,7 @@ import React from "react";
 import { axe } from "jest-axe";
 import { render, fireEvent } from "@testing-library/react";
 import { FooterCard } from "./FooterCard";
+import { DesktopMac, LaptopMac, PhoneIphone } from "@material-ui/icons";
 
 it("is accessible", async () => {
   const { container } = render(
@@ -11,12 +12,12 @@ it("is accessible", async () => {
         open: {
           value: "www.google.com",
           label: "Visit Google",
-          color: "red",
+          button: { color: "red" },
         },
         copy: {
           value: "https://www.google.com",
           label: "Copy URL",
-          color: "blue",
+          button: { color: "blue" },
         },
       }}
     >
@@ -48,7 +49,7 @@ describe("actions", () => {
           open: {
             value: "www.google.com",
             label: "Visit Google",
-            color: "red",
+            button: { color: "red" },
           },
         }}
       />
@@ -82,7 +83,9 @@ describe("actions", () => {
   it("can include a button to copy a value", () => {
     Object.assign(navigator, {
       clipboard: {
-        writeText: () => {},
+        writeText: () => {
+          /* do nothing */
+        },
       },
     });
     jest.spyOn(navigator.clipboard, "writeText");
@@ -106,5 +109,50 @@ describe("actions", () => {
   it("hides the copy button if values are not provided", () => {
     const { queryByTestId } = render(<FooterCard actions={{}} />);
     expect(queryByTestId("footer-card-copy-button")).toBeNull();
+  });
+  it("can include a button to launch a function", () => {
+    const mockFunction = jest.fn();
+
+    const { queryByTestId, getByTestId } = render(
+      <FooterCard
+        actions={{ launch: { value: mockFunction, label: "Mock function" } }}
+      />
+    );
+
+    expect(queryByTestId("footer-card-launch-button")).not.toBeNull();
+    fireEvent.click(getByTestId("footer-card-launch-button-iconbutton"));
+    expect(mockFunction).toHaveBeenCalledTimes(1);
+  });
+  it("hides the launch button if values are not provided", () => {
+    const { queryByTestId } = render(<FooterCard actions={{}} />);
+    expect(queryByTestId("footer-card-launch-button")).toBeNull();
+  });
+  it("allows default icons to be overridden", () => {
+    const { queryByTestId } = render(
+      <FooterCard
+        actions={{
+          open: {
+            value: "icon-1",
+            label: "icon-1",
+            button: { icon: <DesktopMac data-testid={"icon-1"} /> },
+          },
+          copy: {
+            value: "icon-2",
+            label: "icon-2",
+            button: { icon: <LaptopMac data-testid={"icon-2"} /> },
+          },
+          launch: {
+            value: () => {
+              /* do nothing */
+            },
+            label: "icon-3",
+            button: { icon: <PhoneIphone data-testid={"icon-3"} /> },
+          },
+        }}
+      />
+    );
+    expect(queryByTestId("icon-1")).not.toBeNull();
+    expect(queryByTestId("icon-2")).not.toBeNull();
+    expect(queryByTestId("icon-3")).not.toBeNull();
   });
 });

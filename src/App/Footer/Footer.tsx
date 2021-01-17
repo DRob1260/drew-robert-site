@@ -203,6 +203,7 @@ export const Footer: React.FunctionComponent = () => {
         }}
         onClose={() => setOpenDependenciesModal(false)}
         id={"dependencies-modal"}
+        data-testid={"dependencies-modal"}
       >
         <div id={"dependency-credits-container"}>
           <Fade in={openDependenciesModal}>
