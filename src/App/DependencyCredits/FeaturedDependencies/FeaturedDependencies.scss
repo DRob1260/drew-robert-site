@@ -1,0 +1,37 @@
+@import "../../../index";
+
+.FeaturedDependencies {
+  height: 100%;
+  .MuiTypography-root {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .MuiSvgIcon-root {
+      margin-right: 5px;
+      color: #ffd800;
+    }
+  }
+  .MuiCard-root {
+    position: relative;
+    height: 100%;
+    .MuiCardHeader-root {
+      background-color: $color-primary;
+      color: white;
+    }
+    .MuiCardActions-root {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      .MuiButtonBase-root {
+        margin-left: auto;
+        margin-right: 10px;
+        color: white;
+      }
+    }
+  }
+  .MuiPaper-root {
+    background-color: white;
+    color: black;
+  }
+}

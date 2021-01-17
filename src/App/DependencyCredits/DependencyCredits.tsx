@@ -1,25 +1,9 @@
 import React from "react";
-import {
-  Card,
-  CardActions,
-  CardContent,
-  CardHeader,
-  Grid,
-  IconButton,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  ListSubheader,
-  Typography,
-} from "@material-ui/core";
-import {
-  featuredDependencies,
-  getDependencies,
-  getDevDependencies,
-} from "./DependencyCreditsUtilities";
-import { OpenInNew } from "@material-ui/icons";
+import { Grid, Typography, Divider } from "@material-ui/core";
 import "./DependencyCredits.scss";
+import { FeaturedDependencies } from "./FeaturedDependencies/FeaturedDependencies";
+import { AllDependencies } from "./AllDependencies/AllDependencies";
+import { Code } from "@material-ui/icons";
 
 export const DependencyCredits: React.FunctionComponent = () => {
   return (
@@ -30,98 +14,26 @@ export const DependencyCredits: React.FunctionComponent = () => {
         alignItems={"stretch"}
         id={"primary-grid-container"}
       >
-        <Grid item sm={12} md={8} lg={9}>
-          <Typography variant={"h4"} component={"div"} className={"heading"}>
-            Featured Dependencies
+        <Grid item xs={12} id={"introduction"}>
+          <Typography variant={"h4"} component={"h1"} id={"heading"}>
+            <Code fontSize={"inherit"} />
+            Website Dependencies
+          </Typography>
+          <Typography variant={"body1"} id={"body"}>
+            This website relies on dozens of open-source projects for both
+            delivering production code and for assisting development. Listed
+            here are all of the direct dependencies of the site and featured are
+            some of my favorites.
           </Typography>
         </Grid>
-        <Grid item xs={12} md={4} lg={3}>
-          <Typography variant={"h4"} component={"div"} className={"heading"}>
-            All Dependencies
-          </Typography>
+        <Grid item xs={12}>
+          <Divider />
         </Grid>
-        <Grid item sm={12} md={8} lg={9}>
-          <Grid
-            container
-            spacing={1}
-            alignItems={"stretch"}
-            id={"featured-dependencies"}
-          >
-            {featuredDependencies.map((featuredDependency) => {
-              return (
-                <Grid
-                  item
-                  xs={12}
-                  sm={6}
-                  md={6}
-                  lg={3}
-                  key={featuredDependency.name}
-                >
-                  <Card>
-                    <CardHeader title={featuredDependency.name} />
-                    <CardContent>
-                      <Typography variant={"body1"}>
-                        {featuredDependency.description}
-                      </Typography>
-                    </CardContent>
-                    <CardActions>
-                      <IconButton
-                        onClick={() => window.open(featuredDependency.url)}
-                      >
-                        <OpenInNew />
-                      </IconButton>
-                    </CardActions>
-                  </Card>
-                </Grid>
-              );
-            })}
-          </Grid>
+        <Grid item xs={12} md={6} lg={9}>
+          <FeaturedDependencies />
         </Grid>
-        <Grid item xs={12} md={4} lg={3} id={"all-dependencies"}>
-          <Grid item xs={12}>
-            <div id={"all-dependencies-list"}>
-              <List subheader={<li />}>
-                <li>
-                  <ul>
-                    <ListSubheader>Production Dependencies</ListSubheader>
-                    {getDependencies().map((dependency) => {
-                      return (
-                        <ListItem key={dependency.name}>
-                          <ListItemText primary={dependency.name} />
-                          <ListItemSecondaryAction>
-                            <IconButton
-                              onClick={() => window.open(dependency.url)}
-                            >
-                              <OpenInNew />
-                            </IconButton>
-                          </ListItemSecondaryAction>
-                        </ListItem>
-                      );
-                    })}
-                  </ul>
-                </li>
-                <li>
-                  <ul>
-                    <ListSubheader>Developer Dependencies</ListSubheader>
-                    {getDevDependencies().map((dependency) => {
-                      return (
-                        <ListItem key={dependency.name}>
-                          <ListItemText primary={dependency.name} />
-                          <ListItemSecondaryAction>
-                            <IconButton
-                              onClick={() => window.open(dependency.url)}
-                            >
-                              <OpenInNew />
-                            </IconButton>
-                          </ListItemSecondaryAction>
-                        </ListItem>
-                      );
-                    })}
-                  </ul>
-                </li>
-              </List>
-            </div>
-          </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <AllDependencies />
         </Grid>
       </Grid>
     </div>
