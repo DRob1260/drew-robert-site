@@ -64,11 +64,7 @@ export const Backdrop: React.FunctionComponent = () => {
           timeout: 500,
         }}
         onClose={() => setOpenModal(false)}
-        style={{
-          height: "90vh",
-          width: "90vw",
-          margin: "auto",
-        }}
+        id={"backdrop-photo-viewer-modal"}
       >
         <div id={"photo-viewer-container"}>
           <Fade in={openModal}>

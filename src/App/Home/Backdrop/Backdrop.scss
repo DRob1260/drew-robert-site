@@ -62,39 +62,45 @@
   }
 }
 
-#photo-viewer-container {
-  outline: none;
+#backdrop-photo-viewer-modal {
+  height: 90vh;
+  width: 90vh;
+  margin: auto;
+  overflow: auto;
+  #photo-viewer-container {
+    outline: none;
 
-  #full-screen-exit-button {
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: black;
-  }
-
-  #flickr-link-button {
-    text-align: center;
-    display: block;
-    margin: 10px auto;
-    width: 15em;
-    font-weight: bold;
-    background-color: $color-primary;
-    color: white;
-
-    :link,
-    :visited,
-    :hover,
-    :active {
-      color: white;
-      text-decoration: none;
+    #full-screen-exit-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      color: black;
     }
-  }
 
-  img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 90vw;
-    max-height: 85vh;
+    #flickr-link-button {
+      text-align: center;
+      display: block;
+      margin: 10px auto;
+      width: 15em;
+      font-weight: bold;
+      background-color: $color-primary;
+      color: white;
+
+      :link,
+      :visited,
+      :hover,
+      :active {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 90vw;
+      max-height: 85vh;
+    }
   }
 }
