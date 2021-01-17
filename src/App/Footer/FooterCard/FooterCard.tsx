@@ -7,7 +7,7 @@ import {
   IconButton,
   Tooltip,
 } from "@material-ui/core";
-import { FileCopy, OpenInNew } from "@material-ui/icons";
+import { FileCopy, Launch, OpenInBrowser } from "@material-ui/icons";
 import "./FooterCard.scss";
 
 export type FooterCardProps = {
@@ -16,12 +16,26 @@ export type FooterCardProps = {
     open?: {
       value: string;
       label: string;
-      color?: string;
+      button?: {
+        color?: string;
+        icon?: React.ReactChild;
+      };
     };
     copy?: {
       value: string;
       label: string;
-      color?: string;
+      button?: {
+        color?: string;
+        icon?: React.ReactChild;
+      };
+    };
+    launch?: {
+      value: () => void;
+      label: string;
+      button?: {
+        color?: string;
+        icon?: React.ReactChild;
+      };
     };
   };
 };
@@ -73,11 +87,28 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                           navigator.clipboard.writeText(actions.copy.value);
                       }}
                       style={{
-                        color: actions.copy.color || "white",
+                        color: actions.copy.button?.color || "white",
                       }}
                       data-testid={"footer-card-copy-button-iconbutton"}
                     >
-                      <FileCopy />
+                      {actions.copy.button?.icon || <FileCopy />}
+                    </IconButton>
+                  </Tooltip>
+                </span>
+              )}
+              {actions.launch && (
+                <span
+                  className={"footer-card-launch-button"}
+                  data-testid={"footer-card-launch-button"}
+                >
+                  <Tooltip title={actions.launch.label}>
+                    <IconButton
+                      onClick={actions.launch.value}
+                      style={{
+                        color: actions.launch.button?.color || "white",
+                      }}
+                    >
+                      {actions.launch.button?.icon || <Launch />}
                     </IconButton>
                   </Tooltip>
                 </span>
@@ -94,11 +125,11 @@ export const FooterCard: React.FunctionComponent<FooterCardProps> = ({
                           window.open(actions.open.value);
                       }}
                       style={{
-                        color: actions.open.color || "white",
+                        color: actions.open.button?.color || "white",
                       }}
                       data-testid={"footer-card-open-button-iconbutton"}
                     >
-                      <OpenInNew />
+                      {actions.open.button?.icon || <OpenInBrowser />}
                     </IconButton>
                   </Tooltip>
                 </span>
