@@ -5,12 +5,16 @@ $totalTestsColor: #46fce4;
 $regionMenuColor: #4b8078;
 
 .CovidTracker {
+  #CovidTracker-title {
+    display: inline;
+  }
+
   .text {
     margin: 10px;
   }
 
   .info-icon-container {
-    text-align: center;
+    text-align: right;
     .MuiSvgIcon-root {
       color: $totalDeathsColor;
     }
@@ -21,11 +25,6 @@ $regionMenuColor: #4b8078;
   }
 
   #loading-indicator-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
     color: $color-primary;
 
     .MuiCircularProgress-colorPrimary {

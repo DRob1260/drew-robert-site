@@ -313,7 +313,17 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
       <main>
         <Grid container>
           <Grid item xs={10}>
-            <h1 className={"text"}>COVID-19 Metrics Tracker</h1>
+            <h1 id={"CovidTracker-title"} className={"text"}>
+              COVID-19 Metrics Tracker
+            </h1>
+            {loading && !error && (
+              <span
+                id={"loading-indicator-container"}
+                data-testid={"loading-indicator-container"}
+              >
+                <CircularProgress />
+              </span>
+            )}
           </Grid>
           <Grid item xs={2}>
             <div className={"info-icon-container"}>
@@ -327,14 +337,6 @@ const CovidTracker: React.FunctionComponent<CovidTrackerProps> = ({
             </div>
           </Grid>
         </Grid>
-        {loading && !error && (
-          <div
-            id={"loading-indicator-container"}
-            data-testid={"loading-indicator-container"}
-          >
-            <CircularProgress />
-          </div>
-        )}
         <Snackbar
           data-testid={"error-message"}
           open={error}
