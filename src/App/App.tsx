@@ -6,6 +6,7 @@ import { CovidTracker } from "./CovidTracker/CovidTracker";
 import { RedcycleLandingPage } from "./RedcycleLandingPage/RedcycleLandingPage";
 import { Footer } from "./Footer/Footer";
 import "./App.scss";
+import { MME } from "./MME/MME";
 
 const App: React.FunctionComponent = () => {
   return (
@@ -30,6 +31,14 @@ const App: React.FunctionComponent = () => {
             render={() => (
               <div className={"content-wrapper top-padding"}>
                 <RedcycleLandingPage />
+              </div>
+            )}
+          />
+          <Route
+            path={"/mme"}
+            render={() => (
+              <div className={"content-wrapper top-padding"}>
+                <MME />
               </div>
             )}
           />
