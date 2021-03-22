@@ -19,4 +19,4 @@ export type MmeForumOrder = {
   model: string;
   driveTrain: string;
   battery: string;
-}
+};

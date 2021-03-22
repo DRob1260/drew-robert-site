@@ -92,20 +92,11 @@ const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
   },
 ];
 
-export const MmeForumOrderTable: React.FunctionComponent = () => {
-  const [mmeForumOrders, setMmeForumOrders] = useState<MmeForumOrder[]>([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    retrieveMmeForumOrders().then((orders) => {
-      setMmeForumOrders(orders);
-      setLoading(false);
-    });
-  }, []);
-
+export const MmeForumOrders: React.FunctionComponent<{
+  mmeForumOrders: MmeForumOrder[];
+}> = ({ mmeForumOrders }) => {
   return (
-    <div className={"MmeForumOrderTable"}>
+    <div className={"MmeForumOrders"}>
       <MaterialTable
         title={"Submitted Orders"}
         columns={mmeForumOrderTableColumns}
@@ -118,7 +109,11 @@ export const MmeForumOrderTable: React.FunctionComponent = () => {
           exportAllData: true,
         }}
         icons={tableIcons}
-        isLoading={loading}
+        localization={{
+          body: {
+            emptyDataSourceMessage: null,
+          },
+        }}
       />
     </div>
   );
