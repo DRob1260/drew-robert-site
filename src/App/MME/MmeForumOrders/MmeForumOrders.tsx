@@ -107,6 +107,7 @@ export const MmeForumOrders: React.FunctionComponent<{
           search: false,
           exportButton: true,
           exportAllData: true,
+          pageSizeOptions: [5, 10, 20, 40, 80, 160, 320, 640, 1280],
         }}
         icons={tableIcons}
         localization={{
