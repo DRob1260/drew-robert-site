@@ -18,7 +18,7 @@ export const MME: React.FunctionComponent = () => {
         setMmeForumOrders(orders);
         setLoading(false);
       })
-      .catch((error) => {
+      .catch(() => {
         setLoading(false);
         setError(true);
       });
@@ -28,7 +28,7 @@ export const MME: React.FunctionComponent = () => {
     <div className={"MME"}>
       <h1>Mustang Mach-E</h1>
       <p>
-        I ordered a Mustang Mach-E and am (impatiently) waiting on updates on
+        I ordered a Mustang Mach-E and am (impatiently) waiting on updates for
         its production and delivery. To pass my time, I'm building some tools to
         help keep an eye on the progress of orders!
       </p>
@@ -41,7 +41,7 @@ export const MME: React.FunctionComponent = () => {
           These Mach-E orders are pulled live from the data in the{" "}
           <a
             target={"_blank"}
-            rel={"noreferrer"}
+            rel={"noopener noreferrer"}
             href={
               "https://www.macheforum.com/site/threads/submitted-orders-tracking-list-and-stats-enter-yours.924/"
             }

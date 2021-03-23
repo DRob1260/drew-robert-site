@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MaterialTable, { Column } from "material-table";
 import { MmeForumOrder } from "../../../models/MME/api/MmeForumOrder";
-import { retrieveMmeForumOrders } from "../../../services/DrewRobertApi/MME";
 import { tableIcons } from "../../CovidTracker/CovidTrackerTable/TableIcons";
 
-const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
+export const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
   {
     title: "Entry Number",
     field: "orderEntryNumber",
