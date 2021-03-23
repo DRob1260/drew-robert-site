@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MaterialTable, { Column } from "material-table";
 import { MmeForumOrder } from "../../../models/MME/api/MmeForumOrder";
-import { retrieveMmeForumOrders } from "../../../services/DrewRobertApi/MME";
 import { tableIcons } from "../../CovidTracker/CovidTrackerTable/TableIcons";
 
-const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
+export const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
   {
     title: "Entry Number",
     field: "orderEntryNumber",
@@ -107,6 +106,7 @@ export const MmeForumOrders: React.FunctionComponent<{
           search: false,
           exportButton: true,
           exportAllData: true,
+          pageSizeOptions: [5, 10, 20, 40, 80, 160, 320, 640, 1280],
         }}
         icons={tableIcons}
         localization={{

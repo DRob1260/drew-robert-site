@@ -1,0 +1,23 @@
+.MmePreviewCard {
+  img {
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .MuiTable-root {
+    margin-left: 5px;
+  }
+  .children-container {
+    background-color: white;
+  }
+  .MuiCardMedia-root {
+    .MuiPaper-rounded {
+      background-color: white;
+    }
+  }
+  .MuiTableCell-root {
+    padding: 0.5px;
+  }
+}

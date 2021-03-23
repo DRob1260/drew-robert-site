@@ -61,6 +61,11 @@ const Navigator: React.FunctionComponent = () => {
                   COVID-19 Metrics Tracker
                 </MenuItem>
               </Link>
+              <Link to={"/mme"} className={"Link"}>
+                <MenuItem onClick={closeProjectsMenu} className={"Link"}>
+                  Mach-E Tracker
+                </MenuItem>
+              </Link>
               <Link to={"/redcycle-landing-page"} className={"Link"}>
                 <MenuItem
                   onClick={closeProjectsMenu}

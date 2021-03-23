@@ -3,10 +3,12 @@ import { GridList, GridListTile, Typography } from "@material-ui/core";
 import { RedcyclePreviewCard } from "../../RedcycleLandingPage/RedcyclePreviewCard";
 import "./Projects.scss";
 import { CovidTrackerPreviewCard } from "../../CovidTracker/CovidTrackerPreviewCard";
+import { MmePreviewCard } from "../../MME/MmePreviewCard";
 
 const ProjectPreviewCards = [
   <CovidTrackerPreviewCard key={"project-preview-card-0"} />,
-  <RedcyclePreviewCard key={"project-preview-card-1"} />,
+  <MmePreviewCard key={"project-preview-card-1"} />,
+  <RedcyclePreviewCard key={"project-preview-card-2"} />,
 ];
 
 export const Projects: React.FunctionComponent = () => {
