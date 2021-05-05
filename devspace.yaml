@@ -1,0 +1,57 @@
+version: v1beta9
+images:
+  app:
+    image: drob1260/drewrobertsite
+    dockerfile: prod.Dockerfile
+    preferSyncOverRebuild: true
+    injectRestartHelper: true
+    appendDockerfileInstructions:
+      - USER root
+deployments:
+  - name: drew-robert-site
+    helm:
+      componentChart: true
+      values:
+        containers:
+          - image: drob1260/drewrobertsite
+        service:
+          ports:
+            - port: 3000
+dev:
+  ports:
+    - imageName: app
+      forward:
+        - port: 3000
+  open:
+    - url: http://localhost:3000
+  sync:
+    - imageName: app
+      excludePaths:
+        - .git/
+      uploadExcludePaths:
+        - node_modules
+        - build
+        - .dockerignore
+        - dev.Dockerfile
+        - prod.Dockerfile
+        - devspace.yaml
+      onUpload:
+        restartContainer: true
+profiles:
+  - name: production
+    patches:
+      - op: remove
+        path: images.app.injectRestartHelper
+      - op: remove
+        path: images.app.appendDockerfileInstructions
+  - name: interactive
+    patches:
+      - op: add
+        path: dev.interactive
+        value:
+          defaultEnabled: true
+      - op: add
+        path: images.app.entrypoint
+        value:
+          - sleep
+          - "9999999999"

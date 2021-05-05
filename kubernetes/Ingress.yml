@@ -2,7 +2,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: drew-robert-site-ingress
-  namespace: drew-robert-site
+  namespace: drew-robert
 spec:
   rules:
     - host: drewrobert.com

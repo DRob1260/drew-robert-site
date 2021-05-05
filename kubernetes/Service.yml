@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: drew-robert-site-service
-  namespace: drew-robert-site
+  namespace: drew-robert
 spec:
   type: ClusterIP
   ports:
