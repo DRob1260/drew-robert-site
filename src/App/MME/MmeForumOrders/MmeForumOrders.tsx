@@ -19,27 +19,22 @@ export const mmeForumOrderTableColumns: Column<MmeForumOrder>[] = [
   {
     title: "Order Date",
     field: "orderDate",
-    type: "date",
   },
   {
     title: "Estimated Build Date",
     field: "estimatedBuildDate",
-    type: "date",
   },
   {
     title: "Actual Build Date",
     field: "actualBuildDate",
-    type: "date",
   },
   {
     title: "Estimated Delivery Date",
     field: "estimatedDeliveryDate",
-    type: "date",
   },
   {
     title: "Actual Delivery Date",
     field: "actualDeliveryDate",
-    type: "date",
   },
   {
     title: "VIN",
