@@ -1,0 +1,13 @@
+.MyTable {
+  #MyTable-title {
+    margin: 1em;
+  }
+  #MyTable-csv-export {
+    color: black;
+    float: right;
+
+    .MuiIconButton-root {
+      margin: .5em;
+    }
+  }
+}

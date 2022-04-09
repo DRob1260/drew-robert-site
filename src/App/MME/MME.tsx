@@ -57,7 +57,11 @@ export const MME: React.FunctionComponent = () => {
             marginBottom: "1em",
           }}
         >
-          <MyTable defaultData={mmeForumOrders} />
+          <MyTable
+            title={"Submitted Orders"}
+            exportCSV={true}
+            defaultData={mmeForumOrders}
+          />
         </div>
         <MmeForumOrders mmeForumOrders={mmeForumOrders} />
       </div>

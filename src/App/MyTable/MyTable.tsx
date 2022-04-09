@@ -1,5 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
+import "./MyTable.scss";
 import {
+  Grid,
+  IconButton,
   Paper,
   Table,
   TableBody,
@@ -8,6 +11,7 @@ import {
   TableHead,
   TablePagination,
   TableRow,
+  Typography,
 } from "@material-ui/core";
 import {
   createTable,
@@ -17,10 +21,12 @@ import {
   columnFilterRowsFn,
   ColumnFiltersState,
   SortingState,
+  TableInstance,
 } from "@tanstack/react-table";
-
 import { TextFilter } from "./Filters/TextFilter/TextFilter";
-import { ArrowDownward, ArrowUpward } from "@material-ui/icons";
+import { ArrowDownward, ArrowUpward, CloudDownload } from "@material-ui/icons";
+import { CSVLink } from "react-csv";
+import { getCSVData } from "./MyTableUtils";
 
 export type MyTableRow = {
   orderEntryNumber: number;
@@ -47,6 +53,8 @@ export type MyTableRow = {
 
 export type MyTableProps = {
   defaultData: MyTableRow[];
+  title?: string;
+  exportCSV?: boolean;
 };
 
 const table = createTable<{ Row: MyTableRow }>();
@@ -126,7 +134,9 @@ const getRowsPerPageOptions = (numRows: number): number[] => {
 };
 
 export const MyTable: React.FunctionComponent<MyTableProps> = ({
+  title,
   defaultData,
+  exportCSV,
 }) => {
   const [data, setData] = useState(() => [...defaultData]);
   const [columns, setColumns] = useState(() => [...defaultColumns]);
@@ -161,6 +171,27 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
   return (
     <div className={"MyTable"}>
       <Paper>
+        <Grid container>
+          <Grid item xs={11}>
+            {title && (
+              <Typography variant={"h6"} component={"div"} id={"MyTable-title"}>
+                {title}
+              </Typography>
+            )}
+          </Grid>
+          <Grid item xs={1}>
+            {exportCSV && (
+              <CSVLink
+                {...getCSVData(instance, title)}
+                id={"MyTable-csv-export"}
+              >
+                <IconButton>
+                  <CloudDownload />
+                </IconButton>
+              </CSVLink>
+            )}
+          </Grid>
+        </Grid>
         <TableContainer>
           <Table {...instance.getTableProps()} size={"small"}>
             <TableHead>
