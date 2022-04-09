@@ -6,7 +6,7 @@ import { CovidTrackerPreviewCard } from "../../CovidTracker/CovidTrackerPreviewC
 import { MmePreviewCard } from "../../MME/MmePreviewCard";
 
 const ProjectPreviewCards = [
-  <CovidTrackerPreviewCard key={"project-preview-card-0"} />,
+  // <CovidTrackerPreviewCard key={"project-preview-card-0"} />,
   <MmePreviewCard key={"project-preview-card-1"} />,
   <RedcyclePreviewCard key={"project-preview-card-2"} />,
 ];

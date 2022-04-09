@@ -5,6 +5,7 @@ import { MmeForumOrders } from "./MmeForumOrders/MmeForumOrders";
 import { MmeForumOrder } from "../../models/MME/api/MmeForumOrder";
 import { retrieveMmeForumOrders } from "../../services/DrewRobertApi/MME";
 import "./MME.scss";
+import { MyTable } from "../MyTable/MyTable";
 
 export const MME: React.FunctionComponent = () => {
   const [mmeForumOrders, setMmeForumOrders] = useState<MmeForumOrder[]>([]);
@@ -51,6 +52,13 @@ export const MME: React.FunctionComponent = () => {
           in the Mach-E Forum. I find it useful to apply sorting and filtering
           to the values to narrow down analysis.
         </p>
+        <div
+          style={{
+            marginBottom: "1em",
+          }}
+        >
+          <MyTable defaultData={mmeForumOrders} />
+        </div>
         <MmeForumOrders mmeForumOrders={mmeForumOrders} />
       </div>
       <Snackbar open={error}>

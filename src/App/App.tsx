@@ -14,18 +14,18 @@ const App: React.FunctionComponent = () => {
       <BrowserRouter>
         <Navigator />
         <Switch>
-          <Route
-            path={"/covid/:country/:state/:region?"}
-            render={(routeProps) => (
-              <div className={"content-wrapper top-padding"}>
-                <CovidTracker
-                  country={routeProps.match.params.country}
-                  territory={routeProps.match.params.state}
-                  region={routeProps.match.params.region}
-                />
-              </div>
-            )}
-          />
+          {/*<Route*/}
+          {/*  path={"/covid/:country/:state/:region?"}*/}
+          {/*  render={(routeProps) => (*/}
+          {/*    <div className={"content-wrapper top-padding"}>*/}
+          {/*      <CovidTracker*/}
+          {/*        country={routeProps.match.params.country}*/}
+          {/*        territory={routeProps.match.params.state}*/}
+          {/*        region={routeProps.match.params.region}*/}
+          {/*      />*/}
+          {/*    </div>*/}
+          {/*  )}*/}
+          {/*/>*/}
           <Route
             path={"/redcycle-landing-page"}
             render={() => (
