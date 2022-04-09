@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./MyTable.scss";
 import {
   Grid,
@@ -9,7 +9,6 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TablePagination,
   TableRow,
   Typography,
 } from "@material-ui/core";
@@ -21,12 +20,12 @@ import {
   columnFilterRowsFn,
   ColumnFiltersState,
   SortingState,
-  TableInstance,
 } from "@tanstack/react-table";
 import { TextFilter } from "./Filters/TextFilter/TextFilter";
 import { ArrowDownward, ArrowUpward, CloudDownload } from "@material-ui/icons";
 import { CSVLink } from "react-csv";
 import { getCSVData } from "./MyTableUtils";
+import { MyTablePagination } from "./MyTablePagination/MyTablePagination";
 
 export type MyTableRow = {
   orderEntryNumber: number;
@@ -121,17 +120,6 @@ const defaultColumns = table.createColumns([
     header: "Battery",
   }),
 ]);
-
-const getRowsPerPageOptions = (numRows: number): number[] => {
-  const rowsPerPageOptions = [];
-  for (let i = 5; i <= numRows; i *= 2) {
-    rowsPerPageOptions.push(i);
-  }
-  if (rowsPerPageOptions[rowsPerPageOptions.length - 1] !== numRows)
-    rowsPerPageOptions[rowsPerPageOptions.length - 1] = numRows;
-
-  return rowsPerPageOptions;
-};
 
 export const MyTable: React.FunctionComponent<MyTableProps> = ({
   title,
@@ -239,20 +227,7 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
             </TableBody>
           </Table>
         </TableContainer>
-        {/*todo: add go-to-last and go-to-first buttons like in https://mui.com/material-ui/react-table/#custom-pagination-options*/}
-        <TablePagination
-          component={"div"}
-          rowsPerPageOptions={[...getRowsPerPageOptions(data.length)]}
-          rowsPerPage={instance.getState().pagination.pageSize}
-          onChangeRowsPerPage={(event: React.ChangeEvent<HTMLInputElement>) => {
-            instance.setPageSize(parseInt(event.target.value));
-          }}
-          count={data.length}
-          page={instance.getState().pagination.pageIndex}
-          onChangePage={(event, newPage) => {
-            instance.setPageIndex(newPage);
-          }}
-        />
+        <MyTablePagination tableInstance={instance} dataSize={data.length} />
       </Paper>
     </div>
   );
