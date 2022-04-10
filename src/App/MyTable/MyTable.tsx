@@ -184,34 +184,42 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
           <Table {...instance.getTableProps()} size={"small"}>
             <TableHead>
               {instance.getHeaderGroups().map((headerGroup) => (
-                <TableRow {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map((header) => (
-                    <TableCell {...header.getHeaderProps()}>
-                      {header.isPlaceholder ? null : (
-                        <div
-                          {...(header.column.getCanSort()
-                            ? header.column.getToggleSortingProps({
-                                className: "cursor-pointer select-none",
-                              })
-                            : {})}
-                        >
-                          {header.renderHeader()}
-                          {header.column.getIsSorted() === "asc" ? (
-                            <ArrowUpward fontSize={"small"} />
-                          ) : null}
-                          {header.column.getIsSorted() === "desc" ? (
-                            <ArrowDownward fontSize={"small"} />
-                          ) : null}
-                          {header.column.getCanColumnFilter() ? (
-                            <div>
-                              <TextFilter column={header.column} />
-                            </div>
-                          ) : null}
-                        </div>
-                      )}
-                    </TableCell>
-                  ))}
-                </TableRow>
+                <>
+                  <TableRow {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map((header) => (
+                      <TableCell {...header.getHeaderProps()}>
+                        {header.isPlaceholder ? null : (
+                          <div
+                            {...(header.column.getCanSort()
+                              ? header.column.getToggleSortingProps({
+                                  className: "cursor-pointer select-none",
+                                })
+                              : {})}
+                          >
+                            {header.renderHeader()}
+                            {header.column.getIsSorted() === "asc" ? (
+                              <ArrowUpward fontSize={"small"} />
+                            ) : null}
+                            {header.column.getIsSorted() === "desc" ? (
+                              <ArrowDownward fontSize={"small"} />
+                            ) : null}
+                          </div>
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                  <TableRow>
+                    {headerGroup.headers.map((header) => (
+                      <TableCell>
+                        {header.column.getCanColumnFilter() ? (
+                          <div>
+                            <TextFilter column={header.column} />
+                          </div>
+                        ) : null}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                </>
               ))}
             </TableHead>
             <TableBody {...instance.getTableBodyProps()}>

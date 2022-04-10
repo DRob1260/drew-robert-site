@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "@material-ui/icons": "^4.9.1",
+    "@material-ui/icons": "^4.11.0",
     "@material-ui/lab": "^4.0.0-alpha.57",
     "@nivo/line": "^0.62.0",
     "@tanstack/react-table": "^8.0.0-alpha.25",
