@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Navigator } from "./Navigator/Navigator";
 import { Home } from "./Home/Home";
-import { CovidTracker } from "./CovidTracker/CovidTracker";
 import { RedcycleLandingPage } from "./RedcycleLandingPage/RedcycleLandingPage";
 import { Footer } from "./Footer/Footer";
 import "./App.scss";
@@ -14,18 +13,6 @@ const App: React.FunctionComponent = () => {
       <BrowserRouter>
         <Navigator />
         <Switch>
-          {/*<Route*/}
-          {/*  path={"/covid/:country/:state/:region?"}*/}
-          {/*  render={(routeProps) => (*/}
-          {/*    <div className={"content-wrapper top-padding"}>*/}
-          {/*      <CovidTracker*/}
-          {/*        country={routeProps.match.params.country}*/}
-          {/*        territory={routeProps.match.params.state}*/}
-          {/*        region={routeProps.match.params.region}*/}
-          {/*      />*/}
-          {/*    </div>*/}
-          {/*  )}*/}
-          {/*/>*/}
           <Route
             path={"/redcycle-landing-page"}
             render={() => (

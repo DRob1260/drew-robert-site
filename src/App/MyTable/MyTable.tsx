@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MyTable.scss";
 import {
-  Box,
   Grid,
   IconButton,
   LinearProgress,
@@ -35,6 +34,7 @@ export type MyTableProps<DataType extends object> = {
   title?: string;
   exportCSV?: boolean;
   loading?: boolean;
+  defaultPageSize?: number;
 };
 
 export const MyTable = <DataType extends object>({
@@ -43,6 +43,7 @@ export const MyTable = <DataType extends object>({
   defaultData,
   exportCSV,
   loading,
+  defaultPageSize = 5,
 }: MyTableProps<DataType>) => {
   const table = createTable<{ Row: DataType }>();
   const defaultTableColumns = table.createColumns([
@@ -58,7 +59,7 @@ export const MyTable = <DataType extends object>({
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 5,
+    pageSize: defaultPageSize,
     pageCount: -1, // -1 allows the table to calculate the page count for us via tableInstance.getPageCount()
   });
   const [sorting, setSorting] = useState<SortingState>([]);
@@ -149,7 +150,6 @@ export const MyTable = <DataType extends object>({
                 </>
               ))}
             </TableHead>
-            <div></div>
             <TableBody {...tableInstance.getTableBodyProps()}>
               {loading && (
                 <TableRow id={"MyTable-loading-indicator-row"}>

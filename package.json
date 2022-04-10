@@ -12,7 +12,6 @@
     "@types/react-csv": "^1.1.2",
     "axios": "^0.20.0",
     "luxon": "^1.25.0",
-    "material-table": "^1.69.1",
     "react": "^16.13.1",
     "react-axe": "^3.5.3",
     "react-csv": "^2.2.2",
