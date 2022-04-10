@@ -52,15 +52,6 @@ const Navigator: React.FunctionComponent = () => {
               keepMounted={true}
               onClose={() => closeProjectsMenu()}
             >
-              <Link to={"/covid/unitedstates/illinois"} className={"Link"}>
-                <MenuItem
-                  onClick={closeProjectsMenu}
-                  className={"Link"}
-                  data-testid={"covid-metrics-link"}
-                >
-                  COVID-19 Metrics Tracker
-                </MenuItem>
-              </Link>
               <Link to={"/mme"} className={"Link"}>
                 <MenuItem onClick={closeProjectsMenu} className={"Link"}>
                   Mach-E Tracker
