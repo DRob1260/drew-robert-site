@@ -1,5 +1,18 @@
-import { TableInstance } from "@tanstack/react-table";
+import { createTable, Table, TableInstance } from "@tanstack/react-table";
 import { DateTime } from "luxon";
+
+export type MyTableData = {
+  accessor: string;
+  header: string;
+  value: never;
+}[];
+
+export function buildTableColumns<DataType>(
+  table: Table<DataType>,
+  dataHeaders: { [Property in keyof DataType]: string }
+) {
+  return [];
+}
 
 type CSVHeader = {
   label: string;

@@ -24,115 +24,38 @@ import {
 import { TextFilter } from "./Filters/TextFilter/TextFilter";
 import { ArrowDownward, ArrowUpward, CloudDownload } from "@material-ui/icons";
 import { CSVLink } from "react-csv";
-import { getCSVData } from "./MyTableUtils";
+import { buildTableColumns, getCSVData } from "./MyTableUtils";
 import { MyTablePagination } from "./MyTablePagination/MyTablePagination";
 
-export type MyTableRow = {
-  orderEntryNumber: number;
-  mmeForumUsername: string;
-  orderNumber: string;
-  orderDate: Date;
-  estimatedBuildDate: Date;
-  actualBuildDate: Date;
-  estimatedDeliveryDate: Date;
-  actualDeliveryDate: Date;
-  vin: string;
-  vinReceived: boolean;
-  daysBetweenOrderAndBuild: number;
-  daysBetweenOrderAndDelivery: number;
-  daysBetweenBuildAndDelivery: number;
-  location: string;
-  locationNonUS: string;
-  exteriorColor: string;
-  modelYear: string;
-  model: string;
-  driveTrain: string;
-  battery: string;
-};
-
-export type MyTableProps = {
-  defaultData: MyTableRow[];
+export type MyTableProps<DataType extends object> = {
+  defaultData: DataType[];
+  dataHeaders: { [key: string]: DataType }[];
   title?: string;
   exportCSV?: boolean;
 };
 
-const table = createTable<{ Row: MyTableRow }>();
-
-const defaultColumns = table.createColumns([
-  table.createDataColumn("orderEntryNumber", {
-    header: "Entry Number",
-  }),
-  table.createDataColumn("mmeForumUsername", {
-    header: "Mache-E Forum Username",
-  }),
-  table.createDataColumn("orderNumber", {
-    header: "Order Number",
-  }),
-  table.createDataColumn("orderDate", {
-    header: "Order Date",
-  }),
-  table.createDataColumn("estimatedBuildDate", {
-    header: "Estimated Build Date",
-  }),
-  table.createDataColumn("actualBuildDate", {
-    header: "Actual Build Date",
-  }),
-  table.createDataColumn("estimatedDeliveryDate", {
-    header: "Estimated Delivery Date",
-  }),
-  table.createDataColumn("actualDeliveryDate", {
-    header: "Actual Delivery Date",
-  }),
-  table.createDataColumn("vin", {
-    header: "VIN",
-  }),
-  table.createDataColumn("vinReceived", {
-    header: "VIN Received",
-  }),
-  table.createDataColumn("daysBetweenOrderAndBuild", {
-    header: "Days Between Order & Build",
-  }),
-  table.createDataColumn("daysBetweenOrderAndDelivery", {
-    header: "Days Between Order & Delivery",
-  }),
-  table.createDataColumn("daysBetweenBuildAndDelivery", {
-    header: "Days Between Build & Delivery",
-  }),
-  table.createDataColumn("location", {
-    header: "Location",
-  }),
-  table.createDataColumn("locationNonUS", {
-    header: "Country (Non-US)",
-  }),
-  table.createDataColumn("exteriorColor", {
-    header: "Exterior Color",
-  }),
-  table.createDataColumn("modelYear", {
-    header: "Model Year",
-  }),
-  table.createDataColumn("model", {
-    header: "Model",
-  }),
-  table.createDataColumn("driveTrain", {
-    header: "Drivetrain",
-  }),
-  table.createDataColumn("battery", {
-    header: "Battery",
-  }),
-]);
-
-export const MyTable: React.FunctionComponent<MyTableProps> = ({
+export const MyTable = <DataType extends object>({
   title,
+  dataHeaders,
   defaultData,
   exportCSV,
-}) => {
+}: MyTableProps<DataType>) => {
+  const table = createTable<{ Row: DataType }>();
+  // const defaultColumns = buildTableColumns<DataType>(table, dataHeaders);
+  const defaultColumns = table.createColumns([
+    ...dataHeaders.map((dataHeader) =>
+      table.createDataColumn(dataHeader.key, {
+        header: dataHeader.value,
+      })
+    ),
+  ]);
   const [data, setData] = useState(() => [...defaultData]);
   const [columns, setColumns] = useState(() => [...defaultColumns]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
     pageSize: 5,
-    pageCount: -1, // -1 allows the table to calculate the page count for us via instance.getPageCount()
+    pageCount: -1, // -1 allows the table to calculate the page count for us via tableInstance.getPageCount()
   });
   const [sorting, setSorting] = useState<SortingState>([]);
 
@@ -140,7 +63,7 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
     setData(defaultData);
   }, [defaultData]);
 
-  const instance = useTable(table, {
+  const tableInstance = useTable(table, {
     data,
     columns,
     state: {
@@ -170,7 +93,7 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
           <Grid item xs={1}>
             {exportCSV && (
               <CSVLink
-                {...getCSVData(instance, title)}
+                {...getCSVData(tableInstance, title)}
                 id={"MyTable-csv-export"}
               >
                 <IconButton>
@@ -181,9 +104,9 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
           </Grid>
         </Grid>
         <TableContainer>
-          <Table {...instance.getTableProps()} size={"small"}>
+          <Table {...tableInstance.getTableProps()} size={"small"}>
             <TableHead>
-              {instance.getHeaderGroups().map((headerGroup) => (
+              {tableInstance.getHeaderGroups().map((headerGroup) => (
                 <>
                   <TableRow {...headerGroup.getHeaderGroupProps()}>
                     {headerGroup.headers.map((header) => (
@@ -222,8 +145,8 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
                 </>
               ))}
             </TableHead>
-            <TableBody {...instance.getTableBodyProps()}>
-              {instance.getRowModel().rows.map((row) => (
+            <TableBody {...tableInstance.getTableBodyProps()}>
+              {tableInstance.getRowModel().rows.map((row) => (
                 <TableRow {...row.getRowProps()}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell {...cell.getCellProps()}>
@@ -235,7 +158,10 @@ export const MyTable: React.FunctionComponent<MyTableProps> = ({
             </TableBody>
           </Table>
         </TableContainer>
-        <MyTablePagination tableInstance={instance} dataSize={data.length} />
+        <MyTablePagination
+          tableInstance={tableInstance}
+          dataSize={data.length}
+        />
       </Paper>
     </div>
   );
