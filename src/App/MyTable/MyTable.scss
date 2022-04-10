@@ -1,3 +1,5 @@
+@import "../../index";
+
 .MyTable {
   #MyTable-title {
     margin: 1em;
@@ -10,4 +12,14 @@
       margin: 0.5em;
     }
   }
+  #MyTable-loading-indicator-row {
+    .MuiTableCell-root {
+      padding: 0;
+    }
+
+    .MuiLinearProgress-root {
+      color: $color-primary;
+    }
+  }
+
 }

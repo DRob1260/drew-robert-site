@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./MyTable.scss";
 import {
+  Box,
   Grid,
   IconButton,
+  LinearProgress,
   Paper,
   Table,
   TableBody,
@@ -32,6 +34,7 @@ export type MyTableProps<DataType extends object> = {
   defaultColumns: { accessorKey: keyof DataType; header: string }[];
   title?: string;
   exportCSV?: boolean;
+  loading?: boolean;
 };
 
 export const MyTable = <DataType extends object>({
@@ -39,6 +42,7 @@ export const MyTable = <DataType extends object>({
   defaultColumns,
   defaultData,
   exportCSV,
+  loading,
 }: MyTableProps<DataType>) => {
   const table = createTable<{ Row: DataType }>();
   const defaultTableColumns = table.createColumns([
@@ -145,7 +149,15 @@ export const MyTable = <DataType extends object>({
                 </>
               ))}
             </TableHead>
+            <div></div>
             <TableBody {...tableInstance.getTableBodyProps()}>
+              {loading && (
+                <TableRow id={"MyTable-loading-indicator-row"}>
+                  <TableCell colSpan={columns.length}>
+                    <LinearProgress />
+                  </TableCell>
+                </TableRow>
+              )}
               {tableInstance.getRowModel().rows.map((row) => (
                 <TableRow {...row.getRowProps()}>
                   {row.getVisibleCells().map((cell) => (

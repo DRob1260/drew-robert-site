@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { CircularProgress, Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
-import { MmeForumOrders } from "./MmeForumOrders/MmeForumOrders";
 import { MmeForumOrder } from "../../models/MME/api/MmeForumOrder";
 import { retrieveMmeForumOrders } from "../../services/DrewRobertApi/MME";
 import "./MME.scss";
@@ -45,10 +44,6 @@ export const MME: React.FunctionComponent = () => {
         the values to narrow down analysis.
       </p>
       <div className={"mach-e-forum-orders"}>
-        <div className={"mach-e-forum-orders-header"}>
-          {loading && <CircularProgress size={"1.25em"} />}
-        </div>
-        <p></p>
         <div
           style={{
             marginBottom: "1em",
@@ -57,6 +52,7 @@ export const MME: React.FunctionComponent = () => {
           <MyTable
             title={"Submitted Orders"}
             exportCSV={true}
+            loading={loading}
             defaultData={mmeForumOrders}
             defaultColumns={[
               { accessorKey: "orderEntryNumber", header: "Entry Number" },
