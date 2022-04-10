@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { CircularProgress, Snackbar } from "@material-ui/core";
+import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { MmeForumOrder } from "../../models/MME/api/MmeForumOrder";
 import { retrieveMmeForumOrders } from "../../services/DrewRobertApi/MME";

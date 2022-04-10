@@ -55,7 +55,7 @@ export const MyTable = <DataType extends object>({
     ),
   ]);
   const [data, setData] = useState(() => [...defaultData]);
-  const [columns, setColumns] = useState(() => [...defaultTableColumns]);
+  const [columns] = useState(() => [...defaultTableColumns]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
