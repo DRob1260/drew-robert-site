@@ -61,27 +61,84 @@ export const MME: React.FunctionComponent = () => {
             title={"Submitted Orders"}
             exportCSV={true}
             defaultData={mmeForumOrders}
-            dataHeaders={[
-              { orderEntryNumber: "Entry Number" },
-              { mmeForumUsername: "Mach-E Forum Username" },
-              { orderNumber: "Order Number" },
-              { orderDate: "Order Date" },
-              { estimatedBuildDate: "Estimated Build Date" },
-              { actualBuildDate: "Actual Build Date" },
-              { estimatedDeliveryDate: "Estimated Delivery Date" },
-              { actualDeliveryDate: "Actual Delivery Date" },
-              { vin: "VIN" },
-              { vinReceived: "VIN Received" },
-              { daysBetweenOrderAndBuild: "Days Between Order & Build" },
-              { daysBetweenOrderAndDelivery: "Days Between Order & Delivery" },
-              { daysBetweenBuildAndDelivery: "Days Between Build & Delivery" },
-              { location: "Location" },
-              { locationNonUS: "Country (Non-US)" },
-              { exteriorColor: "Exterior Color" },
-              { modelYear: "Model Year" },
-              { model: "Model" },
-              { driveTrain: "Drivetrain" },
-              { battery: "Battery" },
+            defaultColumns={[
+              { accessorKey: "orderEntryNumber", header: "Entry Number" },
+              {
+                accessorKey: "mmeForumUsername",
+                header: "Mach-E Forum Username",
+              },
+              {
+                accessorKey: "orderNumber",
+                header: "Order Number",
+              },
+              {
+                accessorKey: "orderDate",
+                header: "Order Date",
+              },
+              {
+                accessorKey: "estimatedBuildDate",
+                header: "Estimated Build Date",
+              },
+              {
+                accessorKey: "actualBuildDate",
+                header: "Actual Build Date",
+              },
+              {
+                accessorKey: "estimatedDeliveryDate",
+                header: "Estimated Delivery Date",
+              },
+              {
+                accessorKey: "actualDeliveryDate",
+                header: "Actual Delivery Date",
+              },
+              {
+                accessorKey: "vin",
+                header: "VIN",
+              },
+              {
+                accessorKey: "vinReceived",
+                header: "VIN Received",
+              },
+              {
+                accessorKey: "daysBetweenOrderAndBuild",
+                header: "Days Between Order & Build",
+              },
+              {
+                accessorKey: "daysBetweenOrderAndDelivery",
+                header: "Days Between Order & Delivery",
+              },
+              {
+                accessorKey: "daysBetweenBuildAndDelivery",
+                header: "Days Between Build & Delivery",
+              },
+              {
+                accessorKey: "location",
+                header: "Location",
+              },
+              {
+                accessorKey: "locationNonUS",
+                header: "Country (Non-US)",
+              },
+              {
+                accessorKey: "exteriorColor",
+                header: "Exterior Color",
+              },
+              {
+                accessorKey: "modelYear",
+                header: "Model Year",
+              },
+              {
+                accessorKey: "model",
+                header: "Model",
+              },
+              {
+                accessorKey: "driveTrain",
+                header: "Drivetrain",
+              },
+              {
+                accessorKey: "battery",
+                header: "Battery",
+              },
             ]}
           />
         </div>

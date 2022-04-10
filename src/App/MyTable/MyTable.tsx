@@ -24,33 +24,33 @@ import {
 import { TextFilter } from "./Filters/TextFilter/TextFilter";
 import { ArrowDownward, ArrowUpward, CloudDownload } from "@material-ui/icons";
 import { CSVLink } from "react-csv";
-import { buildTableColumns, getCSVData } from "./MyTableUtils";
+import { getCSVData } from "./MyTableUtils";
 import { MyTablePagination } from "./MyTablePagination/MyTablePagination";
 
 export type MyTableProps<DataType extends object> = {
   defaultData: DataType[];
-  dataHeaders: { [key: string]: DataType }[];
+  defaultColumns: { accessorKey: keyof DataType; header: string }[];
   title?: string;
   exportCSV?: boolean;
 };
 
 export const MyTable = <DataType extends object>({
   title,
-  dataHeaders,
+  defaultColumns,
   defaultData,
   exportCSV,
 }: MyTableProps<DataType>) => {
   const table = createTable<{ Row: DataType }>();
-  // const defaultColumns = buildTableColumns<DataType>(table, dataHeaders);
-  const defaultColumns = table.createColumns([
-    ...dataHeaders.map((dataHeader) =>
-      table.createDataColumn(dataHeader.key, {
-        header: dataHeader.value,
-      })
+  const defaultTableColumns = table.createColumns([
+    ...defaultColumns.map((column) =>
+      // todo: figure out a way around this ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      table.createDataColumn(column.accessorKey, column)
     ),
   ]);
   const [data, setData] = useState(() => [...defaultData]);
-  const [columns, setColumns] = useState(() => [...defaultColumns]);
+  const [columns, setColumns] = useState(() => [...defaultTableColumns]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [pagination, setPagination] = useState({
     pageIndex: 0,
