@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Toolbar, Button, Menu, MenuItem } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link } from "@tanstack/react-location";
 import navIcon from "./drew-icon.png";
 import "./Navigator.scss";
 

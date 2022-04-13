@@ -5,6 +5,7 @@ import { retrieveMmeForumOrders } from "../../services/DrewRobertApi/MME";
 import BackupImage from "./mme-preview-card-background-image.gif";
 import "./MmePreviewCard.scss";
 import { MyTable } from "../MyTable/MyTable";
+import { MyTableId } from "../../models/MyTable/MyTable";
 
 export const MmePreviewCard: React.FunctionComponent = () => {
   const [mmeForumOrders, setMmeForumOrders] = useState<MmeForumOrder[]>([]);
@@ -38,6 +39,7 @@ export const MmePreviewCard: React.FunctionComponent = () => {
           <img src={BackupImage} alt={"Mach-E Forum Order Tracking Table"} />
         ) : (
           <MyTable
+            tableId={MyTableId.MME_ORDERS_TABLE_PREVIEW}
             loading={loading}
             defaultData={mmeForumOrders}
             defaultPageSize={7}

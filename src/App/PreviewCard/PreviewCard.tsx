@@ -1,4 +1,5 @@
 import React from "react";
+import "./PreviewCard.scss";
 import {
   Card,
   CardHeader,
@@ -10,8 +11,7 @@ import {
   CircularProgress,
   Backdrop,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
-import "./PreviewCard.scss";
+import { Link } from "@tanstack/react-location";
 
 export type PreviewCardProps = {
   title: string;

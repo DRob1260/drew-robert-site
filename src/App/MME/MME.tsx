@@ -5,6 +5,7 @@ import { MmeForumOrder } from "../../models/MME/api/MmeForumOrder";
 import { retrieveMmeForumOrders } from "../../services/DrewRobertApi/MME";
 import "./MME.scss";
 import { MyTable } from "../MyTable/MyTable";
+import { MyTableId } from "../../models/MyTable/MyTable";
 
 export const MME: React.FunctionComponent = () => {
   const [mmeForumOrders, setMmeForumOrders] = useState<MmeForumOrder[]>([]);
@@ -50,6 +51,7 @@ export const MME: React.FunctionComponent = () => {
           }}
         >
           <MyTable
+            tableId={MyTableId.MME_ORDERS_TABLE}
             title={"Submitted Orders"}
             exportCSV={true}
             loading={loading}

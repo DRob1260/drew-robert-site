@@ -27,8 +27,12 @@ import { ArrowDownward, ArrowUpward, CloudDownload } from "@material-ui/icons";
 import { CSVLink } from "react-csv";
 import { getCSVData } from "./MyTableUtils";
 import { MyTablePagination } from "./MyTablePagination/MyTablePagination";
+import { MyTableId } from "../../models/MyTable/MyTable";
+import { useSearch } from "@tanstack/react-location";
+import { LocationGenerics } from "../../models/ReactLocation/LocationGenerics";
 
 export type MyTableProps<DataType extends object> = {
+  tableId: MyTableId;
   defaultData: DataType[];
   defaultColumns: { accessorKey: keyof DataType; header: string }[];
   title?: string;
@@ -38,6 +42,7 @@ export type MyTableProps<DataType extends object> = {
 };
 
 export const MyTable = <DataType extends object>({
+  tableId,
   title,
   defaultColumns,
   defaultData,
@@ -64,15 +69,13 @@ export const MyTable = <DataType extends object>({
   });
   const [sorting, setSorting] = useState<SortingState>([]);
 
-  useEffect(() => {
-    setData(defaultData);
-  }, [defaultData]);
+  const search = useSearch<LocationGenerics>();
 
   const tableInstance = useTable(table, {
     data,
     columns,
     state: {
-      columnFilters,
+      columnFilters: search[tableId]?.filters,
       pagination,
       sorting,
     },
@@ -83,6 +86,10 @@ export const MyTable = <DataType extends object>({
     columnFilterRowsFn: columnFilterRowsFn,
     sortRowsFn,
   });
+
+  useEffect(() => {
+    setData(defaultData);
+  }, [defaultData]);
 
   return (
     <div className={"MyTable"}>
@@ -141,7 +148,10 @@ export const MyTable = <DataType extends object>({
                       <TableCell>
                         {header.column.getCanColumnFilter() ? (
                           <div>
-                            <TextFilter column={header.column} />
+                            <TextFilter
+                              tableId={tableId}
+                              column={header.column}
+                            />
                           </div>
                         ) : null}
                       </TableCell>
