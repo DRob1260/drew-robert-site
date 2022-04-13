@@ -4,6 +4,11 @@ export enum MyTableId {
 }
 
 export type MyTableFilterSearchParam = {
+  // [key: string]:
+  //   | {
+  //       value: any;
+  //     }
+  //   | undefined;
   id: string;
   value: any;
 }[];

@@ -28,7 +28,7 @@ import { CSVLink } from "react-csv";
 import { getCSVData } from "./MyTableUtils";
 import { MyTablePagination } from "./MyTablePagination/MyTablePagination";
 import { MyTableId } from "../../models/MyTable/MyTable";
-import { useSearch } from "@tanstack/react-location";
+import { useNavigate } from "@tanstack/react-location";
 import { LocationGenerics } from "../../models/ReactLocation/LocationGenerics";
 
 export type MyTableProps<DataType extends object> = {
@@ -69,13 +69,26 @@ export const MyTable = <DataType extends object>({
   });
   const [sorting, setSorting] = useState<SortingState>([]);
 
-  const search = useSearch<LocationGenerics>();
+  const navigate = useNavigate<LocationGenerics>();
+
+  useEffect(() => {
+    navigate({
+      search: (old) => {
+        return {
+          ...old,
+          [tableId]: {
+            filters: columnFilters,
+          },
+        };
+      },
+    });
+  }, [columnFilters, navigate, tableId]);
 
   const tableInstance = useTable(table, {
     data,
     columns,
     state: {
-      columnFilters: search[tableId]?.filters,
+      columnFilters,
       pagination,
       sorting,
     },

@@ -2,12 +2,7 @@ import React from "react";
 import { Column } from "@tanstack/react-table";
 import { InputAdornment, TextField } from "@material-ui/core";
 import { FilterList } from "@material-ui/icons";
-import { useNavigate } from "@tanstack/react-location";
-import { LocationGenerics } from "../../../../models/ReactLocation/LocationGenerics";
-import {
-  MyTableFilterSearchParam,
-  MyTableId,
-} from "../../../../models/MyTable/MyTable";
+import { MyTableId } from "../../../../models/MyTable/MyTable";
 
 export type TextFilterProps<DataType extends object> = {
   tableId: MyTableId;
@@ -15,11 +10,8 @@ export type TextFilterProps<DataType extends object> = {
 };
 
 export const TextFilter = <DataType extends object>({
-  tableId,
   column,
 }: TextFilterProps<DataType>) => {
-  const navigate = useNavigate<LocationGenerics>();
-
   // todo: figure out why filtering on number values doesn't work well
   return (
     <div className={"TextFilter"}>
@@ -32,33 +24,9 @@ export const TextFilter = <DataType extends object>({
           ),
         }}
         type={"text"}
-        value={column.getColumnFilterValue() as string}
+        value={column.getColumnFilterValue()}
         onChange={(event) =>
-          navigate({
-            search: (old) => {
-              const newFilterValue = {
-                id: column.accessorKey || "UNKNOWN",
-                value: event.target.value,
-              };
-              let filters: MyTableFilterSearchParam =
-                old?.[tableId]?.filters || [];
-
-              let replaced = false;
-              filters = filters.map((f) => {
-                if (f.id === column.accessorKey) {
-                  f.value = newFilterValue.value;
-                  replaced = true;
-                }
-                return f;
-              });
-              if (!replaced) filters.push(newFilterValue);
-
-              return {
-                ...old,
-                filters,
-              };
-            },
-          })
+          column.setColumnFilterValue(event.target.value as string)
         }
       />
     </div>
