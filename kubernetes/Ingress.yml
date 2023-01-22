@@ -1,14 +1,35 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
+  annotations:
+    ingress.kubernetes.io/ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
   name: drew-robert-site-ingress
   namespace: drew-robert-namespace
 spec:
   rules:
-    - host: drewrobert.com
-      http:
-        paths:
-          - path: /
-            backend:
-              serviceName: drew-robert-site-service
-              servicePort: dr-site-port
+  - host: www.drewrobert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: drew-robert-site-service
+            port:
+              name: dr-site-port
+        path: /
+        pathType: ImplementationSpecific
+  - host: drewrobert.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: drew-robert-site-service
+            port:
+              name: dr-site-port
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - drewrobert.com
+    - www.drewrobert.com
+    secretName: drewrobert.com
